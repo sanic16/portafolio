@@ -6,8 +6,12 @@ import { FaCaretDown, FaCaretUp, FaEnvelope, FaHome, FaInfoCircle, FaProjectDiag
 
 const FloatMenu = () => {
   const [showFloatMenu, setShowFloatMenu] = useState(false)
-  const width = window.innerWidth
-  console.log(width, typeof(width))
+  let width : undefined | number = undefined
+  if(typeof window !== 'undefined'){
+    width = window.innerWidth
+  }
+  
+  
   return (
     <div 
         className={classes.flaotMenu__wrapper}
@@ -23,7 +27,7 @@ const FloatMenu = () => {
                 }}
                 animate={{
                     opacity: 1,
-                    right: width > 1024 ? '5vw' : '3vw'
+                    right: width ? width > 1024 ? '5vw' : '3vw' : '5vw'
                 }}
                 exit={{
                     opacity: 0,

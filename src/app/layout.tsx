@@ -5,6 +5,8 @@ import Navbar from "@/sections/navbar/Navbar";
 import ModalContextProvider from "@/context/modal/ModalContextProvider";
 import ThemeModal from "@/theme/ThemeModal";
 import ThemeMenu from "@/sections/theme-modal-menu/ThemeMenu";
+import ThemeContextProvider from "@/context/theme/ThemeContextProvider";
+import Main from "@/components/main/Main";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,17 +22,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <ModalContextProvider>
+      <ThemeContextProvider>
+      <ModalContextProvider>
+        <body>          
+          <div>          
+          <Main>
           <Navbar />
-          <main>
-              { children }
-          </main>
+          { children }
           <ThemeMenu />
           <ThemeModal />
-        </ModalContextProvider>
-        
-      </body>
+          </Main>
+          </div>
+          
+        </body>
+      </ModalContextProvider>
+      </ThemeContextProvider>
     </html>
   );
 }
