@@ -27,7 +27,7 @@ const FloatMenu = () => {
                 }}
                 animate={{
                     opacity: 1,
-                    right: width ? width > 1024 ? '5vw' : '3vw' : '5vw'
+                    right: width ? (width > 1024 ? '5vw' : (width < 600 ? '50%' : '3vw' )) : '5vw'
                 }}
                 exit={{
                     opacity: 0,
