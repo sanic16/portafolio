@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import classes from './Header.module.css'
 import avatar from '@/../public/avatar13.jpg'
@@ -20,10 +21,10 @@ const Header = () => {
 
             <div className={classes.cts}>
                 <a href='#' className='btn primary'>
-                    Descargar CV
+                    {window.innerWidth}
                 </a>
                 <a href='#' className='btn'>
-                    Contactar
+                    {window.innerHeight}
                 </a>
             </div>
         </div>

@@ -7,8 +7,10 @@ import { FaCaretDown, FaCaretUp, FaEnvelope, FaHome, FaInfoCircle, FaProjectDiag
 const FloatMenu = () => {
   const [showFloatMenu, setShowFloatMenu] = useState(false)
   let width : undefined | number = undefined
+  let height : undefined | number = undefined
   if(typeof window !== 'undefined'){
     width = window.innerWidth
+    height = window.innerHeight
   }
   
   
@@ -27,7 +29,7 @@ const FloatMenu = () => {
                 }}
                 animate={{
                     opacity: 1,
-                    right: width ? (width > 1024 ? '5vw' : (width < 600 ? '50%' : '3vw' )) : '5vw'
+                    right: width ? (width > 1024 ? '5vw' : height ? (height < 500 ? '50%' : (width < 600 ? '50%' : '3vw' ) ): '50%') : '5vw'
                 }}
                 exit={{
                     opacity: 0,

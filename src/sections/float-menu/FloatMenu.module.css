@@ -103,3 +103,17 @@
         display: none;
     }
 }
+
+@media screen and (max-height: 500px) and (max-width: 1000px){
+    .float__menu{
+        top: auto;
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 5vh;
+        flex-direction: row;
+    }
+
+    .float__toggle-btn{
+        display: none;
+    }
+}
