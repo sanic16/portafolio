@@ -1,8 +1,16 @@
 'use client'
-import React, { useEffect, useReducer } from "react";
-import themeContext from "./theme-context";
+import React, { useEffect, useReducer, createContext, useContext, useLayoutEffect } from "react";
 import themeReducer from "./themeReducer";
+const themeContext = createContext<ThemeContext>({
+    theme: {
+        primary: 'color-1',
+        bg: 'bg-1'
+    },
+    setTheme: () => {}
+})
 
+
+let avoidFirstRender = true
 const ThemeContextProvider = (
     {
         children
@@ -10,20 +18,39 @@ const ThemeContextProvider = (
         children: React.ReactNode
     } 
 ) => {
-  const initialState: Theme= typeof window !== 'undefined' && localStorage.getItem('theme') ?
-  JSON.parse(localStorage.getItem('theme') || '{}' ) as Theme : {
-      primary: 'color-6',
-      bg: 'bg-2'
-  }
 
+  const initialState: Theme=  {
+      primary: 'color-1',
+      bg: 'bg-1'
+  }
+  
   const [theme, dispatchTheme] = useReducer(themeReducer, initialState)
   const setTheme = (theme: Primary | Bg) => {
     dispatchTheme({type: theme})
     console.log(theme)
   }
+
   useEffect(() => {
-    localStorage.setItem('theme', JSON.stringify(theme))
+    const localTheme: Theme = JSON.parse(localStorage.getItem('theme') || '{}')
+    if (localTheme) {
+      dispatchTheme({type: localTheme.primary})
+      dispatchTheme({type: localTheme.bg})
+      console.log('uselayou', localTheme)
+    }
+  }, [])
+
+  useEffect(() => {
+    console.log('THEME', theme)
   }, [theme])
+
+  useEffect(() => {  
+    if(!avoidFirstRender) {
+      localStorage.setItem('theme', JSON.stringify(theme))
+      console.log('useEffect', theme)
+    }
+    avoidFirstRender = false
+  }, [theme])
+
   return (
     <themeContext.Provider
         value={{
@@ -37,3 +64,5 @@ const ThemeContextProvider = (
 }
 
 export default ThemeContextProvider
+
+export const useThemeContext = () => useContext(themeContext)

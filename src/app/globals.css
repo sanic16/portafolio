@@ -188,21 +188,7 @@ h6{
     font-size: 1.75rem;
   }
 
-  h3{
-    font-size: 1.25rem;
-  }
-
-  h4{
-    font-size: 1rem;
-  }
-
-  h5{
-    font-size: 0.875rem;
-  }
-
-  h6{
-    font-size: 0.75rem;
-  }
+  
 }
 
 @media screen and (max-width: 600px){

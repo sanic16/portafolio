@@ -1,4 +1,4 @@
-import { useThemeContext } from "@/hooks/hooks"
+import { useThemeContext } from "@/context/theme/ThemeContextProvider"
 
 
 const BgButton = (

@@ -18,10 +18,11 @@
 .theme__modal h3{
     color: #333;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 .theme__primary button{
-    width: 1.3rem;
+    width: 1.7rem;
     aspect-ratio: 1/1;
     cursor: pointer;
 }
@@ -63,15 +64,16 @@ button.color-4{
     margin-inline: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: .3rem;
+    column-gap: .5rem;
+    row-gap: .5rem;
     place-items: center;
     margin-bottom: 1.5rem;
 }
 
 .theme__bg button{
     display: block;
-    width: 3rem;
-    height: 1.3rem;
+    width: 4rem;
+    height: 1.5rem;
     cursor: pointer;
 }
 
@@ -80,7 +82,7 @@ button.color-4{
     margin-inline: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: .3rem;
+    gap: .5rem;
 }
 
 .bg-1{
@@ -91,3 +93,10 @@ button.color-4{
     background-color: #333;
 }
 
+@media screen and (max-width:600px){
+    .theme__modal{
+        padding-block: 2rem;
+        padding-inline: 1rem;
+        width: 90%;
+    }
+}
