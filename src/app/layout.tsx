@@ -6,7 +6,8 @@ import ModalContextProvider from "@/context/modal/ModalContextProvider";
 import ThemeModal from "@/theme/ThemeModal";
 import ThemeMenu from "@/sections/theme-modal-menu/ThemeMenu";
 import ThemeContextProvider from "@/context/theme/ThemeContextProvider";
-import Main from "@/components/main/Main";
+import dynamic from "next/dynamic";
+const Main = dynamic(() => import("../components/main/Main"), { ssr: false} )
 
 const inter = Inter({ subsets: ["latin"] });
 
