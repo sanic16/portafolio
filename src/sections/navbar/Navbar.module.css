@@ -1,0 +1,128 @@
+.nav{
+    background-color: var(--primary-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5rem;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    justify-items: center;
+    transition: var(--transition);
+    box-shadow: 0 1rem 1.5rem hsla(var(--primary-hue), 88%, 56%, 0.3);
+    z-index: 1;
+}
+.nav__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo{
+    color: #fff;
+    font-size: 1.6rem;
+}
+
+.nav__menu ul{
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+}
+
+.nav__menu ul a,
+.nav__contact
+{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: flex;
+    position: relative;
+}
+
+.nav__menu ul a:hover{
+    color: hsl(var(--primary-hue), 88%, 12%);
+
+}
+
+.nav__menu ul a::after{
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    display: block;
+    transition: var(--transition);
+}
+
+.nav__contact{
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: linear-gradient(to right, hsl(var(--primary-hue), 88%, 12%), hsl(var(--primary-hue), 88%, 29%));
+    transition: var(--transition);
+    justify-self: end;
+}
+
+.nav__contact:hover{
+    background: linear-gradient(to right, hsl(var(--primary-hue), 88%, 29%), hsl(var(--primary-hue), 88%, 12%));
+}
+
+.nav__container ul a:hover::after{
+    width: 65%;
+    background-color: hsl(var(--primary-hue), 88%, 12%);
+}
+
+.nav__toggle{
+    display: none;
+}
+
+@media screen and (max-width: 768px){
+    .nav__toggle{
+        display: block;
+        background-color: transparent;
+        color: #fff;
+        font-size: 1.5rem;
+        display: flex;
+        order: -1;
+    }
+
+    .nav__menu{
+        position: fixed;
+        top: -100vh;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        z-index: -1;
+        transition: var(--transition);
+    }    
+
+    .nav__menu ul{
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    
+    
+
+
+    .nav__menu ul a:hover{
+        color: var(--primary-color);
+    }
+
+    .nav__menu ul a::after{
+        display: none;
+    }
+
+    .nav__contact{
+        display: none;
+    }
+    
+    .nav__menu.active{
+        top: 0;
+    }
+    
+}
