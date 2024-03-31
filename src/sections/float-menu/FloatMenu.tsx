@@ -17,24 +17,24 @@ const FloatMenu = () => {
             
             !showFloatMenu && (
             <motion.div
-                // initial={{
-                //     opacity: 0,
-                //     right: '-5vw' 
-                // }}
-                // animate={{
-                //     opacity: 1,
-                //     right: width > 1024 ? '5vw' : '3vw'
-                // }}
-                // exit={{
-                //     opacity: 0,
-                //     right: '-5vw'
+                initial={{
+                    opacity: 0,
+                    right: '-5vw' 
+                }}
+                animate={{
+                    opacity: 1,
+                    right: width > 1024 ? '5vw' : '3vw'
+                }}
+                exit={{
+                    opacity: 0,
+                    right: '-5vw'
                 
-                // }}
-                // transition={{
-                //     duration: 2,
-                //     type: 'spring',
-                //     bounce: 0.5
-                // }}
+                }}
+                transition={{
+                    duration: 2,
+                    type: 'spring',
+                    bounce: 0.5
+                }}
                 className={classes.float__menu}        
             >          
                 <a href='#header'>

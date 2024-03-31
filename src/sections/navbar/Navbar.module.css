@@ -72,7 +72,9 @@
     background-color: hsl(var(--primary-hue), 88%, 12%);
 }
 
-.nav__toggle{
+.nav__toggle,
+.nav__theme
+{
     display: none;
 }
 
@@ -84,6 +86,9 @@
         font-size: 1.5rem;
         display: flex;
         order: -1;
+    }
+    .nav__theme{
+        display: block;
     }
 
     .nav__menu{

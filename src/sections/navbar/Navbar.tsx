@@ -5,12 +5,14 @@ import classes from './Navbar.module.css'
 import { Pacifico } from 'next/font/google'
 import { useState } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
+import { useModalContext } from '@/hooks/hooks'
 
 const pacifico = Pacifico({ subsets: ['latin'], weight: ['400']})
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const closeMenu = () => setIsOpen(false)
+  const { openModal } = useModalContext()
   return (
     <nav className={classes.nav}>
 
@@ -53,8 +55,24 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href='/blog'>
+                        <Link 
+                            href='/blog'
+                            onClick={closeMenu}
+                        >
                             Blog
+                        </Link>
+                    </li>  
+                    <li
+                        className={classes.nav__theme}
+                    >
+                        <Link 
+                            href='#'
+                            onClick={() => {
+                                closeMenu()
+                                openModal()
+                            }}
+                        >
+                            Tema
                         </Link>
                     </li>                    
                 </ul>            

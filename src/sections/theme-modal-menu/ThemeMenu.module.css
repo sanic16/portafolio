@@ -1,0 +1,20 @@
+.theme__menu{
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background-color: var(--primary-color);    
+    border-radius: var(--border-radius-1);  
+}
+
+.theme__button{
+    background-color: transparent;
+    color: #fff;
+    padding: .5rem;  
+    display: flex;
+}
+
+@media screen and (max-width: 768px){
+    .theme__menu{
+        display: none;
+    }
+}
