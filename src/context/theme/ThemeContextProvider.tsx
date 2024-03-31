@@ -10,11 +10,11 @@ const ThemeContextProvider = (
         children: React.ReactNode
     } 
 ) => {
-    const initialState: Theme = localStorage.getItem('theme') ?
-    JSON.parse(localStorage.getItem('theme') || '{}' ) as Theme : {
-        primary: 'color-6',
-        bg: 'bg-2'
-    }
+  const initialState: Theme= typeof window !== 'undefined' && localStorage.getItem('theme') ?
+  JSON.parse(localStorage.getItem('theme') || '{}' ) as Theme : {
+      primary: 'color-6',
+      bg: 'bg-2'
+  }
 
   const [theme, dispatchTheme] = useReducer(themeReducer, initialState)
   const setTheme = (theme: Primary | Bg) => {
