@@ -2,10 +2,10 @@
 :root{
   --primary-hue: 140;
 
-  --white-lightness: 4%;
-  --light-lightness: 18%;
-  --dark-lightness: 85%;
-  --black-lightness: 94%;
+  --white-lightness: 94%;
+  --light-lightness: 85%;
+  --dark-lightness: 16%;
+  --black-lightness: 6%;
 
   --primary-color: hsl(var(--primary-hue), 88%, 36%);
   --white-color: hsl(var(--primary-hue), 0%, var(--white-lightness));
@@ -30,6 +30,18 @@
   border: none;
   outline: none;
   box-sizing: border-box;
+}
+
+main.bg-2{
+  --white-lightness: 4%;
+  --light-lightness: 18%;
+  --dark-lightness: 85%;
+  --black-lightness: 94%;
+
+  --white-color: hsl(var(--primary-hue), 0%, var(--white-lightness));
+  --light-color: hsl(var(--primary-hue), 0%, var(--light-lightness));
+  --dark-color: hsl(var(--primary-hue), 0%, var(--dark-lightness));
+  --black-color: hsl(var(--primary-hue), 0%, var(--black-lightness));
 }
 
 main.color-1{
@@ -76,8 +88,11 @@ main.color-8{
 
 body{
   font-family: 'Poppins', sans-serif;
-  color: var(--dark-color);
   font-size: 0.9rem;
+}
+
+main{
+  color: var(--dark-color);
 }
 
 ul{

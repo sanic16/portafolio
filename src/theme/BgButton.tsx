@@ -1,3 +1,4 @@
+import { useThemeContext } from "@/hooks/hooks"
 
 
 const BgButton = (
@@ -7,9 +8,11 @@ const BgButton = (
         className: Bg
     }
 ) => {
+  const { setTheme } = useThemeContext()
   return (
     <button
         className={className} 
+        onClick={() => setTheme(className) }
     />
   )
 }

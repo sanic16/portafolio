@@ -5,6 +5,8 @@
     transform: translate(-50%, -50%);
     background-color: #ccc;
     color: #222;
+    padding-block: 3rem;
+    padding-inline: 2rem;
     z-index: 99;
 }
 
@@ -13,9 +15,15 @@
     border-color: #ccc;
 }
 
+.theme__modal h3{
+    color: #333;
+    margin-bottom: 1rem;
+}
+
 .theme__primary button{
-    width: 1rem;
+    width: 1.3rem;
     aspect-ratio: 1/1;
+    cursor: pointer;
 }
 
 button.color-1{
@@ -49,3 +57,37 @@ button.color-4{
 .color-8 {
     background-color: hsl(315, 88%, 36%);
 }
+
+.theme__primary{
+    width: fit-content;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .3rem;
+    place-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.theme__bg button{
+    display: block;
+    width: 3rem;
+    height: 1.3rem;
+    cursor: pointer;
+}
+
+.theme__bg{
+    width: fit-content;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .3rem;
+}
+
+.bg-1{
+    background-color: #fff;
+}
+
+.bg-2{
+    background-color: #333;
+}
+

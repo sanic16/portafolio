@@ -1,10 +1,11 @@
 'use client'
 import Modal from "@/components/modal/Modal";
-import { primary } from "./theme-data";
+import { bg, primary } from "./theme-data";
 import PrimaryButton from "./PrimaryButton";
 
 
 import './themeModal.css'
+import BgButton from "./BgButton";
 
 const ThemeModal = () => {
   return (
@@ -23,6 +24,21 @@ const ThemeModal = () => {
             />
           ))}
         </div>
+      <h3>
+        Escoge tu color de fondo
+      </h3>
+      <div
+        className="theme__bg"
+      >
+        {
+          bg.map(bgcolor => (
+            <BgButton
+              key={bgcolor}
+              className={bgcolor}
+            />
+          ))
+        }
+      </div>
     </Modal>
   )
 }

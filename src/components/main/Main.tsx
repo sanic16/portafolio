@@ -11,7 +11,7 @@ const Main = (
 ) => {
   const { theme } = useThemeContext()  
   return (
-    <main className={`${theme.primary}`}>
+    <main className={`${theme.primary} ${theme.bg}`}>
         { children }
     </main>
   )
