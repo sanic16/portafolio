@@ -105,6 +105,7 @@ const Education = () => {
         {
           (isAndroid || isIOS) && (
             <ImageModal
+            key={education__data[cursor].id}
             isOpen={isOpenModalImage}
             closeModal={() => setIsOpenModalImage(false)}
             images={education__data[cursor].images}
