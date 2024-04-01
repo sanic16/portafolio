@@ -1,4 +1,4 @@
-.theme__modal{
+.card.theme__modal{
     position: fixed;
     top: 50%;
     left: 50%;
@@ -10,9 +10,9 @@
     z-index: 99;
 }
 
-.theme__modal:hover{
+.card.theme__modal:hover{
     background-color: #ccc;
-    border-color: #ccc;
+    border-color:#ccc;
 }
 
 .theme__modal h3{

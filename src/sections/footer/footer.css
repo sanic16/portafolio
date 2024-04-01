@@ -1,6 +1,8 @@
 .footer{
     background-color: var(--primary-color);
     padding-top: 6rem;
+    transition: var(--transition);
+    color: #fff;
 }
 
 .footer__container{
