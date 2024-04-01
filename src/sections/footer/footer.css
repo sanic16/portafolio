@@ -85,5 +85,10 @@
 
     .footer__desc-lang{
         justify-content: center;
+        gap: 1rem;
+    }
+
+    .footer__desc-lang a{
+        font-size: 1rem;
     }
 }
