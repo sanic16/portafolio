@@ -5,6 +5,7 @@ import education__data from './education-data'
 import { useAnimate, stagger } from 'framer-motion'
 import DocumentModal from './DocumentModal'
 import ImageModal from './ImageModa'
+import { title } from 'process'
 
 const Education = () => {
   const [scope, animate] = useAnimate()
@@ -35,7 +36,7 @@ const Education = () => {
   return (
     <section id='education' className='education'>
         <h1>
-            {window.navigator.userAgent.toLowerCase()}
+            {title}
         </h1>
         <p>
             Aquí encontrarás información sobre mi educación
