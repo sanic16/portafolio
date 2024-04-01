@@ -24,7 +24,9 @@
   --transition: all 300ms ease;
 }
 
-*{
+*,
+*::before,
+*::after{
   margin: 0;
   padding: 0;
   border: none;
@@ -32,6 +34,9 @@
   box-sizing: border-box;
 }
 
+html{
+  scroll-behavior: smooth;
+}
 main.bg-2{
   --white-lightness: 4%;
   --light-lightness: 18%;
@@ -117,6 +122,11 @@ img{
   max-width: 1400px;
 }
 
+section{
+  padding-block: 10rem;
+  transition: var(--transition);
+}
+
 h1, h2, h3, h4, h5, h6{
   line-height: 1.2;
 }
@@ -147,8 +157,9 @@ h6{
 }
 
 .btn{
+  display: inline-block;
   width: fit-content;
-  padding: 0.6rem 2.5rem;
+  padding: 0.6rem 2.2rem;
   background-color: var(--light-color);
   border-radius: var(--border-radius-2);
   border: 2px solid transparent;
@@ -160,6 +171,16 @@ h6{
   background-color: transparent;
   border-color: var(--light-color);
 }
+
+.btn.white{
+  background-color: var(--white-color);
+}
+
+.btn.white:hover{
+  background-color: transparent;
+  border-color: var(--white-color);
+}
+
 .btn.primary{
   background-color: var(--primary-color);
   color: #fff;
@@ -169,6 +190,10 @@ h6{
   background-color: transparent;
   border-color: var(--primary-color);
   color: var(--primary-color);
+}
+
+.btn.sm{
+  padding: 0.5rem 1.2rem;
 }
 
 
@@ -188,11 +213,20 @@ h6{
     font-size: 1.75rem;
   }
 
-  
+  h3{
+    font-size: 1.3rem;
+  }
+
+  .btn{
+    padding: 0.6rem 1.5rem;
+  }
 }
 
 @media screen and (max-width: 600px){
   .btn{
     padding: 0.6rem 1.5rem;
+  }
+  section{
+    padding-block: 6rem;
   }
 }
