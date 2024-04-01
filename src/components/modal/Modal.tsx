@@ -7,13 +7,17 @@ import './modal.css'
 const Modal = (
     {
         children,
-        className
+        className,
+        isOpen,
+        closeModal
     }:{
         children: React.ReactNode,
         className?: string
+        isOpen: boolean
+        closeModal: () => void
     }
 ) => {
-  const { isOpen, closeModal } = useModalContext()
+  
   return (
     <>
         {

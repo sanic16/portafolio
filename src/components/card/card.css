@@ -6,16 +6,8 @@
     transition: var(--transition);
 }
 
-.card:hover{
-    background-color: transparent;
-    border-color: var(--white-color);    
-}
 
 .card.light{
     background-color: var(--light-color);
 }
 
-.card.light:hover{
-    background-color: transparent;
-    border-color: var(--light-color);
-} 

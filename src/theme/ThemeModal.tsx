@@ -6,11 +6,16 @@ import PrimaryButton from "./PrimaryButton";
 
 import './themeModal.css'
 import BgButton from "./BgButton";
+import { useModalContext } from "@/hooks/hooks";
 
 const ThemeModal = () => {
+  const { isOpen, closeModal } = useModalContext()
   return (
     <Modal 
-      className='theme__modal'>
+      className='theme__modal'
+      isOpen={isOpen}
+      closeModal={closeModal}
+    >
         <h3>
             Escoge tu color favorito
         </h3>

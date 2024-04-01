@@ -58,7 +58,7 @@ const About = () => {
                 </div>
             </div>
         </div>
-        <div className='container about__knwl'>
+        {/* <div className='container about__knwl'>
                     {
                         about_data.map(item => (
                             <div key={item.id} className='about__knwl-item'>
@@ -67,7 +67,7 @@ const About = () => {
                         ))
                     }
 
-                </div>
+                </div> */}
     </section>
   )
 }

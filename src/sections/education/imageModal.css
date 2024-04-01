@@ -1,0 +1,47 @@
+.card.image__modal{
+    position: fixed;
+    width: 90%;
+    height: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+}
+
+.image__modal-container{
+    width: 100%;
+    height: 100%;
+}
+.image__modal-image{
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius-2);
+}
+.image__modal-image img{
+    object-fit: contain;
+}
+
+.image__modal-prev,
+.image__modal-next{
+    position: absolute;
+    font-size: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.image__modal-close{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.image__modal-prev{
+    left: 1rem;
+}
+
+.image__modal-next{
+    right: 1rem;
+}
