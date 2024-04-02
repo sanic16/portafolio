@@ -24,10 +24,9 @@
 }
 
 .about__knwl{
-    margin-top: 5rem;
+    margin-top: 3rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
-    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 3rem;
     row-gap: 1.4rem;
 }
