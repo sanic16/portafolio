@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import classes from './FloatMenu.module.css'
-import { FaCaretDown, FaCaretUp, FaEnvelope, FaHome, FaInfoCircle, FaProjectDiagram, FaTools } from 'react-icons/fa'
+import { FaCaretUp, FaGraduationCap, FaHome, FaInfoCircle, FaProjectDiagram, FaTools } from 'react-icons/fa'
 
 const FloatMenu = () => {
   const [showFloatMenu, setShowFloatMenu] = useState(false)
@@ -51,15 +51,15 @@ const FloatMenu = () => {
                     <FaInfoCircle />
                 </a>
             
-                <a href="#services">
-                    <FaTools />
-                </a>
-
                 <a href="#projects">
                     <FaProjectDiagram />
                 </a>
-                            <a href="#contact">
-                    <FaEnvelope />
+
+                <a href="#services">
+                    <FaTools />
+                </a>
+                <a href="#education">
+                    <FaGraduationCap />
                 </a>            
             </motion.div>
             )

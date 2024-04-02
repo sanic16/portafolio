@@ -1,5 +1,7 @@
 import React from 'react'
 import './projects.css'
+import ecommerce from '@/../public/images/julius_ecommerce.jpg'
+import Image from 'next/image'
 
 const Projects = () => {
   return (
@@ -10,9 +12,7 @@ const Projects = () => {
         <p>
             Aquí encontrarás una lista de mis proyectos
         </p>
-        <div className="container projects__container">
-
-        </div>
+        
     </section>
   )
 }
