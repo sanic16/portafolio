@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import classes from './Header.module.css'
-import avatar from '@/../public/avatar13.jpg'
+import avatar from '@/../public/images/julius.png'
 import DocumentButton from '@/components/document-button/DocumentButton'
 
 const Header = () => {
@@ -11,7 +11,7 @@ const Header = () => {
                 <Image src={avatar} alt='avatar' />
             </div>
             <h1>
-                Hola, soy <span>Julio Sanic</span> 
+               Que tal!, soy <span>Julio Sanic</span> 
             </h1>
             <p>
                 Desarrollador Web Full Stack con conocimientos en JavaScript y Python para 
@@ -25,7 +25,7 @@ const Header = () => {
                 <DocumentButton
                     className='btn primary'
                     pdfFile='pdf/cv.pdf'
-                    title='CV'
+                    title='Ver CV'
                 />                    
                 <a href='#' className='btn'>
                     Contactar

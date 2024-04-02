@@ -15,9 +15,36 @@
 
 .avatar{
     width: 15rem;
-    height: 20rem;
-    border-radius: 6rem 6rem 0 0;
+    height: 18rem;
+    border-radius: 7rem 7rem 4rem 4rem;
     overflow: hidden;
+    background-color: var(--primary-color);
+    animation: floatImg 3s linear infinite;
+    box-shadow: 0 0 .1rem hsla(var(--primary-hue), 100%, 50%, 0.5),
+                0 0 .2rem hsla(var(--primary-hue), 100%, 50%, 0.5),
+                0 0 .4rem hsla(var(--primary-hue), 100%, 50%, 0.5),
+                0 0 .8rem hsla(var(--primary-hue), 100%, 50%, 0.5),
+                0 0 1rem hsla(var(--primary-hue), 100%, 50%, 0.5);
+}
+
+@keyframes floatImg{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-0.5rem);
+    }
+    100%{
+        transform: translateY(0);
+    }
+
+}
+
+.avatar img{
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    /* object-position: 58% 60%; */
 }
 
 .header__container h1{
@@ -42,7 +69,7 @@
 @media screen and (max-width: 768px){
     .avatar{
         width: 10rem;
-        height: 15rem;
+        height: 12rem;
     }
 }
 

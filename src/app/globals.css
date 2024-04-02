@@ -21,6 +21,8 @@
   --container-width-lg: 84%;
   --container-width-md: 90%;
 
+  --form-width: 50%;
+
   --transition: all 300ms ease;
 }
 
@@ -202,10 +204,17 @@ h6{
   color: #fff;
 }
 
-
-
 .btn.sm{
   padding: 0.5rem 1.2rem;
+}
+
+.page__center{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-color);
 }
 
 

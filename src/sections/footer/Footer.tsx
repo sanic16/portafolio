@@ -1,8 +1,9 @@
 import React from 'react'
 import './footer.css'
 import Link from 'next/link'
-import { FaJava, FaJs, FaPython } from 'react-icons/fa'
+import { FaJava, FaJs, FaPhone, FaPython } from 'react-icons/fa'
 import { SiCplusplus, SiCsharp } from 'react-icons/si'
+import { IoMdMail } from 'react-icons/io'
 
 const Footer = () => {
   return (
@@ -19,22 +20,43 @@ const Footer = () => {
                     para desarrollar apliaciones web modernas.
                 </p>
                 <div className='footer__desc-lang'>
-                    <Link href='/services/javascript'>
+                    <span>
                         <FaJs />
-                    </Link>
-                    <Link href='/services/python'>
+                    </span>
+                    <span>
                         <FaPython />
-                    </Link>
-                    <Link href='/services/csharp'>
+                    </span>
+                    <span>
                         <SiCsharp />
-                    </Link>
-                    <Link href='/services/java'>
+                    </span>
+                    <span>
                         <FaJava />
-                    </Link>
-                    <Link href='/services/cplus'>
+                    </span>
+                    <span>
                         <SiCplusplus />
-                    </Link>
+                    </span>
                 </div>
+                <h3>
+                    Contacto
+                </h3>
+                <ul className='footer__contact'>
+                    <li>
+                        <a href='tel:+502 58385370'>
+                            <FaPhone /> +502 5838-5370
+                        </a>
+                    </li>
+                    <li>
+                        <a href='mailto:2596787670101@ingenieria.usac.edu.gt'>
+                            <IoMdMail /> 2596787670101@ingenieria.usac.edu.gt
+                        </a>
+                    </li>
+                    <li>
+                        <a href='mailto:julio.sanic.gt.256@gmail.com'>
+                            <IoMdMail /> julio.sanic.gt.256@gmail.com
+                        </a>
+                    </li>
+                    
+                </ul>
             </div>
             <div className='footer__languages'>
                 <h3>

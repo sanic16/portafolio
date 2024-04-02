@@ -1,9 +1,8 @@
 import Image from 'next/image'
 
-import image from '@/../public/avatar13.jpg'
+import image from '@/../public/images/julius.jpeg'
 import './about.css'
 import Link from 'next/link'
-import about_data from './about__data'
 
 const About = () => {
   return (

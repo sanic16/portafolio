@@ -32,11 +32,11 @@ button.color-1{
     background-color: hsl(0, 88%, 36%);
 }
 
-.color-2{
+button.color-2{
     background-color: hsl(45, 88%, 36%);
 }
 
-.color-3{
+button.color-3{
     background-color: hsl(90, 88%, 36%);
 }
 
@@ -44,19 +44,19 @@ button.color-4{
     background-color: hsl(135, 88%, 36%);
 }
 
-.color-5{
+button.color-5{
     background-color: hsl(180, 88%, 36%);
 }
 
-.color-6{
+button.color-6{
     background-color: hsl(225, 88%, 36%);
 }
 
-.color-7{
+button.color-7{
     background-color: hsl(270, 88%, 36%);
 }
 
-.color-8 {
+button.color-8 {
     background-color: hsl(315, 88%, 36%);
 }
 
@@ -86,11 +86,11 @@ button.color-4{
     gap: .5rem;
 }
 
-.bg-1{
+button.bg-1{
     background-color: #fff;
 }
 
-.bg-2{
+button.bg-2{
     background-color: #333;
 }
 

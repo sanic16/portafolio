@@ -7,6 +7,8 @@ import Projects from '@/sections/projects/Projects'
 import Services from '@/sections/services/Services'
 import React from 'react'
 
+
+
 export default function page() {
   return (
     <>
@@ -15,7 +17,6 @@ export default function page() {
       <Projects />
       <Services />
       <Education />
-      <Footer />
       <FloatMenu />
     </>
   )
