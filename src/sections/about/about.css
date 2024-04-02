@@ -27,6 +27,7 @@
     margin-top: 3rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
     column-gap: 3rem;
     row-gap: 1.4rem;
 }
@@ -176,5 +177,11 @@
 
     .about__desc{
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .about__knwl{
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
