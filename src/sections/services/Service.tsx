@@ -32,12 +32,13 @@ const Service = (
                 <p>
                     {description}
                 </p>
-                <Link 
-                    href={`/services/${slug}}}`}
+                <a 
+                    // href={`/services/${slug}}}`}
                     className='service__btn btn primary'
+                    
                 >
                     Ver más
-                </Link>
+                </a>
         </div>
     </Card>
   )

@@ -46,6 +46,10 @@
     gap: 1rem;
 }
 
+.service__card-back a{
+    cursor: not-allowed;
+}
+
 @media screen and (max-width: 600px){
     .services__container{
         grid-template-columns: 1fr;
