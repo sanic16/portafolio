@@ -27,7 +27,7 @@ const Header = () => {
                     pdfFile='pdf/cv.pdf'
                     title='Ver CV'
                 />                    
-                <a href='#' className='btn'>
+                <a href='/contact' className='btn'>
                     Contactar
                 </a>
             </div>
