@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import classes from './Header.module.css'
 import avatar from '@/../public/avatar13.jpg'
+import DocumentButton from '@/components/document-button/DocumentButton'
 
 const Header = () => {
-    
   return (
     <header id='header' className={classes.header}>
         <div className={`container ${classes.header__container}`}>
@@ -19,14 +19,20 @@ const Header = () => {
             </p>
 
             <div className={classes.cts}>
-                <a href='#' className='btn primary'>
+                {/* <a href={`pdf/cv.pdf`} download className='btn primary'>
                     Descargar CV
-                </a>
+                </a> */}
+                <DocumentButton
+                    className='btn primary'
+                    pdfFile='pdf/cv.pdf'
+                    title='CV'
+                />                    
                 <a href='#' className='btn'>
                     Contactar
                 </a>
             </div>
         </div>
+        
     </header>
   )
 }

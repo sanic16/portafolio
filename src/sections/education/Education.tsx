@@ -3,15 +3,13 @@ import React, { useState } from 'react'
 import './education.css'
 import education__data from './education-data'
 import { useAnimate, stagger } from 'framer-motion'
-import DocumentModal from './DocumentModal'
-import ImageModal from './ImageModa'
+import DocumentButton from '@/components/document-button/DocumentButton'
+import ImageButton from '@/components/image-button/ImageButton'
 
 const Education = () => {
   const [scope, animate] = useAnimate()
   const [cursor, setCursor] = useState(0)
 
-  const [isOpenModalPDF, setIsOpenModalPDF] = useState(false)
-  const [isOpenModalImage, setIsOpenModalImage] = useState(false)
   const setEdu = (index: number) => {
     console.log(index)
     setCursor(index)
@@ -31,7 +29,6 @@ const Education = () => {
   const isAndroid = userAgent.indexOf('android') > -1;
   const isDesktop = !isIOS && !isAndroid;
 
-  console.log(isIOS, isAndroid, isDesktop)
   return (
     <section id='education' className='education'>
         <h1>
@@ -68,23 +65,22 @@ const Education = () => {
 
                    {
                     isDesktop && (
-                      <button 
-                        className="education__desc-btn btn primary"
-                        onClick={() => setIsOpenModalPDF(true)}
-                      >
-                        Documentos
-                      </button>
+                      <DocumentButton
+                        className='education__desc-btn btn primary'
+                        title='Documentos'
+                        pdfFile={education__data[cursor].pdf}
+                      />
                     )
                    }
 
                     {
                       (isAndroid || isIOS) && (
-                        <button 
-                          className="education__desc-btn btn primary"
-                          onClick={() => setIsOpenModalImage(true)}
-                        >
-                          Documentos
-                        </button>
+                        <ImageButton
+                          key={education__data[cursor].id}
+                          className='education__desc-btn btn primary'
+                          title='documentos'
+                          images={education__data[cursor].images}
+                        />
                       )
                     }
                   </>
@@ -92,25 +88,8 @@ const Education = () => {
               </div>
            </div>
         </div>
-        {
-          isDesktop && (
-          <DocumentModal
-            isOpen={isOpenModalPDF}
-            closeModal={() => setIsOpenModalPDF(false)}
-            pdfFile={education__data[cursor].pdf}
-          />
-          )
-        }
-        {
-          (isAndroid || isIOS) && (
-            <ImageModal
-            key={education__data[cursor].id}
-            isOpen={isOpenModalImage}
-            closeModal={() => setIsOpenModalImage(false)}
-            images={education__data[cursor].images}
-          />
-          ) 
-        }
+        
+        
     </section>
   )
 }

@@ -40,9 +40,9 @@
 
 
 .image__modal-prev{
-    left: 1rem;
+    left: -0.5rem;
 }
 
 .image__modal-next{
-    right: 1rem;
+    right: -0.5rem;
 }
