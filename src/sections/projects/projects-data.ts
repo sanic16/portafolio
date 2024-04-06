@@ -1,7 +1,7 @@
 import ecommerce from '@/../public/images/julius_ecommerce.jpg'
 import julius_blog from '@/../public/images/julius_blog.jpg'
 import hotel from '@/../public/images/hotel_el_jaguard_dorado.jpg'
-
+import julius_food from '@/../public/images/julius_food.jpg'
 
 const projects_data = [
     {
@@ -36,6 +36,18 @@ const projects_data = [
         url_2: '',
         github: 'https://github.com/sanic16/hotel-jaguar-dorado'
 
+    },
+    {
+        id: 4,
+        title: 'JuliusFood',
+        desc: `Es un proyecto fullstack desarrollado con Python en el backend y React en el frontend. El backend está 
+        desarrollado con Flask, SQLAlchemy como ORM y MariaDB como base de datos. Para la autenticación se utilizó Flask-JWT-Extended y
+        marshmallow para la serialización y validación de los datos. El frontend está desarrollado con React y Redux Toolkit para el manejo del estado y
+        las peticiones a la API. La aplicación está desplegada en Heroku y los archivos estáticos en AWS S3.`,
+        image: julius_food,
+        url_1: 'https://smilecook-9b075c8ed99a.herokuapp.com/',
+        github: 'https://github.com/sanic16/smilecook_backend',
+        github_frontend: 'https://github.com/sanic16/smilecook-frontend'
     }
 ]
 export default projects_data

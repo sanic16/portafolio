@@ -48,6 +48,18 @@ const Projects = () => {
                       >
                         GitHub
                       </a>
+                     {
+                      project.github_frontend && (
+                      <a
+                          className='btn black' 
+                          href={project.github_frontend}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                        >
+                          GitHub Frontend
+                      </a>)
+                     }
+
                   </div>
                 </div>  
               ))
