@@ -8,6 +8,7 @@ const GoogleAdsense = () => {
   ) {
     return null;
   }
+  console.log("working!!");
   return (
     <script
       async
