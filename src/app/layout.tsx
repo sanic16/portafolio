@@ -8,7 +8,8 @@ import ThemeMenu from "@/sections/theme-modal-menu/ThemeMenu";
 import ThemeContextProvider from "@/context/theme/ThemeContextProvider";
 import dynamic from "next/dynamic";
 import Footer from "@/sections/footer/Footer";
-const Main = dynamic(() => import("../components/main/Main"), { ssr: false} )
+import GoogleAdsense from "@/components/google-adsense/GoogleAdsense/GoogleAdsense";
+const Main = dynamic(() => import("../components/main/Main"), { ssr: false });
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,19 +26,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeContextProvider>
-      <ModalContextProvider>
-        <body>          
-                  
-          <Main>
-          <Navbar />
-          { children }          
-          <Footer/>
-          <ThemeMenu />
-          <ThemeModal />
-          </Main>
-          
-        </body>
-      </ModalContextProvider>
+        <ModalContextProvider>
+          <body>
+            <Main>
+              <Navbar />
+              {children}
+              <Footer />
+              <ThemeMenu />
+              <ThemeModal />
+            </Main>
+            <GoogleAdsense />
+          </body>
+        </ModalContextProvider>
       </ThemeContextProvider>
     </html>
   );
