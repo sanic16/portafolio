@@ -14,8 +14,8 @@ const Main = dynamic(() => import("../components/main/Main"), { ssr: false });
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portafolio de Julio Sanic",
-  description: "Desarrollador web fullstack, especializado en React y Node.js",
+  title: "Julio Sanic - Desarrollador Web",
+  description: "Desarrollador web fullstack, especializado en React y Next.js.",
 };
 
 export default function RootLayout({
