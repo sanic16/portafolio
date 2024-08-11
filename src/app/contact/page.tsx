@@ -32,50 +32,88 @@ export default function ContactPage() {
     }
   }, [formState.success]);
 
-  console.log(formState);
+  const resetFormState = () => {
+    setIsSubmitted(false);
+    localStorage.removeItem("contactFormSubmitted");
+  };
 
   return (
     <div className="contact">
       <div className="container">
-        {!isSubmitted ? (
-          <div className="contact__container">
-            <h3>Contacto</h3>
-            <p>Consulta cualquier duda o sugerencia que tengas.</p>
-            <form className="contact__form" action={action}>
-              {formState.errors._form && (
-                <p className="contact__form-error">
-                  {formState.errors._form?.join(", ")}
-                </p>
-              )}
-              <input name="name" type="text" placeholder="Nombre" />
-              <input
-                name="email"
-                type="email"
-                placeholder="Correo Electrónico"
-              />
-              <textarea name="message" placeholder="Mensaje"></textarea>
+        <div className="contact__container">
+          {!isSubmitted ? (
+            <>
+              <h3>Contacto</h3>
+              <p>Consulta cualquier duda o sugerencia que tengas.</p>
+              <form className="contact__form" action={action}>
+                <div className="contact__form-group">
+                  <input name="name" type="text" placeholder="Nombre" />
+                  {formState.errors.name && (
+                    <div className="contact__form-error">
+                      {formState.errors.name.join(", ")}
+                    </div>
+                  )}
+                </div>
+                <div className="contact__form-group">
+                  <input
+                    name="email"
+                    type="email"
+                    placeholder="Correo Electrónico"
+                  />
+                  {formState.errors.email && (
+                    <div className="contact__form-error">
+                      {formState.errors.email.join(", ")}
+                    </div>
+                  )}
+                </div>
+                <div className="contact__form-group">
+                  <textarea name="message" placeholder="Mensaje"></textarea>
+                  {formState.errors.message && (
+                    <div className="contact__form-error">
+                      {formState.errors.message.join(", ")}
+                    </div>
+                  )}
+                </div>
 
-              <div className="contact__actions">
-                <FormButton
-                  className="btn primary"
-                  label="Enviar"
-                  loadingLabel="Enviando..."
-                />
-                <ReCAPTCHA
-                  sitekey={
-                    process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY as string
-                  }
-                  onChange={setCaptcha}
-                />
-              </div>
-            </form>
-          </div>
-        ) : (
-          <div>
-            <h3>Gracias por tu mensaje</h3>
-            <p>Nos pondremos en contacto contigo lo antes posible.</p>
-          </div>
-        )}
+                {formState.errors._form && (
+                  <div className="contact__form-error">
+                    {formState.errors._form.join(", ")}
+                  </div>
+                )}
+
+                <div className="contact__actions">
+                  <FormButton
+                    className="btn primary"
+                    label="Enviar"
+                    loadingLabel="Enviando..."
+                  />
+                  <ReCAPTCHA
+                    sitekey={
+                      process.env
+                        .NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY as string
+                    }
+                    onChange={setCaptcha}
+                  />
+                </div>
+              </form>
+            </>
+          ) : (
+            <div>
+              <h3>Gracias por tu mensaje</h3>
+              <p>Nos pondremos en contacto contigo lo antes posible.</p>
+              <p>
+                Deseas enviar otro mensaje?{" "}
+                <a
+                  href="#"
+                  className="contact__form-link-action"
+                  onClick={resetFormState}
+                >
+                  Haz clic aquí
+                </a>
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
