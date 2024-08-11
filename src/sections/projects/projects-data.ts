@@ -1,7 +1,7 @@
-import ecommerce from '@/../public/images/julius_ecommerce.jpg'
-import julius_blog from '@/../public/images/julius_blog.jpg'
-import hotel from '@/../public/images/hotel_el_jaguard_dorado.jpg'
-import julius_food from '@/../public/images/julius_food.jpg'
+import ecommerce from "@/../public/images/julius_ecommerce.jpg";
+import julius_blog from "@/../public/images/julius_blog.jpg";
+import hotel from "@/../public/images/hotel_el_jaguard_dorado.jpg";
+import julius_food from "@/../public/images/julius_food.jpg";
 
 const projects_data = [
   {
@@ -49,4 +49,4 @@ const projects_data = [
     github_frontend: "https://github.com/sanic16/smilecook-frontend",
   },
 ];
-export default projects_data
+export default projects_data;
