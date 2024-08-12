@@ -9,6 +9,7 @@ import ThemeContextProvider from "@/context/theme/ThemeContextProvider";
 import dynamic from "next/dynamic";
 import Footer from "@/sections/footer/Footer";
 import GoogleAdsense from "@/components/google-adsense/GoogleAdsense/GoogleAdsense";
+import { SessionProvider } from "next-auth/react";
 const Main = dynamic(() => import("../components/main/Main"), { ssr: false });
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,20 +26,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <ThemeContextProvider>
-        <ModalContextProvider>
-          <body>
-            <Main>
-              <Navbar />
-              {children}
-              <Footer />
-              <ThemeMenu />
-              <ThemeModal />
-            </Main>
-            <GoogleAdsense />
-          </body>
-        </ModalContextProvider>
-      </ThemeContextProvider>
+      <SessionProvider>
+        <ThemeContextProvider>
+          <ModalContextProvider>
+            <body>
+              <Main>
+                <Navbar />
+                {children}
+                <Footer />
+                <ThemeMenu />
+                <ThemeModal />
+              </Main>
+              <GoogleAdsense />
+            </body>
+          </ModalContextProvider>
+        </ThemeContextProvider>
+      </SessionProvider>
     </html>
   );
 }
