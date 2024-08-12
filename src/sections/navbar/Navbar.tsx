@@ -67,7 +67,7 @@ const Navbar = () => {
                 await logout();
               }}
             >
-              <button>Cerrar sesión</button>
+              <button className={classes.nav__contact}>Cerrar sesión</button>
             </form>
           ) : (
             <form
@@ -75,7 +75,7 @@ const Navbar = () => {
                 await signInAction();
               }}
             >
-              <button>Iniciar sesión</button>
+              <button className={classes.nav__contact}>Iniciar sesión</button>
             </form>
           )}
         </div>
