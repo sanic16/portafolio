@@ -120,5 +120,6 @@ export async function createProjectAction(
   }
 
   revalidatePath("/projects");
+  revalidatePath("/");
   redirect("/projects");
 }
