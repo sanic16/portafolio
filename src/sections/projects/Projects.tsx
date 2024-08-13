@@ -5,7 +5,7 @@ import Image from "next/image";
 const Projects = async () => {
   const projects = await prisma.project.findMany({
     where: {
-      AND: [
+      OR: [
         {
           title: {
             contains: "Coral y Mar",
