@@ -18,8 +18,8 @@ const themeContext = createContext<ThemeContext>({
 let avoidFirstRender = true;
 const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
   const initialState: Theme = {
-    primary: "color-5",
-    bg: "bg-2",
+    primary: "color-4",
+    bg: "bg-1",
   };
 
   const [theme, dispatchTheme] = useReducer(themeReducer, initialState);
