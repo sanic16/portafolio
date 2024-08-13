@@ -95,6 +95,44 @@ const userData: Prisma.UserCreateInput[] = [
             },
           },
         },
+        {
+          title: "NextJS Discuss",
+          description:
+            "Proyecto de foro. Realizado con Next.js, TailwindCSS, MongoDB y AuthJS",
+          websiteUrl: "https://discuss.juliosanic.site/",
+          githubUrl: "https://github.com/sanic16/nextjs-discuss",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/clg5pgfzqd94wklrahok",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+        },
+        {
+          title: "CodiElectro",
+          description:
+            "Sitio web de servicios informáticos. Realizado con Next.js",
+          websiteUrl: "https://www.codielectro.com",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/bjnhwjcqepyy96prll9e",
+          githubUrl: "https://github.com/sanic16/",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+        },
       ],
     },
   },

@@ -1,11 +1,5 @@
 "use client";
-import React, {
-  useEffect,
-  useReducer,
-  createContext,
-  useContext,
-  useLayoutEffect,
-} from "react";
+import React, { useEffect, useReducer, createContext, useContext } from "react";
 import themeReducer from "./themeReducer";
 const themeContext = createContext<ThemeContext>({
   theme: {
