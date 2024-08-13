@@ -33,16 +33,18 @@ interface CreateProjectFormState {
   };
 }
 
-export async function createProject(
+export async function createProjectAction(
   formState: CreateProjectFormState,
   formData: FormData
 ): Promise<CreateProjectFormState> {
   const result = createProjectSchema.safeParse({
     title: formData.get("title"),
     description: formData.get("description"),
-    url: formData.get("url"),
-    github: formData.get("github"),
+    url: formData.get("websiteUrl"),
+    github: formData.get("githubUrl"),
   });
+
+  console.log(result);
 
   if (!result.success) {
     return { errors: result.error.flatten().fieldErrors };
@@ -63,6 +65,12 @@ export async function createProject(
       },
     };
   }
+
+  const user = await prisma.user.findUnique({
+    where: {
+      email: session.user.email!,
+    },
+  });
 
   let imageUrl: string;
 
@@ -92,7 +100,7 @@ export async function createProject(
         imageUrl: imageUrl,
         websiteUrl: result.data.url,
         githubUrl: result.data.github,
-        userId: session.user.id!,
+        userId: user?.id!,
       },
     });
   } catch (error: unknown) {

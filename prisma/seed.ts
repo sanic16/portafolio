@@ -8,6 +8,19 @@ const userData: Prisma.UserCreateInput[] = [
     email: "julio.sanic.gt.256@gmail.com",
     password: "borden16",
     role: "ADMIN",
+    projects: {
+      create: [
+        {
+          title: "Coral y Mar",
+          description:
+            "Proyecto de acuario, venta de peces y accesorios. El proyecto está hecho con el stack MERN.",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/kndeysisfvauun8o0g0q",
+          websiteUrl: "https://vercel-node-pink.vercel.app/",
+          githubUrl: "https://github.com/sanic16/ecommerce-react",
+        },
+      ],
+    },
   },
 ];
 
