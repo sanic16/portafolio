@@ -3,7 +3,30 @@ import "./projects.css";
 import Image from "next/image";
 
 const Projects = async () => {
-  const projects = await prisma.project.findMany();
+  const projects = await prisma.project.findMany({
+    where: {
+      AND: [
+        {
+          title: {
+            contains: "Coral y Mar",
+            mode: "insensitive",
+          },
+        },
+        {
+          title: {
+            contains: "smilecook",
+            mode: "insensitive",
+          },
+        },
+        {
+          title: {
+            contains: "juliusblog",
+            mode: "insensitive",
+          },
+        },
+      ],
+    },
+  });
   return (
     <section id="projects" className="projects">
       <h1>Mis Proyectos</h1>
