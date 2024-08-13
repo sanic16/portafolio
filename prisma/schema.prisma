@@ -37,6 +37,17 @@ model Project {
   // Relation
   userId String @db.ObjectId
   user User @relation(fields: [userId], references: [id], onDelete: Cascade) 
+  categoryIds String[] @db.ObjectId
+  categories Category[] @relation(fields: [categoryIds], references: [id])
+}
+
+model Category {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String @unique
+
+  // Relation
+  projectsIds String[] @db.ObjectId
+  projects Project[] @relation(fields: [projectsIds], references: [id]) 
 }
 
 enum Role {

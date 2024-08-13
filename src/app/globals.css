@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-:root{
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
   --primary-hue: 140;
 
   --white-lightness: 94%;
@@ -28,7 +28,7 @@
 
 *,
 *::before,
-*::after{
+*::after {
   margin: 0;
   padding: 0;
   border: none;
@@ -36,10 +36,10 @@
   box-sizing: border-box;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
-main.bg-2{
+main.bg-2 {
   --white-lightness: 4%;
   --light-lightness: 18%;
   --dark-lightness: 85%;
@@ -51,95 +51,96 @@ main.bg-2{
   --black-color: hsl(var(--primary-hue), 0%, var(--black-lightness));
 }
 
-main.color-1{
+main.color-1 {
   --primary-hue: 0;
   --primary-color: hsl(var(--primary-hue), 88%, 36%);
 }
 
-main.color-2{
+main.color-2 {
   --primary-hue: 45;
   --primary-color: hsl(var(--primary-hue), 88%, 36%);
 }
 
-main.color-3{
+main.color-3 {
   --primary-hue: 90;
   --primary-color: hsl(var(--primary-hue), 88%, 36%);
 }
 
-main.color-4{
+main.color-4 {
   --primary-hue: 135;
   --primary-color: hsl(var(--primary-hue), 88%, 36%);
 }
 
-main.color-5{
+main.color-5 {
   --primary-hue: 180;
   --primary-color: hsl(var(--primary-hue), 88%, 36%);
 }
 
-main.color-6{
+main.color-6 {
   --primary-hue: 225;
   --primary-color: hsl(var(--primary-hue), 88%, 36%);
 }
 
-main.color-7{
+main.color-7 {
   --primary-hue: 270;
   --primary-color: hsl(var(--primary-hue), 88%, 36%);
 }
 
-main.color-8{
+main.color-8 {
   --primary-hue: 315;
   --primary-color: hsl(var(--primary-hue), 88%, 36%);
 }
 
-
-
-body{
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
-}
-
-main{
+main {
   color: var(--dark-color);
 }
 
-ul{
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+}
+
+ul {
   list-style: none;
 }
 
-a{
+a {
   text-decoration: none;
   transition: var(--transition);
 }
 
-img{
+img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.container{
+.container {
   width: var(--container-width-lg);
   margin-inline: auto;
   max-width: 1400px;
 }
 
-section{
+section {
   padding-block: 10rem;
   transition: var(--transition);
 }
 
-section > h1{
+section > h1 {
   text-align: center;
   margin-bottom: 2rem;
-  background: linear-gradient(to right, var(--black-color), var(--primary-color));
+  background: linear-gradient(
+    to right,
+    var(--black-color),
+    var(--primary-color)
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
 }
 
-section > p{
+section > p {
   margin-top: 0.5rem;
   text-align: center;
   margin-bottom: 4rem;
@@ -147,36 +148,40 @@ section > p{
   margin-inline: auto;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.2;
 }
 
-h1{
+h1 {
   font-size: 2.5rem;
 }
 
-h2{
+h2 {
   font-size: 2rem;
-
 }
 
-h3{
+h3 {
   font-size: 1.5rem;
 }
 
-h4{
+h4 {
   font-size: 1.25rem;
 }
 
-h5{
+h5 {
   font-size: 1rem;
 }
 
-h6{
+h6 {
   font-size: 0.875rem;
 }
 
-.btn{
+.btn {
   display: inline-block;
   width: fit-content;
   padding: 0.6rem 2.2rem;
@@ -186,29 +191,29 @@ h6{
   cursor: pointer;
 }
 
-.btn:hover{
-  opacity: .8;
+.btn:hover {
+  opacity: 0.8;
 }
 
-.btn.white{
+.btn.white {
   background-color: var(--white-color);
 }
 
-.btn.black{
+.btn.black {
   background-color: var(--black-color);
   color: var(--white-color);
 }
 
-.btn.primary{
+.btn.primary {
   background-color: var(--primary-color);
   color: #fff;
 }
 
-.btn.sm{
+.btn.sm {
   padding: 0.5rem 1.2rem;
 }
 
-.page__center{
+.page__center {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -217,41 +222,39 @@ h6{
   background-color: var(--light-color);
 }
 
-
-@media screen and (max-width: 1024px){
-  .container{
+@media screen and (max-width: 1024px) {
+  .container {
     width: var(--container-width-md);
   }
-  
 }
 
-@media screen and (max-width: 768px){
-  h1{
+@media screen and (max-width: 768px) {
+  h1 {
     font-size: 2rem;
   }
 
-  h2{
+  h2 {
     font-size: 1.75rem;
   }
 
-  h3{
+  h3 {
     font-size: 1.3rem;
   }
 
-  .btn{
+  .btn {
     padding: 0.6rem 1.5rem;
   }
 }
 
-@media screen and (max-width: 600px){
-  .btn{
+@media screen and (max-width: 600px) {
+  .btn {
     padding: 0.6rem 1.5rem;
   }
-  section{
+  section {
     padding-block: 6rem;
   }
 
-  section > p{
+  section > p {
     width: 100%;
   }
 }
