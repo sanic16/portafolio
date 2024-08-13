@@ -15,7 +15,7 @@ const userData: Prisma.UserCreateInput[] = [
           description:
             "Proyecto de acuario, venta de peces y accesorios. El proyecto está hecho con el stack MERN.",
           imageUrl:
-            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/kndeysisfvauun8o0g0q",
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/jde4y1taeeiz9u2nj07x",
           websiteUrl: "https://vercel-node-pink.vercel.app/",
           githubUrl: "https://github.com/sanic16/ecommerce-react",
         },
