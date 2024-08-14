@@ -3,21 +3,49 @@
 import Link from "next/link";
 import classes from "./Navbar.module.css";
 import { Pacifico } from "next/font/google";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useModalContext } from "@/hooks/hooks";
 import { signInAction, signOutAction } from "@/actions";
 import { signOut as logout, useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
 
 const pacifico = Pacifico({ subsets: ["latin"], weight: ["400"] });
 
 const Navbar = () => {
   const session = useSession();
   const [isOpen, setIsOpen] = useState(false);
+  const [bgOnScroll, setBgOnScroll] = useState(false);
+  const pathname = usePathname();
   const closeMenu = () => setIsOpen(false);
   const { openModal } = useModalContext();
+
+  useEffect(() => {
+    const changeBgOnScroll = () => {
+      if (typeof window !== undefined) {
+        if (window.scrollY > 0) {
+          setBgOnScroll(true);
+        } else {
+          setBgOnScroll(false);
+        }
+      }
+    };
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", changeBgOnScroll);
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("scroll", changeBgOnScroll);
+      }
+    };
+  }, []);
+
   return (
-    <nav className={classes.nav}>
+    <nav
+      className={`${classes.nav} ${bgOnScroll && classes["navbar--scroll"]}`}
+    >
       <div className={`container ${classes.nav__container}`}>
         <Link
           href="/"
