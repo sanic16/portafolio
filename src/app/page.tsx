@@ -8,7 +8,7 @@ import { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Julio Sanic - Desarrollador Web",
+  title: "Julio - Desarrollador Web",
   description:
     "Desarrollador web fullstack con experiencia en react y next.js.",
   keywords:

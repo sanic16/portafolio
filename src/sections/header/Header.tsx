@@ -11,7 +11,7 @@ const Header = () => {
           <Image src={me} sizes="200px" alt="avatar" />
         </div>
         <h1>
-          Que tal!, soy <span>Julio Sanic</span>
+          Que tal!, soy <span>Julio </span>
         </h1>
         <p>
           Desarrollador Web Full Stack con conocimientos en JavaScript y Python
