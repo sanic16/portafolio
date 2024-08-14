@@ -9,15 +9,15 @@
   place-items: center;
   justify-items: center;
   transition: var(--transition);
-  box-shadow: 0 1rem 1.5rem hsla(var(--primary-hue), 88%, 56%, 0.3);
+  box-shadow: 0 0.1rem 1rem hsla(0, 5%, var(--black-lightness), 0.7);
   z-index: 1;
 }
 
 .nav.navbar--scroll {
   background: linear-gradient(
     to bottom,
-    hsla(var(--primary-hue), 88%, 12%, 0.55),
-    hsla(var(--primary-hue), 88%, 29%, 0.8)
+    hsla(0, 5%, var(--black-lightness), 0.55),
+    hsla(0, 5%, var(--light-lightness), 0.8)
   );
   backdrop-filter: blur(10px);
 }
@@ -31,6 +31,10 @@
 .nav__logo {
   color: #fff;
   font-size: 1.6rem;
+}
+
+.nav.navbar--scroll .nav__logo {
+  color: var(--primary-color);
 }
 
 .nav__menu ul {
