@@ -1,0 +1,16 @@
+.author {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  border-radius: 0.05rem;
+}
+
+.author__img {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--border-radius-1);
+  overflow: hidden;
+}

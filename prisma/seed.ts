@@ -8,6 +8,8 @@ const userData: Prisma.UserCreateInput[] = [
     email: "julio.sanic.gt.256@gmail.com",
     password: "borden16",
     role: "ADMIN",
+    imageUrl:
+      "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/emmwvxo0jokjq9nu8ulx",
     projects: {
       create: [
         {

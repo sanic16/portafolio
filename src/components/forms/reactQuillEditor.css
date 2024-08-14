@@ -1,0 +1,6 @@
+.quill__editor {
+  overflow: scroll;
+  height: 10rem;
+  background-color: #fff;
+  color: #000;
+}

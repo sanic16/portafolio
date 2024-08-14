@@ -1,9 +1,11 @@
-import Loader from '@/components/loader/Loader'
+import prisma from "@/lib/prisma";
+import "./page.css";
+import Posts from "@/components/posts/Posts";
 
-export default function page() {
+export default async function page() {
   return (
-    <div className='page__center'>
-      <Loader />
+    <div className="blog">
+      <Posts />
     </div>
-  )
+  );
 }

@@ -1,0 +1,5 @@
+.blog {
+  margin-top: 5rem;
+  background-color: var(--white-color);
+  min-height: calc(100vh - 5rem);
+}

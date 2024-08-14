@@ -35,11 +35,11 @@ interface CreatePostFormState {
 }
 
 export async function createPostAction(
+  description: string,
   formState: CreatePostFormState,
   formData: FormData
 ): Promise<CreatePostFormState> {
   const title = formData.get("title") as string;
-  const description = formData.get("description") as string;
   const image = formData.get("image") as File;
   const category = formData.get("category") as string;
 
