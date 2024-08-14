@@ -8,11 +8,11 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 3rem;
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
 }
 
 .pagination {
-  margin-bottom: 3rem;
+  padding-bottom: 5rem;
   display: flex;
   justify-content: center;
 }
