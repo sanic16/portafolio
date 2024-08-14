@@ -138,12 +138,87 @@ const userData: Prisma.UserCreateInput[] = [
   },
 ];
 
+const postCategoryData: Prisma.CategoryCreateInput[] = [
+  {
+    name: "Informática",
+  },
+  {
+    name: "Electrónica",
+  },
+  {
+    name: "Electricidad",
+  },
+  {
+    name: "JavaScript",
+  },
+  {
+    name: "Python",
+  },
+  {
+    name: "Guatemala",
+  },
+  {
+    name: "San Miguel Petapa",
+  },
+  {
+    name: "MERN",
+  },
+  {
+    name: "FARM",
+  },
+  {
+    name: "Next.js",
+  },
+  {
+    name: "Economía",
+  },
+  {
+    name: "Finanzas",
+  },
+  {
+    name: "Educación",
+  },
+  {
+    name: "Salud",
+  },
+  {
+    name: "Cocina",
+  },
+  {
+    name: "Robótica",
+  },
+  {
+    name: "Comunicaciones",
+  },
+  {
+    name: "IOT",
+  },
+  {
+    name: "Turismo",
+  },
+];
+
 async function main() {
   console.log("Clearing data...");
   await prisma.user.deleteMany();
   await prisma.category.deleteMany();
 
   console.log(`seeding data...`);
+
+  const numPostCategories = await prisma.postCategory.count();
+
+  console.log(`Number of post categories: ${numPostCategories}`);
+  if (numPostCategories === 0) {
+    for (const c of postCategoryData) {
+      const category = await prisma.postCategory.create({
+        data: c,
+      });
+      console.log(
+        `Created category with id: ${category.id} and name: ${category.name}`
+      );
+    }
+  }
+
   for (const u of userData) {
     const user = await prisma.user.create({
       data: u,

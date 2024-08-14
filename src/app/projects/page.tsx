@@ -43,3 +43,15 @@ export default async function page({
     </div>
   );
 }
+
+export async function generateStaticParams() {
+  const totalItems = await prisma.project.count();
+  const totalPages = Math.ceil(totalItems / 6);
+
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+  return pages.map((page) => {
+    return {
+      page: page.toString(),
+    };
+  });
+}

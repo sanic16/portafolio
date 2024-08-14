@@ -2,6 +2,7 @@ import Image from "next/image";
 import classes from "./Header.module.css";
 import me from "@/../public/images/julius.png";
 import DocumentButton from "@/components/document-button/DocumentButton";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -27,9 +28,9 @@ const Header = () => {
             pdfFile="pdf/cv.pdf"
             title="Ver CV"
           />
-          <a href="/contact" className="btn">
+          <Link href="/contact" className="btn">
             Contactar
-          </a>
+          </Link>
         </div>
       </div>
     </header>
