@@ -30,6 +30,7 @@ model Project {
   githubUrl String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  lang Lang @default(ES) 
   
   // Relation
   userId String @db.ObjectId
@@ -77,3 +78,7 @@ enum Role {
   ADMIN
 }
 
+enum Lang {
+  EN
+  ES
+}

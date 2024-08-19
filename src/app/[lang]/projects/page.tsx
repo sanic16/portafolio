@@ -5,9 +5,13 @@ import Link from "next/link";
 
 export default async function page({
   searchParams,
+  params: { lang },
 }: {
   searchParams: {
     page: string;
+  };
+  params: {
+    lang: string;
   };
 }) {
   const totalItems = await prisma.project.count();
@@ -20,6 +24,9 @@ export default async function page({
   const projectsPage = await prisma.project.findMany({
     take: 6,
     skip: 6 * (numPage - 1),
+    where: {
+      lang: lang === "en" ? "EN" : "ES",
+    },
   });
 
   return (

@@ -25,6 +25,7 @@ const userData: Prisma.UserCreateInput[] = [
               name: "MERN",
             },
           },
+          lang: "ES",
         },
         {
           title: "smilecook",
@@ -39,6 +40,7 @@ const userData: Prisma.UserCreateInput[] = [
               name: "FRM",
             },
           },
+          lang: "ES",
         },
         {
           title: "JuliusBlog",
@@ -58,6 +60,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
+          lang: "ES",
         },
         {
           title: "Hotel El Jaguard Dorado",
@@ -77,6 +80,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
+          lang: "ES",
         },
         {
           title: "Servicios Eléctricos",
@@ -96,6 +100,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
+          lang: "ES",
         },
         {
           title: "NextJS Discuss",
@@ -115,6 +120,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
+          lang: "ES",
         },
         {
           title: "CodiElectro",
@@ -134,6 +140,145 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
+          lang: "ES",
+        },
+        {
+          title: "Coral and Sea",
+          description:
+            "Aquarium project, selling fish and accessories. The project is built with the MERN stack.",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/jde4y1taeeiz9u2nj07x",
+          websiteUrl: "https://coralymar.codielectro.com/",
+          githubUrl: "https://github.com/sanic16/ecommerce-react",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "MERN",
+              },
+              create: {
+                name: "MERN",
+              },
+            },
+          },
+          lang: "EN",
+        },
+        {
+          title: "smilecook",
+          description:
+            "Cooking recipe project. The project is built with the FRM stack (Flask, React, MariaDB). State management on the frontend is done with RTK, and HTTP requests are handled with RTK Query.",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/j59llkw1kmyhplerfinx",
+          githubUrl: "https://github.com/sanic16/smilecook-frontend",
+          websiteUrl: "https://smilecook.juliosanic.site/",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "FRM",
+              },
+              create: {
+                name: "FRM",
+              },
+            },
+          },
+          lang: "EN",
+        },
+        {
+          title: "JuliusBlog",
+          description:
+            "Blog built with the MERN stack. Basic authentication and authorization handling with JWT. State management on the frontend is done with RTK, and HTTP requests are handled with RTK Query.",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/ifn6zmvot3lywac5cjdk",
+          websiteUrl: "https://julius-blog-e13d47c9a4bc.herokuapp.com/",
+          githubUrl: "https://github.com/sanic16/julius-blog",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "MERN",
+              },
+              create: {
+                name: "MERN",
+              },
+            },
+          },
+          lang: "EN",
+        },
+        {
+          title: "The Golden Jaguar Hotel",
+          description: "The Golden Jaguar Hotel project, built with Next.js.",
+          websiteUrl: "https://el-jaguar-dorado.juliosanic.site/",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/bvvhczjvjnrigfsxn3mb",
+          githubUrl: "https://github.com/sanic16/hotel-jaguar-dorado",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+          lang: "EN",
+        },
+        {
+          title: "Electrical Services",
+          description:
+            "Electrical services project. Componentized with Next.js and TailwindCSS.",
+          websiteUrl: "https://electroser.juliosanic.site/",
+          githubUrl: "https://github.com/sanic16/tailwind_servicios_electricos",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/snn7zn6relapeog9osic",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "TailwindCSS",
+              },
+              create: {
+                name: "TailwindCSS",
+              },
+            },
+          },
+          lang: "EN",
+        },
+        {
+          title: "NextJS Discuss",
+          description:
+            "Forum project. Built with Next.js, TailwindCSS, MongoDB, and AuthJS.",
+          websiteUrl: "https://discuss.juliosanic.site/",
+          githubUrl: "https://github.com/sanic16/nextjs-discuss",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/clg5pgfzqd94wklrahok",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+          lang: "EN",
+        },
+        {
+          title: "CodiElectro",
+          description: "IT services website. Built with Next.js.",
+          websiteUrl: "https://www.codielectro.com",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/bjnhwjcqepyy96prll9e",
+          githubUrl: "https://github.com/sanic16/",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+          lang: "EN",
         },
       ],
     },
