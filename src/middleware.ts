@@ -14,7 +14,8 @@ export function middleware(request: NextRequest) {
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/static") ||
-    pathname.startsWith("/pdf")
+    pathname.startsWith("/pdf") ||
+    pathname.startsWith("/api")
   ) {
     return NextResponse.next(); // Ensure static files are served
   }
