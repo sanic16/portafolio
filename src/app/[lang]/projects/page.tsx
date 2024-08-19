@@ -14,7 +14,9 @@ export default async function page({
     lang: string;
   };
 }) {
-  const totalItems = await prisma.project.count();
+  const totalItems = await prisma.project.count({
+    where: { lang: lang === "en" ? "EN" : "ES" },
+  });
   const totalPages = Math.ceil(totalItems / 6);
   let numPage = parseInt(searchParams.page);
   if (isNaN(numPage) || numPage < 1 || numPage > totalPages) {
