@@ -48,5 +48,48 @@
         "viewMoreButton": "View More"
       }
     ]
+  },
+  "education": {
+    "title": "Education",
+    "description": "My educational background:",
+    "education": [
+      {
+        "id": 1,
+        "title": "Fullstack Web Developer",
+        "institution": "Udemy",
+        "description": "<p>In my opinion, Udemy offers high-quality courses with industry professionals. Here are the courses I've taken on this platform:</p><h5>React: The Complete Guide (incl. React Router & Redux)</h5><p>This is a long but very comprehensive course covering everything from basic React concepts such as JSX, components, props, lifting state up, events, styles, etc., to intermediate and advanced concepts like hooks for managing state between components, such as useReducer and useContext, effects with useEffect, HTTP requests, routing with React Router, form validation, error handling, optimizations, global state with RTK, and best practices.</p><h5>Next.js & React - The Complete Guide</h5><p>This course teaches the basics of NextJS 13 and 14, including server components, image optimization, server actions, and some SSR. However, it is more focused on older versions of NextJS. Therefore, I have been updating myself with the official NextJS documentation and some YouTube tutorials to learn about authentication with NextAuth, middleware, and other topics.</p><h5>CSS Bootcamp - Master CSS (CSS Grid / CSS Flexbox)</h5><p>This is a very good course on positioning elements with flex and grid, which has helped me rely less on media queries when it comes to responsive design.</p><h5>MERN From Scratch 2023 | eCommerce Platform</h5><p>This course involves creating an ecommerce platform with the MERN stack. It's a real-world application and has helped me understand how to structure a fullstack application with React, Node, Express, and MongoDB. It also includes working with RTK Query to handle HTTP requests and cache them efficiently.</p><h5>React Native - The Practical Guide</h5><p>Possibly the most comprehensive React Native course I have seen online. The course is entirely based on creating various applications with Expo and React Navigation, incorporating device features like the camera, geolocation, push notifications, etc.</p><p>Other courses I am currently taking include one on C# and animations with CSS and JavaScript.</p>",
+        "viewDocumentsButton": "View Documents"
+      },
+      {
+        "id": 2,
+        "title": "Electronics Engineering",
+        "institution": "Universidad de San Carlos de Guatemala",
+        "description": "<p>Regarding software development, the Electronics Engineering degree has provided me with a foundation in Python and C++ that has helped me understand programming logic and become familiar with programming language syntax.</p><p>Additionally, I have learned to work with microcontrollers that have a wireless communication protocol stack, allowing me to create real-time dashboards with React and sensors.</p>",
+        "viewDocumentsButton": "View Documents"
+      },
+      {
+        "id": 3,
+        "title": "Electrical Engineering",
+        "institution": "Universidad de San Carlos de Guatemala",
+        "description": "<p>There are some interesting courses from a programming perspective, such as Automation, Electronics 3, Control Systems, Instrumentation, among others. Professional courses include Power System Analysis, which allows for developing programs for calculating Guatemala's power system, and Generation Systems to understand the dispatch of electrical energy through optimization algorithms.</p>",
+        "viewDocumentsButton": "View Documents"
+      }
+    ]
+  },
+  "footer": {
+    "title": "FullStack Developer Julio Sanic",
+    "description": "I am a versatile developer using various programming languages, frameworks, methodologies, and other tools to build modern web applications.",
+    "contactTitle": "Contact",
+    "contact": {
+      "phone": "+502 5838-5370",
+      "email1": "2596787670101@ingenieria.usac.edu.gt",
+      "email2": "julio.sanic.gt.256@gmail.com"
+    },
+    "languagesTitle": "Languages",
+    "languages": ["JavaScript", "Python", "C#", "Java", "C/C++"],
+    "frameworksTitle": "Frameworks",
+    "frameworks": ["React", "Express", "Flask", "NestJS", "Django"],
+    "othersTitle": "Others",
+    "others": ["SQL", "Git/Github", "Docker", "AWS"]
   }
 }

@@ -5,6 +5,8 @@ export interface Lang {
   about: About;
   projects: Project;
   services: Service;
+  education: Education;
+  footer: Footer;
 }
 
 export interface About {
@@ -39,6 +41,35 @@ export interface Service {
     description: string;
     viewMoreButton: string;
   }[];
+}
+
+export interface Education {
+  title: string;
+  description: string;
+  education: {
+    id: number;
+    title: string;
+    description: string;
+    institution: string;
+    viewDocumentsButton: string;
+  }[];
+}
+
+export interface Footer {
+  title: string;
+  description: string;
+  contactTitle: string;
+  contact: {
+    phone: string;
+    email1: string;
+    email2: string;
+  };
+  languagesTitle: string;
+  languages: string[];
+  frameworksTitle: string;
+  frameworks: string[];
+  othersTitle: string;
+  others: string[];
 }
 
 const dictionaries: { [key: string]: () => Promise<Lang> } = {
