@@ -2,7 +2,14 @@ import prisma from "@/lib/prisma";
 import "./projects.css";
 import ProjectItem from "@/components/project/ProjectItem";
 
-const Projects = async () => {
+interface ProjectsProps {
+  translations: {
+    title: string;
+    description: string;
+  };
+}
+
+const Projects: React.FC<ProjectsProps> = async ({ translations }) => {
   const projects = await prisma.project.findMany({
     where: {
       OR: [
@@ -29,8 +36,8 @@ const Projects = async () => {
   });
   return (
     <section id="projects" className="projects">
-      <h1>Mis Proyectos</h1>
-      <p>Algunos de mis proyectos.</p>
+      <h1>{translations.title}</h1>
+      <p>{translations.description}</p>
       <div className="container">
         <div className="projects__container">
           {projects.map((project) => (

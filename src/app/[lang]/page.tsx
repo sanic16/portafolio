@@ -32,8 +32,8 @@ export default async function page({
     <>
       <Header translations={t.header} />
       <About translations={t.about} />
-      <Projects />
-      <Services />
+      <Projects translations={t.projects} />
+      <Services translations={t.services} />
       <Education />
       <FloatMenu />
     </>

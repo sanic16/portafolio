@@ -1,47 +1,31 @@
-import Card from '@/components/card/Card'
-import Link from 'next/link'
-import React from 'react'
-import { IconType } from 'react-icons'
+import Card from "@/components/card/Card";
+import React from "react";
+import { IconType } from "react-icons";
 
-const Service = (
-    {
-        Icon,
-        service,
-        description,
-        slug,
-    }:{
-        Icon: IconType,
-        service: string,
-        description: string
-        slug: string
-    }
-) => {
-  return (
-    <Card className='service__card'>
-        <div className='service__card-face'>
-            <div className='service__card-icon'>
-                <Icon />
-            </div>
-            <h3>
-                {service}
-            </h3>
-        </div>
-        <div
-            className='service__card-back'
-        >   
-                <p>
-                    {description}
-                </p>
-                <a 
-                    // href={`/services/${slug}}}`}
-                    className='service__btn btn primary'
-                    
-                >
-                    Ver más
-                </a>
-        </div>
-    </Card>
-  )
+interface ServiceProps {
+  service: {
+    Icon: IconType;
+    title: string;
+    description: string;
+    viewMoreButton: string;
+  };
 }
 
-export default Service
+const Service: React.FC<ServiceProps> = ({ service }) => {
+  return (
+    <Card className="service__card">
+      <div className="service__card-face">
+        <div className="service__card-icon">
+          <service.Icon />
+        </div>
+        <h3>{service.title}</h3>
+      </div>
+      <div className="service__card-back">
+        <p>{service.description}</p>
+        <a className="service__btn btn primary">{service.viewMoreButton}</a>
+      </div>
+    </Card>
+  );
+};
+
+export default Service;

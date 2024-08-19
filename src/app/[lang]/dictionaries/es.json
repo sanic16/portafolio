@@ -14,5 +14,39 @@
     "contactText": "Si buscas un desarrollador web fullstack autodidacta con conocimientos en JavaScript y Python, no dudes en contratarme.",
     "name": "Julio Sanic",
     "hireMeButton": "Contrátame"
+  },
+  "projects": {
+    "title": "Mis Proyectos",
+    "description": "Algunos de mis proyectos."
+  },
+  "services": {
+    "title": "Servicios",
+    "description": "Los servicios que ofrezco en el ámbito de la programación:",
+    "services": [
+      {
+        "id": 1,
+        "title": "Diseño Web",
+        "description": "Diseño de páginas web con las últimas tecnologías y tendencias del mercado.",
+        "viewMoreButton": "Ver más"
+      },
+      {
+        "id": 2,
+        "title": "Desarrollo Web",
+        "description": "Desarrollo de sitios web y aplicaciones web a medida.",
+        "viewMoreButton": "Ver más"
+      },
+      {
+        "id": 3,
+        "title": "Desarrollo de Rest API",
+        "description": "Desarrollo de API REST para integrar con aplicaciones web y móviles.",
+        "viewMoreButton": "Ver más"
+      },
+      {
+        "id": 4,
+        "title": "Desarrollo de email marketing",
+        "description": "Desarrollo de campañas de email marketing para fidelizar a tus clientes.",
+        "viewMoreButton": "Ver más"
+      }
+    ]
   }
 }

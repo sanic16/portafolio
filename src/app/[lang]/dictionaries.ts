@@ -3,6 +3,8 @@ import "server-only";
 export interface Lang {
   header: Header;
   about: About;
+  projects: Project;
+  services: Service;
 }
 
 export interface About {
@@ -21,6 +23,22 @@ export interface Header {
   description: string;
   cvButton: string;
   contactButton: string;
+}
+
+export interface Project {
+  title: string;
+  description: string;
+}
+
+export interface Service {
+  title: string;
+  description: string;
+  services: {
+    id: number;
+    title: string;
+    description: string;
+    viewMoreButton: string;
+  }[];
 }
 
 const dictionaries: { [key: string]: () => Promise<Lang> } = {

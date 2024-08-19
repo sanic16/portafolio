@@ -14,5 +14,39 @@
     "contactText": "If you are looking for a self-taught full stack web developer with knowledge in JavaScript and Python, don't hesitate to hire me.",
     "name": "Julio Sanic",
     "hireMeButton": "Hire Me"
+  },
+  "projects": {
+    "title": "My Projects",
+    "description": "Some of my projects."
+  },
+  "services": {
+    "title": "Services",
+    "description": "The services I offer in the field of programming:",
+    "services": [
+      {
+        "id": 1,
+        "title": "Web Design",
+        "description": "Design of web pages with the latest technologies and market trends.",
+        "viewMoreButton": "View More"
+      },
+      {
+        "id": 2,
+        "title": "Web Development",
+        "description": "Development of custom websites and web applications.",
+        "viewMoreButton": "View More"
+      },
+      {
+        "id": 3,
+        "title": "REST API Development",
+        "description": "Development of REST APIs to integrate with web and mobile applications.",
+        "viewMoreButton": "View More"
+      },
+      {
+        "id": 4,
+        "title": "Email Marketing Development",
+        "description": "Development of email marketing campaigns to retain your customers.",
+        "viewMoreButton": "View More"
+      }
+    ]
   }
 }
