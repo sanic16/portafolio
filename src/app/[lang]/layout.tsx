@@ -40,7 +40,7 @@ export default async function RootLayout({
           <ModalContextProvider>
             <body>
               <Main>
-                <Navbar />
+                <Navbar translations={t.navbar} />
                 {children}
                 <Footer translations={t.footer} />
                 <ThemeMenu />

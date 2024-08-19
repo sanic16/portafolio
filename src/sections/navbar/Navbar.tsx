@@ -8,18 +8,30 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { useModalContext } from "@/hooks/hooks";
 import { signInAction, signOutAction } from "@/actions";
 import { signOut as logout, useSession } from "next-auth/react";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import Flag from "react-world-flags";
 
 const pacifico = Pacifico({ subsets: ["latin"], weight: ["400"] });
 
-const Navbar = () => {
+interface NavbarTranslations {
+  translations: {
+    home: string;
+    projects: string;
+    blog: string;
+    theme: string;
+    signIn: string;
+    signOut: string;
+  };
+}
+
+const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
   const session = useSession();
   const [isOpen, setIsOpen] = useState(false);
   const [bgOnScroll, setBgOnScroll] = useState(false);
   const pathname = usePathname();
   const closeMenu = () => setIsOpen(false);
   const { openModal } = useModalContext();
+  const { lang } = useParams();
   const pathnameWithoutLang = pathname.replace(/\/[a-z]{2}/, "");
 
   useEffect(() => {
@@ -60,19 +72,19 @@ const Navbar = () => {
         <div className={`${classes.nav__menu} ${isOpen && classes.active}`}>
           <ul>
             <li>
-              <Link href="/" onClick={closeMenu}>
-                Inicio
+              <Link href={`/${lang}/`} onClick={closeMenu}>
+                {translations.home}
               </Link>
             </li>
 
             <li>
-              <Link href="/projects" onClick={closeMenu}>
-                Proyectos
+              <Link href={`/${lang}/projects`} onClick={closeMenu}>
+                {translations.projects}
               </Link>
             </li>
             <li>
-              <Link href="/blog" onClick={closeMenu}>
-                Blog
+              <Link href={`/${lang}/blog`} onClick={closeMenu}>
+                {translations.blog}
               </Link>
             </li>
             <li className={classes.nav__theme}>
@@ -83,7 +95,7 @@ const Navbar = () => {
                   openModal();
                 }}
               >
-                Tema
+                {translations.theme}
               </Link>
             </li>
           </ul>
@@ -105,7 +117,9 @@ const Navbar = () => {
                 await logout();
               }}
             >
-              <button className={classes.nav__contact}>Cerrar sesión</button>
+              <button className={classes.nav__contact}>
+                {translations.signOut}
+              </button>
             </form>
           ) : (
             <form
@@ -113,7 +127,9 @@ const Navbar = () => {
                 await signInAction();
               }}
             >
-              <button className={classes.nav__contact}>Iniciar sesión</button>
+              <button className={classes.nav__contact}>
+                {translations.signIn}
+              </button>
             </form>
           )}
         </div>

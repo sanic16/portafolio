@@ -91,5 +91,13 @@
     "frameworks": ["React", "Express", "Flask", "NestJS", "Django"],
     "othersTitle": "Others",
     "others": ["SQL", "Git/Github", "Docker", "AWS"]
+  },
+  "navbar": {
+    "home": "Home",
+    "projects": "Projects",
+    "blog": "Blog",
+    "theme": "Theme",
+    "signIn": "Sign In",
+    "signOut": "Sign Out"
   }
 }

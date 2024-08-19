@@ -7,6 +7,7 @@ export interface Lang {
   services: Service;
   education: Education;
   footer: Footer;
+  navbar: Navbar;
 }
 
 export interface About {
@@ -70,6 +71,15 @@ export interface Footer {
   frameworks: string[];
   othersTitle: string;
   others: string[];
+}
+
+export interface Navbar {
+  home: string;
+  projects: string;
+  blog: string;
+  theme: string;
+  signIn: string;
+  signOut: string;
 }
 
 const dictionaries: { [key: string]: () => Promise<Lang> } = {

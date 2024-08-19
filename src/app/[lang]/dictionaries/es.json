@@ -91,5 +91,13 @@
     "frameworks": ["React", "Express", "Flask", "NestJS", "Django"],
     "othersTitle": "Otros",
     "others": ["SQL", "Git/Github", "Docker", "AWS"]
+  },
+  "navbar": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "blog": "Blog",
+    "theme": "Tema",
+    "signIn": "Iniciar Sesion",
+    "signOut": "Cerrar Sesión"
   }
 }
