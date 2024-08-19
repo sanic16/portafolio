@@ -96,6 +96,18 @@
 .nav__theme {
   display: none;
 }
+/* navbar-right */
+.nav__right {
+  display: flex;
+  align-items: center;
+}
+.inter {
+  display: flex;
+}
+
+.inter img {
+  width: 2rem;
+}
 
 @media screen and (max-width: 768px) {
   .nav__toggle {

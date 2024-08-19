@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@prisma/client": "^5.18.0",
+    "@types/react-world-flags": "^1.4.5",
     "cloudinary": "^2.4.0",
     "framer-motion": "^11.0.24",
     "handlebars": "^4.7.8",
@@ -22,6 +23,7 @@
     "react-google-recaptcha": "^3.1.0",
     "react-icons": "^5.0.1",
     "react-quill": "^2.0.0",
+    "react-world-flags": "^1.6.0",
     "sharp": "^0.33.4",
     "uuid": "^10.0.0",
     "zod": "^3.23.8"

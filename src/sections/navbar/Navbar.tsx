@@ -9,6 +9,7 @@ import { useModalContext } from "@/hooks/hooks";
 import { signInAction, signOutAction } from "@/actions";
 import { signOut as logout, useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
+import Flag from "react-world-flags";
 
 const pacifico = Pacifico({ subsets: ["latin"], weight: ["400"] });
 
@@ -19,6 +20,7 @@ const Navbar = () => {
   const pathname = usePathname();
   const closeMenu = () => setIsOpen(false);
   const { openModal } = useModalContext();
+  const pathnameWithoutLang = pathname.replace(/\/[a-z]{2}/, "");
 
   useEffect(() => {
     const changeBgOnScroll = () => {
@@ -87,7 +89,15 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div>
+        <div className={classes.nav__right}>
+          <div className={classes.inter}>
+            <Link href={`/es${pathnameWithoutLang}`}>
+              <Flag code="GT" width={32} />
+            </Link>
+            <Link href={`/en${pathnameWithoutLang}`}>
+              <Flag code="US" width={32} />
+            </Link>
+          </div>
           {session && session.data ? (
             <form
               action={async () => {
