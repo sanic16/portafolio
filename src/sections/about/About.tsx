@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import image from "@/../public/images/julius.jpeg";
+import image from "@/../public/images/me.jpg";
 import "./about.css";
 import Link from "next/link";
 import about_data from "./about__data";

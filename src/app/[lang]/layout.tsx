@@ -11,6 +11,7 @@ import Footer from "@/sections/footer/Footer";
 import GoogleAdsense from "@/components/google-adsense/GoogleAdsense/GoogleAdsense";
 import { SessionProvider } from "next-auth/react";
 import { getDictionary } from "./dictionaries";
+
 const Main = dynamic(() => import("../../components/main/Main"), {
   ssr: false,
 });

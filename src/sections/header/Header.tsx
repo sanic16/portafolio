@@ -1,6 +1,6 @@
 import Image from "next/image";
 import classes from "./Header.module.css";
-import me from "@/../public/images/julius.png";
+import me from "@/../public/images/me.png";
 import DocumentButton from "@/components/document-button/DocumentButton";
 import Link from "next/link";
 
