@@ -3,7 +3,6 @@ import { FaCode } from "react-icons/fa";
 import { FaServer } from "react-icons/fa";
 import { FaInbox } from "react-icons/fa";
 import React from "react";
-import data_services from "./data__services";
 import Service from "./Service";
 import "./services.css";
 
