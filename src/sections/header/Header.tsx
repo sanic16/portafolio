@@ -4,20 +4,25 @@ import me from "@/../public/images/julius.png";
 import DocumentButton from "@/components/document-button/DocumentButton";
 import Link from "next/link";
 
-const Header = () => {
+interface HeaderProps {
+  translations: {
+    greeting: string;
+    description: string;
+    cvButton: string;
+    contactButton: string;
+  };
+}
+
+const Header: React.FC<HeaderProps> = ({ translations }) => {
   return (
     <header id="header" className={classes.header}>
       <div className={`container ${classes.header__container}`}>
         <div className={classes.avatar}>
           <Image src={me} sizes="200px" alt="avatar" />
         </div>
-        <h1>
-          Que tal!, soy <span>Julio </span>
-        </h1>
-        <p>
-          Desarrollador Web Full Stack con conocimientos en JavaScript y Python
-          para el desarrollo de aplicaciones embebidas.
-        </p>
+        <h1 dangerouslySetInnerHTML={{ __html: translations.greeting }} />
+
+        <p>{translations.description}</p>
 
         <div className={classes.cts}>
           {/* <a href={`pdf/cv.pdf`} download className='btn primary'>
@@ -26,10 +31,10 @@ const Header = () => {
           <DocumentButton
             className="btn primary"
             pdfFile="pdf/cv.pdf"
-            title="Ver CV"
+            title={translations.cvButton}
           />
           <Link href="/contact" className="btn">
-            Contactar
+            {translations.contactButton}
           </Link>
         </div>
       </div>

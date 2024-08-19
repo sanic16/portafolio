@@ -1,0 +1,18 @@
+{
+  "header": {
+    "greeting": "¡Qué tal!, soy <span>Julio</span>",
+    "description": "Desarrollador Web Full Stack con conocimientos en JavaScript y Python para el desarrollo de aplicaciones embebidas.",
+    "cvButton": "Ver CV",
+    "contactButton": "Contactar"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description1": "Soy un desarrollador web full stack autodidacta con conocimientos en los lenguajes de programación JavaScript y Python, además de tener buenas bases en HTML y CSS.",
+    "description2": "En JavaScript, he trabajado con React, Next.js, Express y un poco de Nest.js para crear aplicaciones web y APIs REST con servicios de autenticación (JWT) y bases de datos relacionales y NoSQL, tanto con ORMs (Prisma) como con ODMs (Mongoose), así como consultas SQL y NoSQL, además de otros servicios como el envío de correos electrónicos y el manejo de servicios de almacenamiento en la nube como AWS S3.",
+    "description3": "En Python, uso principalmente Flask para crear APIs con autenticación JWT y SQLAlchemy como ORM para bases de datos SQL. Tengo conocimientos básicos de Django y actualmente estoy aprendiendo FastAPI.",
+    "description4": "También tengo experiencia en el despliegue de aplicaciones en varios servicios IaaS y PaaS, así como en SQL, serverless y Docker. Además, siempre estoy en busca de buenas prácticas para el desarrollo de software y la seguridad informática.",
+    "contactText": "Si buscas un desarrollador web fullstack autodidacta con conocimientos en JavaScript y Python, no dudes en contratarme.",
+    "name": "Julio Sanic",
+    "hireMeButton": "Contrátame"
+  }
+}

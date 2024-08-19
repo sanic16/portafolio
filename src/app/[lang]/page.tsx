@@ -6,6 +6,7 @@ import Projects from "@/sections/projects/Projects";
 import Services from "@/sections/services/Services";
 import { Metadata } from "next";
 import React from "react";
+import { getDictionary } from "./dictionaries";
 
 export const metadata: Metadata = {
   title: "Julio - Desarrollador Web",
@@ -15,11 +16,22 @@ export const metadata: Metadata = {
     "Desarrollador web, React, Next.js, Fullstack, MERN, TypeScript, react native",
 };
 
-export default function page() {
+export async function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "es" }];
+}
+
+export default async function page({
+  params: { lang },
+}: {
+  params: {
+    lang: string;
+  };
+}) {
+  const t = await getDictionary(lang);
   return (
     <>
-      <Header />
-      <About />
+      <Header translations={t.header} />
+      <About translations={t.about} />
       <Projects />
       <Services />
       <Education />

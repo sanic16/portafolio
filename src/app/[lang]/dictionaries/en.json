@@ -1,0 +1,18 @@
+{
+  "header": {
+    "greeting": "Hello!, I am <span>Julio</span>",
+    "description": "Full Stack Web Developer with knowledge in JavaScript and Python for embedded application development.",
+    "cvButton": "View CV",
+    "contactButton": "Contact"
+  },
+  "about": {
+    "title": "About Me",
+    "description1": "I am a self-taught full stack web developer with knowledge in JavaScript and Python, and a solid foundation in HTML and CSS.",
+    "description2": "In JavaScript, I have worked with React, Next.js, Express, and a bit of Nest.js to build web applications and REST APIs with authentication services (JWT) and relational and NoSQL databases, using both ORMs (Prisma) and ODMs (Mongoose), as well as SQL and NoSQL queries, email services, and cloud storage solutions like AWS S3.",
+    "description3": "In Python, I mainly use Flask to build APIs with JWT authentication and SQLAlchemy as an ORM for SQL databases. I have basic knowledge of Django and am currently learning FastAPI.",
+    "description4": "I also have experience deploying applications on various IaaS and PaaS services, as well as in SQL, serverless, and Docker. I am always looking for best practices in software development and cybersecurity.",
+    "contactText": "If you are looking for a self-taught full stack web developer with knowledge in JavaScript and Python, don't hesitate to hire me.",
+    "name": "Julio Sanic",
+    "hireMeButton": "Hire Me"
+  }
+}
