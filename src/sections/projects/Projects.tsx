@@ -7,29 +7,33 @@ interface ProjectsProps {
     title: string;
     description: string;
   };
+  lang: "EN" | "ES";
 }
 
-const Projects: React.FC<ProjectsProps> = async ({ translations }) => {
+const Projects: React.FC<ProjectsProps> = async ({ translations, lang }) => {
   const projects = await prisma.project.findMany({
     where: {
       OR: [
         {
           title: {
-            contains: "Coral y Mar",
+            contains: "Coral",
             mode: "insensitive",
           },
+          lang: lang,
         },
         {
           title: {
             contains: "smilecook",
             mode: "insensitive",
           },
+          lang,
         },
         {
           title: {
             contains: "juliusblog",
             mode: "insensitive",
           },
+          lang,
         },
       ],
     },

@@ -27,12 +27,18 @@ export default async function page({
     lang: string;
   };
 }) {
+  let language: "EN" | "ES";
+  if (lang === "en") {
+    language = "EN";
+  } else {
+    language = "ES";
+  }
   const t = await getDictionary(lang);
   return (
     <>
       <Header translations={t.header} />
       <About translations={t.about} />
-      <Projects translations={t.projects} />
+      <Projects translations={t.projects} lang={language} />
       <Services translations={t.services} />
       <Education translations={t.education} />
       <FloatMenu />
