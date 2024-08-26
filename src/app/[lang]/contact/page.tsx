@@ -6,6 +6,10 @@ import FormButton from "@/components/common/formButton/FormButton";
 import ReCAPTCHA from "react-google-recaptcha";
 import "./page.css";
 
+// export async function generateStaticParams() {
+//   return [{ lange: "es", lang: "en" }];
+// }
+
 export default function ContactPage() {
   const [captcha, setCaptcha] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);

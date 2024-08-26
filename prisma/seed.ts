@@ -13,6 +13,25 @@ const userData: Prisma.UserCreateInput[] = [
     projects: {
       create: [
         {
+          title: "CONESIEE",
+          description:
+            "Congresos Estudiantiles de Ingeniería Eléctrica y Electrónica",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/wgpztcudjmqljlbabkko",
+          githubUrl: "https://github.com/sanic16/conesiee-2024.git",
+          websiteUrl: "https://conesiee.codielectro.com/",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+        },
+        {
           title: "Coral y Mar",
           description:
             "Proyecto de acuario, venta de peces y accesorios. El proyecto está hecho con el stack MERN.",
