@@ -30,6 +30,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
+          lang: "ES",
         },
         {
           title: "Coral y Mar",
@@ -160,6 +161,26 @@ const userData: Prisma.UserCreateInput[] = [
             },
           },
           lang: "ES",
+        },
+        {
+          title: "CONESIEE",
+          description:
+            "Student Congress of Electrical and Electronic Engineering",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/wgpztcudjmqljlbabkko",
+          githubUrl: "https://github.com/sanic16/conesiee-2024.git",
+          websiteUrl: "https://conesiee.codielectro.com/",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+          lang: "EN",
         },
         {
           title: "Coral and Sea",
