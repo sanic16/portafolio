@@ -1,6 +1,5 @@
 import Projects from "@/components/projects/Projects";
 import { Suspense } from "react";
-import classes from "./page.module.css";
 import RotatingLoader from "@/components/rotating-loader/RotatingLoader";
 import prisma from "@/lib/prisma";
 
@@ -13,11 +12,9 @@ export default async function page({
   };
 }) {
   return (
-    <div className={classes.page}>
-      <Suspense fallback={<RotatingLoader />}>
-        <Projects page={id} lang={lang} />
-      </Suspense>
-    </div>
+    <Suspense fallback={<RotatingLoader />}>
+      <Projects page={id} lang={lang} />
+    </Suspense>
   );
 }
 

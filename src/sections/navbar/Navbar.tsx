@@ -62,7 +62,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
     >
       <div className={`container ${classes.nav__container}`}>
         <Link
-          href="/"
+          href={`/${lang}/`}
           onClick={closeMenu}
           className={`${classes.nav__logo} ${pacifico.className}`}
         >

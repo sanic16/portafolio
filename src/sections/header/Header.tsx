@@ -11,9 +11,10 @@ interface HeaderProps {
     cvButton: string;
     contactButton: string;
   };
+  lang: "es" | "en";
 }
 
-const Header: React.FC<HeaderProps> = ({ translations }) => {
+const Header: React.FC<HeaderProps> = ({ translations, lang }) => {
   return (
     <header id="header" className={classes.header}>
       <div className={`container ${classes.header__container}`}>
@@ -33,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ translations }) => {
             pdfFile="pdf/cv.pdf"
             title={translations.cvButton}
           />
-          <Link href="/contact" className="btn">
+          <Link href={`/${lang}/contact`} className="btn">
             {translations.contactButton}
           </Link>
         </div>

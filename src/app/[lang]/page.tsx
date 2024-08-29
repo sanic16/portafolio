@@ -24,7 +24,7 @@ export default async function page({
   params: { lang },
 }: {
   params: {
-    lang: string;
+    lang: "en" | "es";
   };
 }) {
   let language: "EN" | "ES";
@@ -36,8 +36,8 @@ export default async function page({
   const t = await getDictionary(lang);
   return (
     <>
-      <Header translations={t.header} />
-      <About translations={t.about} />
+      <Header translations={t.header} lang={lang} />
+      <About translations={t.about} lang={lang} />
       <Projects translations={t.projects} lang={language} />
       <Services translations={t.services} />
       <Education translations={t.education} />

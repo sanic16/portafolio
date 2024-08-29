@@ -9,7 +9,7 @@ interface ProjectsProps {
 }
 
 const Projects: React.FC<ProjectsProps> = async ({ page, lang }) => {
-  await new Promise((resolve) => setTimeout(resolve, 5000));
+  // await new Promise((resolve) => setTimeout(resolve, 5000));
 
   const totalItems = await prisma.project.count({
     where: { lang: lang === "en" ? "EN" : "ES" },
@@ -38,7 +38,7 @@ const Projects: React.FC<ProjectsProps> = async ({ page, lang }) => {
         {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
           <Link
             key={page}
-            href={`/projects/${page}`}
+            href={`/${lang}/projects/${page}`}
             className={page === numPage ? classes.active : undefined}
           >
             {page}

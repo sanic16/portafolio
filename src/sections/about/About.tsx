@@ -17,9 +17,11 @@ interface AboutProps {
     name: string;
     hireMeButton: string;
   };
+  lang: "en" | "es";
 }
 
-const About: FC<AboutProps> = ({ translations }) => {
+const About: FC<AboutProps> = ({ translations, lang }) => {
+  console.log(lang);
   return (
     <section id="about" className="about">
       <div className="container about__container">
@@ -46,7 +48,9 @@ const About: FC<AboutProps> = ({ translations }) => {
               <h3>{translations.name}</h3>
               <p>{translations.contactText}</p>
               <div className="about__img-btn">
-                <Link href="/contact">{translations.hireMeButton}</Link>
+                <Link href={`/${lang}/contact`}>
+                  {translations.hireMeButton}
+                </Link>
               </div>
             </div>
           </div>

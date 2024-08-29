@@ -9,3 +9,7 @@ export default async function page({
 }) {
   redirect(`/${lang}/projects/1`);
 }
+
+export async function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "es" }];
+}
