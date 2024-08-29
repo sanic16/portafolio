@@ -78,7 +78,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
             </li>
 
             <li>
-              <Link href={`/${lang}/projects`} onClick={closeMenu}>
+              <Link href={`/${lang}/projects/1`} onClick={closeMenu}>
                 {translations.projects}
               </Link>
             </li>

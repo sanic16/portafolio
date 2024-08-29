@@ -38,7 +38,7 @@ const Projects: React.FC<ProjectsProps> = async ({ page, lang }) => {
         {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
           <Link
             key={page}
-            href={`?page=${page}`}
+            href={`/projects/${page}`}
             className={page === numPage ? classes.active : undefined}
           >
             {page}
