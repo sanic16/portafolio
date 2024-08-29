@@ -8,6 +8,7 @@ export interface Lang {
   education: Education;
   footer: Footer;
   navbar: Navbar;
+  contact: Contact;
 }
 
 export interface About {
@@ -80,6 +81,19 @@ export interface Navbar {
   theme: string;
   signIn: string;
   signOut: string;
+}
+export interface Contact {
+  title: string;
+  description: string;
+  nameInputPlaceholder: string;
+  emailInputPlaceholder: string;
+  messageInputPlaceholder: string;
+  sendButton: string;
+  sendingButton: string;
+  thanksTitle: string;
+  thanksMessage: string;
+  sendAnotherMessage: string;
+  sendAnotherMessageLink: string;
 }
 
 const dictionaries: { [key: string]: () => Promise<Lang> } = {

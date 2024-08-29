@@ -99,5 +99,18 @@
     "theme": "Tema",
     "signIn": "Iniciar Sesion",
     "signOut": "Cerrar Sesión"
+  },
+  "contact": {
+    "title": "Contacto",
+    "description": "Si deseas ponerte en contacto conmigo, puedes hacerlo a través del siguiente formulario:",
+    "nameInputPlaceholder": "Nombre",
+    "emailInputPlaceholder": "Correo Electrónico",
+    "messageInputPlaceholder": "Mensaje",
+    "sendButton": "Enviar",
+    "sendingButton": "Enviando...",
+    "thanksTitle": "¡Gracias por contactarme!",
+    "thanksMessage": "Tu mensaje ha sido enviado con éxito. En breve me pondré en contacto contigo.",
+    "sendAnotherMessage": "Enviar otro mensaje",
+    "sendAnotherMessageLink": "Haz clic aquí"
   }
 }

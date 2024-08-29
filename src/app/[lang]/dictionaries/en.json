@@ -99,5 +99,18 @@
     "theme": "Theme",
     "signIn": "Sign In",
     "signOut": "Sign Out"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "description": "If you are interested in hiring me or have any questions, please fill out the form below.",
+    "nameInputPlaceholder": "Name",
+    "emailInputPlaceholder": "Email",
+    "messageInputPlaceholder": "Message",
+    "sendButton": "Send",
+    "sendingButton": "Sending...",
+    "thanksTitle": "Thank you for contacting me!",
+    "thanksMessage": "I will get back to you as soon as possible.",
+    "sendAnotherMessage": "Send another message",
+    "sendAnotherMessageLink": "Click here"
   }
 }
