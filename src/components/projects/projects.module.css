@@ -1,0 +1,31 @@
+.projects {
+  padding-top: 5rem;
+}
+
+.projects__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 3rem;
+  padding-bottom: 3rem;
+}
+
+.pagination {
+  padding-bottom: 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination a {
+  padding: 0.5rem;
+  padding-inline: 1rem;
+  margin: 0.5rem;
+  color: var(--light-color);
+  font-size: 1rem;
+  background-color: var(--dark-color);
+  border-radius: var(--border-radius-1);
+  display: flex;
+}
+
+.pagination .active {
+  background-color: var(--primary-color);
+}
