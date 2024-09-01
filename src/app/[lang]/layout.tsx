@@ -42,7 +42,7 @@ export default async function RootLayout({
               <Main>
                 <Navbar translations={t.navbar} />
                 {children}
-                <Footer translations={t.footer} />
+                <Footer {...t.footer} />
                 <ThemeMenu />
                 <ThemeModal />
               </Main>

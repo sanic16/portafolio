@@ -77,20 +77,21 @@
     ]
   },
   "footer": {
-    "title": "FullStack Developer Julio Sanic",
-    "description": "I am a versatile developer using various programming languages, frameworks, methodologies, and other tools to build modern web applications.",
-    "contactTitle": "Contact",
+    "title": "Node.js, React, Next.js, and Python Developer",
+    "description": "I am a programmer who uses JavaScript and Python for web and mobile application development. If you want to hire me, feel free to contact me.",
     "contact": {
+      "title": "Contact Me",
       "phone": "+502 5838-5370",
       "email1": "2596787670101@ingenieria.usac.edu.gt",
       "email2": "julio.sanic.gt.256@gmail.com"
     },
-    "languagesTitle": "Languages",
-    "languages": ["JavaScript", "Python", "C#", "Java", "C/C++"],
-    "frameworksTitle": "Frameworks",
-    "frameworks": ["React", "Express", "Flask", "NestJS", "Django"],
-    "othersTitle": "Others",
-    "others": ["SQL", "Git/Github", "Docker", "AWS"]
+    "navbar": {
+      "home": "Home",
+      "projects": "Projects",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "rights": "All rights reserved"
   },
   "navbar": {
     "home": "Home",

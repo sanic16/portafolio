@@ -60,18 +60,19 @@ export interface Education {
 export interface Footer {
   title: string;
   description: string;
-  contactTitle: string;
   contact: {
+    title: string;
     phone: string;
     email1: string;
     email2: string;
   };
-  languagesTitle: string;
-  languages: string[];
-  frameworksTitle: string;
-  frameworks: string[];
-  othersTitle: string;
-  others: string[];
+  navbar: {
+    home: string;
+    projects: string;
+    blog: string;
+    contact: string;
+  };
+  rights: string;
 }
 
 export interface Navbar {
