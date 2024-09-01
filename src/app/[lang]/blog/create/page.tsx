@@ -10,3 +10,7 @@ export default async function BlogPage() {
   const categoriesArray = categories.map((category) => category.name);
   return <CreatePostForm category={categoriesArray} />;
 }
+
+export async function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "es" }];
+}

@@ -9,3 +9,7 @@ export default async function page() {
     </div>
   );
 }
+
+export async function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "es" }];
+}
