@@ -352,6 +352,7 @@
   .menu__login {
     text-align: center;
     background: var(--dark-fixed-color);
+    padding: 0.5rem;
   }
 
   .menu__item-mobile {
@@ -366,10 +367,5 @@
 
   .menu__item-search {
     padding: 0.3rem;
-  }
-
-  .menu__item-search .search__form {
-    display: grid;
-    grid-template-columns: repeat(10, 10%);
   }
 }

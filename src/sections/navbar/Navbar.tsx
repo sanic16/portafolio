@@ -167,7 +167,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
             </li>
             <li className={classes.menu__item}>
               <NavLink
-                href={`/${lang}/contact`}
+                href={`/${lang}/more`}
                 className={classes.menu__link}
                 activeClassName={classes.active}
                 onClick={closeMenu}
