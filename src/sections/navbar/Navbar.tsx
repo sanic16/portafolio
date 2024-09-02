@@ -4,12 +4,13 @@ import Link from "next/link";
 import classes from "./Navbar.module.css";
 import { Pacifico } from "next/font/google";
 import { useEffect, useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaSearch, FaTimes } from "react-icons/fa";
 import { useModalContext } from "@/hooks/hooks";
 import { signInAction, signOutAction } from "@/actions";
 import { signOut as logout, useSession } from "next-auth/react";
 import { useParams, usePathname } from "next/navigation";
 import Flag from "react-world-flags";
+import NavLink from "./NavLink";
 
 const pacifico = Pacifico({ subsets: ["latin"], weight: ["400"] });
 
@@ -57,59 +58,33 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
   }, []);
 
   return (
-    <nav
-      className={`${classes.nav} ${bgOnScroll && classes["navbar--scroll"]}`}
+    <div
+      className={`${classes.navbar__container} ${
+        bgOnScroll && classes["navbar--scroll"]
+      }`}
     >
       <div className={`container ${classes.nav__container}`}>
-        <Link
-          href={`/${lang}/`}
-          onClick={closeMenu}
-          className={`${classes.nav__logo} ${pacifico.className}`}
-        >
-          JSanic
-        </Link>
-
-        <div className={`${classes.nav__menu} ${isOpen && classes.active}`}>
-          <ul>
-            <li>
-              <Link href={`/${lang}/`} onClick={closeMenu}>
-                {translations.home}
-              </Link>
-            </li>
-
-            <li>
-              <Link href={`/${lang}/projects/1`} onClick={closeMenu}>
-                {translations.projects}
-              </Link>
-            </li>
-            <li>
-              <Link href={`/${lang}/blog`} onClick={closeMenu}>
-                {translations.blog}
-              </Link>
-            </li>
-            <li className={classes.nav__theme}>
-              <Link
-                href="#"
-                onClick={() => {
-                  closeMenu();
-                  openModal();
-                }}
-              >
-                {translations.theme}
-              </Link>
-            </li>
-          </ul>
+        <div className={classes.logo}>
+          <Link
+            href={`/${lang}/`}
+            className={`${classes.nav__logo} ${pacifico.className}`}
+          >
+            Julio Sanic
+          </Link>
         </div>
-
-        <div className={classes.nav__right}>
-          <div className={classes.inter}>
-            <Link href={`/es${pathnameWithoutLang}`}>
-              <Flag code="GT" width={32} />
-            </Link>
-            <Link href={`/en${pathnameWithoutLang}`}>
-              <Flag code="US" width={32} />
-            </Link>
-          </div>
+        <div className={classes.search}>
+          <form className={classes.search__form}>
+            <input
+              type="text"
+              placeholder="Buscar..."
+              className={classes.search__input}
+            />
+            <button type="submit" className={classes.search__button}>
+              <FaSearch />
+            </button>
+          </form>
+        </div>
+        <div className={classes.login}>
           {session && session.data ? (
             <form
               action={async () => {
@@ -117,9 +92,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
                 await logout();
               }}
             >
-              <button className={classes.nav__contact}>
-                {translations.signOut}
-              </button>
+              <button>Logout</button>
             </form>
           ) : (
             <form
@@ -127,21 +100,58 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
                 await signInAction();
               }}
             >
-              <button className={classes.nav__contact}>
-                {translations.signIn}
-              </button>
+              <button>Login</button>
             </form>
           )}
         </div>
 
-        <button
-          className={classes.nav__toggle}
-          onClick={() => setIsOpen((prev) => !prev)}
-        >
-          {!isOpen ? <FaBars /> : <FaTimes />}
-        </button>
+        <div className={classes.inter}>
+          <Link href={`/es${pathnameWithoutLang}`}>ES</Link> |{" "}
+          <Link href={`/en${pathnameWithoutLang}`}>EN</Link>
+        </div>
+
+        <nav className={classes.nav__menu}>
+          <ul className={classes.menu__list}>
+            <li className={classes.menu__item}>
+              <NavLink
+                href={`/${lang}`}
+                className={classes.menu__link}
+                activeClassName={classes.active}
+              >
+                {translations.home}
+              </NavLink>
+            </li>
+            <li className={classes.menu__item}>
+              <NavLink
+                href={`/${lang}/projects/1`}
+                className={classes.menu__link}
+                activeClassName={classes.active}
+              >
+                {translations.projects}
+              </NavLink>
+            </li>
+            <li className={classes.menu__item}>
+              <NavLink
+                href={`/${lang}/blog`}
+                className={classes.menu__link}
+                activeClassName={classes.active}
+              >
+                {translations.blog}
+              </NavLink>
+            </li>
+            <li className={classes.menu__item}>
+              <NavLink
+                href={`/${lang}/contact`}
+                className={classes.menu__link}
+                activeClassName={classes.active}
+              >
+                Otros
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </nav>
+    </div>
   );
 };
 

@@ -1,5 +1,5 @@
 .page {
-  min-height: calc(100vh - 5rem);
-  margin-top: 5rem;
+  min-height: 100vh;
+  padding-top: 6rem;
   background-color: var(--white-color);
 }

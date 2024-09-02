@@ -17,14 +17,14 @@ const Footer: React.FC<FooterTranslations> = ({
       <div className="container">
         <div className="footer__content">
           <div className="footer__description">
-            <h2>{title}</h2>
+            <h3>{title}</h3>
             <p>{description}</p>
           </div>
           <div className="footer__contact">
-            <h2>{contact.title}</h2>
+            <h3>{contact.title}</h3>
             <ul>
               <li>
-                <a href={`mailto:${contact.email1}`}>{contact.email1}</a>
+                <a href={`mailto:${contact.email2}`}>{contact.email2}</a>
               </li>
               <li>
                 <a href={`tel:${contact.phone}`}>+502 {contact.phone}</a>

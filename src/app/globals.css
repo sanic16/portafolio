@@ -12,6 +12,7 @@
   --light-color: hsl(var(--primary-hue), 0%, var(--light-lightness));
   --dark-color: hsl(var(--primary-hue), 0%, var(--dark-lightness));
   --black-color: hsl(var(--primary-hue), 0%, var(--black-lightness));
+  --dark-fixed-color: hsl(var(--primary-hue), 0%, 16%);
 
   --border-radius-1: 0.25rem;
   --border-radius-2: 0.5rem;
@@ -119,7 +120,7 @@ img {
 .container {
   width: var(--container-width-lg);
   margin-inline: auto;
-  max-width: 1400px;
+  max-width: 1280px;
 }
 
 section {
