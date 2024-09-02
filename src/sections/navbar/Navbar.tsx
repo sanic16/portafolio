@@ -123,6 +123,18 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
 
         <nav className={`${classes.nav__menu} ${isOpen && classes.active}`}>
           <ul className={classes.menu__list}>
+            <li className={classes["menu__item-search"]}>
+              <form className={classes.search__form}>
+                <input
+                  type="text"
+                  placeholder="Buscar..."
+                  className={classes.search__input}
+                />
+                <button type="submit" className={classes.search__button}>
+                  <FaSearch />
+                </button>
+              </form>
+            </li>
             <li className={classes.menu__item}>
               <NavLink
                 href={`/${lang}`}
