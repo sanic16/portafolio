@@ -9,7 +9,6 @@ import { useModalContext } from "@/hooks/hooks";
 import { signInAction, signOutAction } from "@/actions";
 import { signOut as logout, useSession } from "next-auth/react";
 import { useParams, usePathname } from "next/navigation";
-import Flag from "react-world-flags";
 import NavLink from "./NavLink";
 
 const pacifico = Pacifico({ subsets: ["latin"], weight: ["400"] });
@@ -163,6 +162,11 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
               >
                 Otros
               </NavLink>
+            </li>
+            <li className={classes["menu__item-theme"]}>
+              <button className={classes.menu__theme} onClick={openModal}>
+                {translations.theme}
+              </button>
             </li>
           </ul>
         </nav>

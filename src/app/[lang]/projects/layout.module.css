@@ -3,3 +3,9 @@
   padding-top: 6rem;
   background-color: var(--white-color);
 }
+
+@media screen and (max-width: 576px) {
+  .page {
+    padding-top: 5rem;
+  }
+}

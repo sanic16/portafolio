@@ -87,6 +87,12 @@
   }
 }
 
+@media screen and (max-width: 576px) {
+  .header {
+    padding-top: 5rem;
+  }
+}
+
 @media screen and (max-height: 500px) {
   .header {
     margin-top: 5rem;
