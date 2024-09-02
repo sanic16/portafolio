@@ -205,6 +205,14 @@
   display: none;
 }
 
+.menu__item-login {
+  display: none;
+}
+
+.menu__inter-mobile {
+  display: none;
+}
+
 @media screen and (max-width: 992px) {
   .search {
     grid-column: 3 / 7;
@@ -320,16 +328,33 @@
     color: var(--dark-fixed-color);
   }
 
-  .menu__item-theme {
+  .menu__item-theme,
+  .menu__item-login,
+  .menu__item-inter-mobile {
     display: block;
   }
 
+  .menu__login,
   .menu__theme {
     padding: 0.3rem;
     width: 100%;
     font: inherit;
     text-align: left;
-    background: var(--dark-fixed-color);
+    background: transparent;
     color: white;
+  }
+
+  .menu__login {
+    text-align: center;
+    background: var(--dark-fixed-color);
+  }
+
+  .menu__item-mobile {
+    text-align: center;
+    color: var(--dark-fixed-color);
+  }
+
+  .menu__item-mobile a {
+    color: var(--dark-fixed-color);
   }
 }

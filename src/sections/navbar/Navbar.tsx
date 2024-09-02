@@ -164,9 +164,32 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
               </NavLink>
             </li>
             <li className={classes["menu__item-theme"]}>
-              <button className={classes.menu__theme} onClick={openModal}>
+              <button
+                className={classes.menu__theme}
+                onClick={() => {
+                  openModal();
+                  closeMenu();
+                }}
+              >
                 {translations.theme}
               </button>
+            </li>
+            <li className={classes["menu__item-login"]}>
+              <button
+                className={classes.menu__login}
+                onClick={() => {
+                  openModal();
+                  closeMenu();
+                }}
+              >
+                {translations.signIn}
+              </button>
+            </li>
+            <li className={classes["menu__item-inter-mobile"]}>
+              <div className={classes["menu__item-mobile"]}>
+                <Link href={`/es${pathnameWithoutLang}`}>ES</Link> |{" "}
+                <Link href={`/en${pathnameWithoutLang}`}>EN</Link>
+              </div>
             </li>
           </ul>
         </nav>
