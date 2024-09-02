@@ -150,6 +150,13 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
             </li>
           </ul>
         </nav>
+
+        <div
+          className={`${classes.menu__icon} ${isOpen && classes["menu--open"]}`}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </div>
       </div>
     </div>
   );
