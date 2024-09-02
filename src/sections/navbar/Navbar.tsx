@@ -37,7 +37,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
 
   useEffect(() => {
     const changeBgOnScroll = () => {
-      if (typeof window !== undefined) {
+      if (typeof window !== undefined && window.innerWidth > 576) {
         if (window.scrollY > 0) {
           setBgOnScroll(true);
         } else {
@@ -46,12 +46,12 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
       }
     };
 
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined" && window.innerWidth > 576) {
       window.addEventListener("scroll", changeBgOnScroll);
     }
 
     return () => {
-      if (typeof window !== "undefined") {
+      if (typeof window !== "undefined" && window.innerWidth > 576) {
         window.removeEventListener("scroll", changeBgOnScroll);
       }
     };
@@ -110,7 +110,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
           <Link href={`/en${pathnameWithoutLang}`}>EN</Link>
         </div>
 
-        <nav className={classes.nav__menu}>
+        <nav className={`${classes.nav__menu} ${isOpen && classes.active}`}>
           <ul className={classes.menu__list}>
             <li className={classes.menu__item}>
               <NavLink
