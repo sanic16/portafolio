@@ -57,6 +57,18 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 576) {
+      document.body.style.overflow = isOpen ? "hidden" : "auto";
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        document.body.style.overflow = "auto";
+      }
+    };
+  });
+
   return (
     <div
       className={`${classes.navbar__container} ${
@@ -117,6 +129,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
                 href={`/${lang}`}
                 className={classes.menu__link}
                 activeClassName={classes.active}
+                onClick={closeMenu}
               >
                 {translations.home}
               </NavLink>
@@ -126,6 +139,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
                 href={`/${lang}/projects/1`}
                 className={classes.menu__link}
                 activeClassName={classes.active}
+                onClick={closeMenu}
               >
                 {translations.projects}
               </NavLink>
@@ -135,6 +149,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
                 href={`/${lang}/blog`}
                 className={classes.menu__link}
                 activeClassName={classes.active}
+                onClick={closeMenu}
               >
                 {translations.blog}
               </NavLink>
@@ -144,6 +159,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
                 href={`/${lang}/contact`}
                 className={classes.menu__link}
                 activeClassName={classes.active}
+                onClick={closeMenu}
               >
                 Otros
               </NavLink>

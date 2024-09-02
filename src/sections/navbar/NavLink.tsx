@@ -7,6 +7,7 @@ interface NavLinkProps {
   children: React.ReactNode;
   className: string;
   activeClassName: string;
+  onClick?: () => void;
 }
 
 const NavLink: React.FC<NavLinkProps> = ({
@@ -14,6 +15,7 @@ const NavLink: React.FC<NavLinkProps> = ({
   children,
   className,
   activeClassName,
+  onClick,
 }) => {
   const pathname = usePathname();
 
@@ -21,6 +23,7 @@ const NavLink: React.FC<NavLinkProps> = ({
     <Link
       href={href}
       className={`${className} ${pathname === href && activeClassName}`}
+      onClick={onClick}
     >
       {children}
     </Link>
