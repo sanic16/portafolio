@@ -41,7 +41,7 @@ html {
   scroll-behavior: smooth;
 }
 main.bg-2 {
-  --white-lightness: 4%;
+  --white-lightness: 14%;
   --light-lightness: 18%;
   --dark-lightness: 85%;
   --black-lightness: 94%;
@@ -53,42 +53,42 @@ main.bg-2 {
 }
 
 main.color-1 {
-  --primary-hue: 0;
+  --primary-hue: 350;
   --primary-color: hsl(var(--primary-hue), 88%, 36%);
 }
 
 main.color-2 {
-  --primary-hue: 45;
+  --primary-hue: 30;
   --primary-color: hsl(var(--primary-hue), 88%, 36%);
 }
 
 main.color-3 {
-  --primary-hue: 90;
+  --primary-hue: 80;
   --primary-color: hsl(var(--primary-hue), 88%, 36%);
 }
 
 main.color-4 {
-  --primary-hue: 135;
+  --primary-hue: 150;
   --primary-color: hsl(var(--primary-hue), 88%, 36%);
 }
 
 main.color-5 {
-  --primary-hue: 180;
+  --primary-hue: 190;
   --primary-color: hsl(var(--primary-hue), 88%, 36%);
 }
 
 main.color-6 {
-  --primary-hue: 225;
+  --primary-hue: 215;
   --primary-color: hsl(var(--primary-hue), 88%, 36%);
 }
 
 main.color-7 {
-  --primary-hue: 270;
+  --primary-hue: 260;
   --primary-color: hsl(var(--primary-hue), 88%, 36%);
 }
 
 main.color-8 {
-  --primary-hue: 315;
+  --primary-hue: 340;
   --primary-color: hsl(var(--primary-hue), 88%, 36%);
 }
 
