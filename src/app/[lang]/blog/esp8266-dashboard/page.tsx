@@ -1,18 +1,41 @@
 "use client";
-import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
-import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import javascript from "react-syntax-highlighter/dist/esm/languages/hljs/javascript";
-
-SyntaxHighlighter.registerLanguage("javascript", javascript);
+import { useState } from "react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { coldarkDark as prismaStyle } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function PageEsp8266Dashboard() {
-  const codeString = `
-        const server = require('express')();
-        const http = require('http').Server(server);
-    `;
+  const codeString = `const server = require('express')();
+const http = require('http').Server(server);`;
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(codeString);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000); // Reset copied state after 2 seconds
+  };
   return (
-    <div className="container" style={{ marginTop: "5rem" }}>
-      <SyntaxHighlighter language="javascript" style={docco}>
+    <div className="container" style={{ position: "relative" }}>
+      <button
+        onClick={handleCopy}
+        style={{
+          position: "absolute",
+          right: 0,
+          top: 0,
+          background: "gold",
+          color: "white",
+          border: "none",
+          padding: "5px 10px",
+          cursor: "pointer",
+        }}
+      >
+        {copied ? "Copied!" : "Copy"}
+      </button>
+      <SyntaxHighlighter
+        language="javascript"
+        style={prismaStyle}
+        showInlineLineNumbers
+        showLineNumbers
+      >
         {codeString}
       </SyntaxHighlighter>
     </div>
