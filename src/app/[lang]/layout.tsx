@@ -11,6 +11,7 @@ import Footer from "@/sections/footer/Footer";
 import GoogleAdsense from "@/components/google-adsense/GoogleAdsense/GoogleAdsense";
 import { SessionProvider } from "next-auth/react";
 import { getDictionary } from "./dictionaries";
+import classes from "./layout.module.css";
 
 const Main = dynamic(() => import("../../components/main/Main"), {
   ssr: false,
@@ -41,7 +42,7 @@ export default async function RootLayout({
             <body>
               <Main>
                 <Navbar translations={t.navbar} />
-                {children}
+                <div className={classes.main}>{children}</div>
                 <Footer {...t.footer} />
                 <ThemeMenu />
                 <ThemeModal />

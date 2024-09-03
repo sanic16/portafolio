@@ -1,11 +1,10 @@
-.page {
+.main {
   min-height: 100vh;
   padding-top: 6rem;
-  background-color: var(--white-color);
 }
 
 @media screen and (max-width: 576px) {
-  .page {
+  .main {
     padding-top: 5rem;
   }
 }

@@ -6,6 +6,16 @@
   font-size: 0.9rem;
 }
 
+.footer h3 {
+  background: linear-gradient(to right, var(--dark-fixed-color), #777),
+    var(--dark-fixed-color);
+  font-weight: 500;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
 .footer__content {
   display: flex;
   justify-content: space-between;

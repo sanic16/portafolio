@@ -1,9 +1,8 @@
 .header {
-  padding-top: 6rem;
-  height: 100vh;
   display: grid;
   place-items: center;
   background-color: var(--white-color);
+  height: calc(100vh - 6rem);
 }
 
 .header__container {
@@ -84,12 +83,6 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .header {
-    padding-top: 5rem;
   }
 }
 
