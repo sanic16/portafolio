@@ -1,6 +1,13 @@
 .main {
   min-height: 100vh;
   padding-top: 6rem;
+  background: radial-gradient(
+    circle at center,
+    hsla(var(--primary-hue), 80%, 15%, 0.4) 0%,
+    /* Stronger color at center */ hsla(var(--primary-hue), 80%, 12%, 0.1) 25%,
+    /* Soft transition outward */ hsla(var(--primary-hue), 80%, 11%, 0.2) 25%,
+    var(--white-color) 100%
+  );
 }
 
 @media screen and (max-width: 576px) {

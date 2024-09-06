@@ -13,6 +13,26 @@ const userData: Prisma.UserCreateInput[] = [
     projects: {
       create: [
         {
+          title: "Predio",
+          description:
+            "Website para la venta de autos. El proyecto está hecho con NextJS, TailwindCSS, MongoDB y Shadcn",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/henry-ajquejay/huw6telvsxlrxxgtyzks",
+          githubUrl: "",
+          websiteUrl: "https://predio-henry-ajquejay.codielectro.com/",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+          lang: "ES",
+        },
+        {
           title: "CONESIEE",
           description:
             "Congresos Estudiantiles de Ingeniería Eléctrica y Electrónica",
@@ -141,6 +161,26 @@ const userData: Prisma.UserCreateInput[] = [
             },
           },
           lang: "ES",
+        },
+        {
+          title: "Predio",
+          description:
+            "Website for car sales. The project is built with NextJS, TailwindCSS, MongoDB, and Shadcn",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/henry-ajquejay/huw6telvsxlrxxgtyzks",
+          githubUrl: "",
+          websiteUrl: "https://predio-henry-ajquejay.codielectro.com/",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+          lang: "EN",
         },
         {
           title: "CodiElectro",

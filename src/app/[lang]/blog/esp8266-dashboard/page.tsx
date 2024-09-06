@@ -1,4 +1,5 @@
 "use client";
+import BlogMainHeading from "@/components/headings/blogMainHeading/BlogMainHeading";
 import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coldarkDark as prismaStyle } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -14,30 +15,35 @@ const http = require('http').Server(server);`;
     setTimeout(() => setCopied(false), 2000); // Reset copied state after 2 seconds
   };
   return (
-    <div className="container" style={{ position: "relative" }}>
-      <button
-        onClick={handleCopy}
-        style={{
-          position: "absolute",
-          right: 0,
-          top: 0,
-          background: "gold",
-          color: "white",
-          border: "none",
-          padding: "5px 10px",
-          cursor: "pointer",
-        }}
-      >
-        {copied ? "Copied!" : "Copy"}
-      </button>
-      <SyntaxHighlighter
-        language="javascript"
-        style={prismaStyle}
-        showInlineLineNumbers
-        showLineNumbers
-      >
-        {codeString}
-      </SyntaxHighlighter>
+    <div className="container">
+      <BlogMainHeading>
+        ESP8266 Dashboard with WebSocket and Express.js
+      </BlogMainHeading>
+      <div style={{ position: "relative" }}>
+        <button
+          onClick={handleCopy}
+          style={{
+            position: "absolute",
+            right: 0,
+            top: 0,
+            background: "gold",
+            color: "white",
+            border: "none",
+            padding: "5px 10px",
+            cursor: "pointer",
+          }}
+        >
+          {copied ? "Copied!" : "Copy"}
+        </button>
+        <SyntaxHighlighter
+          language="javascript"
+          style={prismaStyle}
+          showInlineLineNumbers
+          showLineNumbers
+        >
+          {codeString}
+        </SyntaxHighlighter>
+      </div>
     </div>
   );
 }

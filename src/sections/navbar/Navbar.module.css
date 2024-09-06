@@ -5,7 +5,7 @@
   left: 0;
   height: 6rem;
   width: 100vw;
-  box-shadow: 0 0.1rem 1rem hsla(0, 5%, var(--black-lightness), 0.7);
+  box-shadow: 0 0.1rem 0.5rem hsla(0, 5%, var(--black-lightness), 0.7);
   display: grid;
   align-items: center;
   z-index: 1;

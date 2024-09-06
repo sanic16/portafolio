@@ -1,0 +1,27 @@
+.mainHeading {
+  font-size: 2.5rem; /* Adjust font size as needed */
+  font-weight: bold; /* Makes the text bold */
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--dark-color)
+  ); /* Adds gradient background */
+  -webkit-background-clip: text; /* Applies background to text */
+  -webkit-text-fill-color: transparent; /* Makes text transparent */
+  background-clip: text; /* Applies background to text */
+
+  text-align: center; /* Centers the heading text */
+  margin: 1rem 0; /* Adds vertical margin to space out from other elements */
+  padding: 0.5rem; /* Adds some padding around the text */
+  line-height: 1.2; /* Adjust line height for better readability */
+  letter-spacing: 0.05em; /* Adds slight letter spacing for a more polished look */
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 600px) {
+  .mainHeading {
+    font-size: 2rem; /* Smaller font size for small screens */
+    margin: 0.5rem 0; /* Reduced margin for smaller screens */
+    padding: 0.25rem; /* Reduced padding for smaller screens */
+  }
+}
