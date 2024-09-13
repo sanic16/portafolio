@@ -13,6 +13,26 @@ const userData: Prisma.UserCreateInput[] = [
     projects: {
       create: [
         {
+          title: "Servicios Eléctricos",
+          description:
+            "Proyecto de servicios eléctricos. Componetizado con Next.js y TailwindCSS.",
+          websiteUrl: "https://henry-electricity.vercel.app/",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/vr7xe9bcgnhqb9q1sxzz",
+          githubUrl: "",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+          lang: "ES",
+        },
+        {
           title: "Predio",
           description:
             "Website para la venta de autos. El proyecto está hecho con NextJS, TailwindCSS, MongoDB y Shadcn",
@@ -122,34 +142,15 @@ const userData: Prisma.UserCreateInput[] = [
           },
           lang: "ES",
         },
+        // ENGLISH
         {
-          title: "Servicios Eléctricos",
+          title: "Electrical Services",
           description:
-            "Proyecto de servicios eléctricos. Componetizado con Next.js y TailwindCSS.",
-          websiteUrl: "https://electroser.juliosanic.site/",
-          githubUrl: "https://github.com/sanic16/tailwind_servicios_electricos",
+            "Electrical services project. Componentized with Next.js and TailwindCSS.",
+          websiteUrl: "https://henry-electricity.vercel.app/",
+          githubUrl: "",
           imageUrl:
-            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/snn7zn6relapeog9osic",
-          categories: {
-            connectOrCreate: {
-              where: {
-                name: "TailwindCSS",
-              },
-              create: {
-                name: "TailwindCSS",
-              },
-            },
-          },
-          lang: "ES",
-        },
-        {
-          title: "NextJS Discuss",
-          description:
-            "Proyecto de foro. Realizado con Next.js, TailwindCSS, MongoDB y AuthJS",
-          websiteUrl: "https://discuss.juliosanic.site/",
-          githubUrl: "https://github.com/sanic16/nextjs-discuss",
-          imageUrl:
-            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/clg5pgfzqd94wklrahok",
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/vr7xe9bcgnhqb9q1sxzz",
           categories: {
             connectOrCreate: {
               where: {
@@ -160,7 +161,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "ES",
+          lang: "EN",
         },
         {
           title: "Predio",
