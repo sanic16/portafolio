@@ -155,7 +155,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
                 {translations.projects}
               </NavLink>
             </li>
-            <li className={classes.menu__item}>
+            {/* <li className={classes.menu__item}>
               <NavLink
                 href={`/${lang}/blog`}
                 className={classes.menu__link}
@@ -174,7 +174,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
               >
                 Otros
               </NavLink>
-            </li>
+            </li> */}
             <li className={classes["menu__item-theme"]}>
               <button
                 className={classes.menu__theme}
