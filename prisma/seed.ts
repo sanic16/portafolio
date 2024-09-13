@@ -303,46 +303,6 @@ const userData: Prisma.UserCreateInput[] = [
           lang: "EN",
         },
         {
-          title: "Electrical Services",
-          description:
-            "Electrical services project. Componentized with Next.js and TailwindCSS.",
-          websiteUrl: "https://electroser.juliosanic.site/",
-          githubUrl: "https://github.com/sanic16/tailwind_servicios_electricos",
-          imageUrl:
-            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/snn7zn6relapeog9osic",
-          categories: {
-            connectOrCreate: {
-              where: {
-                name: "TailwindCSS",
-              },
-              create: {
-                name: "TailwindCSS",
-              },
-            },
-          },
-          lang: "EN",
-        },
-        {
-          title: "NextJS Discuss",
-          description:
-            "Forum project. Built with Next.js, TailwindCSS, MongoDB, and AuthJS.",
-          websiteUrl: "https://discuss.juliosanic.site/",
-          githubUrl: "https://github.com/sanic16/nextjs-discuss",
-          imageUrl:
-            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/clg5pgfzqd94wklrahok",
-          categories: {
-            connectOrCreate: {
-              where: {
-                name: "Next.js",
-              },
-              create: {
-                name: "Next.js",
-              },
-            },
-          },
-          lang: "EN",
-        },
-        {
           title: "CodiElectro",
           description: "IT services website. Built with Next.js.",
           websiteUrl: "https://www.codielectro.com",
