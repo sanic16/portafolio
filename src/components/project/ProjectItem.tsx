@@ -25,14 +25,16 @@ const ProjectItem = ({ project }: ProjectProps) => {
         >
           Ver
         </a>
-        <a
-          className="btn black"
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </a>
+        {project.githubUrl && (
+          <a
+            className="btn black"
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+        )}
         {/* {project.github_frontend && (
                   <a
                     className="btn black"
