@@ -50,6 +50,26 @@ const userData: Prisma.UserCreateInput[] = [
           lang: "ES",
         },
         {
+          title: "Servicios Eléctricos",
+          description:
+            "Proyecto de servicios eléctricos. Componetizado con Next.js y TailwindCSS.",
+          websiteUrl: "https://henry-electricity.vercel.app/",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/vr7xe9bcgnhqb9q1sxzz",
+          githubUrl: "",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+          lang: "ES",
+        },
+        {
           title: "Predio",
           description:
             "Website para la venta de autos. El proyecto está hecho con NextJS, TailwindCSS, MongoDB y Shadcn",
@@ -158,32 +178,34 @@ const userData: Prisma.UserCreateInput[] = [
           },
           lang: "ES",
         },
-        // English projects
         {
-          title: "Brayalex | The Machine Doctor",
-          description: "Industrial Engineering service in Robotics, Pneumatics, Electrical, Mechanical, and Automation. Made with NextJS",
+          title: "Servicios Eléctricos",
+          description:
+            "Proyecto de servicios eléctricos. Componetizado con Next.js y TailwindCSS.",
+          websiteUrl: "https://electroser.juliosanic.site/",
+          githubUrl: "https://github.com/sanic16/tailwind_servicios_electricos",
           imageUrl:
-            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/portfolio/yx0sazqa2jbiv8ixtnbl",
-            websiteUrl: "https://brayalex.com/",
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/snn7zn6relapeog9osic",
           categories: {
             connectOrCreate: {
               where: {
-                name: "Next.js",
+                name: "TailwindCSS",
               },
               create: {
-                name: "Next.js",
+                name: "TailwindCSS",
               },
             },
           },
-          lang: "ES"
+          lang: "ES",
         },
         {
-          title: "Electricity Services",
+          title: "NextJS Discuss",
           description:
-            "Project to provide electrical services. The project is built with NextJS, TailwindCSS, MongoDB, and Shadcn",
+            "Proyecto de foro. Realizado con Next.js, TailwindCSS, MongoDB y AuthJS",
+          websiteUrl: "https://discuss.juliosanic.site/",
+          githubUrl: "https://github.com/sanic16/nextjs-discuss",
           imageUrl:
-            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/vr7xe9bcgnhqb9q1sxzz",
-          websiteUrl: "https://henry-electricity.vercel.app/",
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/clg5pgfzqd94wklrahok",
           categories: {
             connectOrCreate: {
               where: {
