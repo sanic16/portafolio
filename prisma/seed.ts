@@ -14,9 +14,9 @@ const userData: Prisma.UserCreateInput[] = [
       create: [
         {
           title: "Brayalex | The Machine Doctor",
-          description: "Servicio de Ingeniería Industrial en Robótica, Neumática, Electricad, Mecánica y Automatización. Realizado con NextJS",
+          description: "Website para servicios de reparación de máquinas. El proyecto está hecho con NextJS.",
           imageUrl:
-            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/portfolio/yx0sazqa2jbiv8ixtnbl",
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/yx0sazqa2jbiv8ixtnbl",
             websiteUrl: "https://brayalex.com/",
           categories: {
             connectOrCreate: {
@@ -37,26 +37,6 @@ const userData: Prisma.UserCreateInput[] = [
           imageUrl:
             "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/vr7xe9bcgnhqb9q1sxzz",
           websiteUrl: "https://henry-electricity.vercel.app/",
-          categories: {
-            connectOrCreate: {
-              where: {
-                name: "Next.js",
-              },
-              create: {
-                name: "Next.js",
-              },
-            },
-          },
-          lang: "ES",
-        },
-        {
-          title: "Servicios Eléctricos",
-          description:
-            "Proyecto de servicios eléctricos. Componetizado con Next.js y TailwindCSS.",
-          websiteUrl: "https://henry-electricity.vercel.app/",
-          imageUrl:
-            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/vr7xe9bcgnhqb9q1sxzz",
-          githubUrl: "",
           categories: {
             connectOrCreate: {
               where: {
@@ -179,9 +159,47 @@ const userData: Prisma.UserCreateInput[] = [
           lang: "ES",
         },
         {
-          title: "Servicios Eléctricos",
+          title: "CodiElectro",
           description:
-            "Proyecto de servicios eléctricos. Componetizado con Next.js y TailwindCSS.",
+            "Sitio web de servicios informáticos. Realizado con Next.js",
+          websiteUrl: "https://www.codielectro.com",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/bjnhwjcqepyy96prll9e",
+          githubUrl: "https://github.com/sanic16/",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+          lang: "ES",
+        },
+        {
+          title: "Brayalex | The Machine Doctor",
+          description: "Website for machine repair services. The project is built with NextJS.",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/yx0sazqa2jbiv8ixtnbl",
+            websiteUrl: "https://brayalex.com/",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+          lang: "ES"
+        },
+        {
+          title: "ELECTRICAL SERVICES",
+          description:
+            "Project to provide electrical services. The project is built with NextJS, TailwindCSS, MongoDB, and Shadcn",
           websiteUrl: "https://electroser.juliosanic.site/",
           githubUrl: "https://github.com/sanic16/tailwind_servicios_electricos",
           imageUrl:
@@ -193,26 +211,6 @@ const userData: Prisma.UserCreateInput[] = [
               },
               create: {
                 name: "TailwindCSS",
-              },
-            },
-          },
-          lang: "ES",
-        },
-        {
-          title: "NextJS Discuss",
-          description:
-            "Proyecto de foro. Realizado con Next.js, TailwindCSS, MongoDB y AuthJS",
-          websiteUrl: "https://discuss.juliosanic.site/",
-          githubUrl: "https://github.com/sanic16/nextjs-discuss",
-          imageUrl:
-            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/clg5pgfzqd94wklrahok",
-          categories: {
-            connectOrCreate: {
-              where: {
-                name: "Next.js",
-              },
-              create: {
-                name: "Next.js",
               },
             },
           },
@@ -237,27 +235,6 @@ const userData: Prisma.UserCreateInput[] = [
           },
           lang: "EN",
         },
-        {
-          title: "CodiElectro",
-          description:
-            "Sitio web de servicios informáticos. Realizado con Next.js",
-          websiteUrl: "https://www.codielectro.com",
-          imageUrl:
-            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/bjnhwjcqepyy96prll9e",
-          githubUrl: "https://github.com/sanic16/",
-          categories: {
-            connectOrCreate: {
-              where: {
-                name: "Next.js",
-              },
-              create: {
-                name: "Next.js",
-              },
-            },
-          },
-          lang: "ES",
-        },
-
         {
           title: "CONESIEE",
           description:
