@@ -258,7 +258,7 @@ const userData: Prisma.UserCreateInput[] = [
         {
           title: "Coral and Sea",
           description:
-            "Aquarium project, selling fish and accessories. The project is built with the MERN stack..",
+            "Aquarium project, selling fish and accessories. The project is built with the MERN stack.",
           imageUrl:
             "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/jde4y1taeeiz9u2nj07x",
           websiteUrl: "https://coralymar.codielectro.com/",
