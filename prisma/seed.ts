@@ -244,7 +244,7 @@ const userData: Prisma.UserCreateInput[] = [
           githubUrl: "https://github.com/sanic16/conesiee-2024.git",
           websiteUrl: "https://conesiee.codielectro.com/",
           categories: {
-            connectOrCreate: {
+            connectOrCreate: { 
               where: {
                 name: "Next.js",
               },
