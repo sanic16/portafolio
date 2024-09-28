@@ -194,23 +194,22 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "ES"
+          lang: "EN"
         },
         {
-          title: "ELECTRICAL SERVICES",
+          title: "Electrical Services",
           description:
             "Project to provide electrical services. The project is built with NextJS, TailwindCSS, MongoDB, and Shadcn",
-          websiteUrl: "https://electroser.juliosanic.site/",
-          githubUrl: "https://github.com/sanic16/tailwind_servicios_electricos",
           imageUrl:
-            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/snn7zn6relapeog9osic",
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/vr7xe9bcgnhqb9q1sxzz",
+          websiteUrl: "https://henry-electricity.vercel.app/",
           categories: {
             connectOrCreate: {
               where: {
-                name: "TailwindCSS",
+                name: "Next.js",
               },
               create: {
-                name: "TailwindCSS",
+                name: "Next.js",
               },
             },
           },
