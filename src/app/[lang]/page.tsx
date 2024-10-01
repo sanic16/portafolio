@@ -36,10 +36,10 @@ export default async function page({
   const t = await getDictionary(lang);
   return (
     <>
-      <Header translations={t.header} lang={lang} />
-      <About translations={t.about} lang={lang} />
+      {/* <Header translations={t.header} lang={lang} />
+      <About translations={t.about} lang={lang} /> */}
       <Projects translations={t.projects} lang={language} />
-      <Services translations={t.services} />
+      {/* <Services translations={t.services} /> */}
       <Education translations={t.education} />
       <FloatMenu />
     </>
