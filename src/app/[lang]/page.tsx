@@ -40,7 +40,7 @@ export default async function page({
       <About translations={t.about} lang={lang} /> */}
       <Projects translations={t.projects} lang={language} />
       <Services translations={t.services} />
-      <Education translations={t.education} />
+      {/* <Education translations={t.education} /> */}
       <FloatMenu />
     </>
   );
