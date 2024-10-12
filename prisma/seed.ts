@@ -13,13 +13,30 @@ const userData: Prisma.UserCreateInput[] = [
     projects: {
       create: [
         {
+          title: "Brayalex | The Machine Doctor",
+          description: "Website para servicios de reparación de máquinas. El proyecto está hecho con NextJS.",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/yx0sazqa2jbiv8ixtnbl",
+            websiteUrl: "https://brayalex.com/",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+          lang: "ES"
+        },
+        {
           title: "Servicios Eléctricos",
           description:
-            "Proyecto de servicios eléctricos. Componetizado con Next.js y TailwindCSS.",
-          websiteUrl: "https://henry-electricity.vercel.app/",
+            "Proyecto para brindar servicios eléctricos. El proyecto está hecho con NextJS, TailwindCSS, MongoDB y Shadcn",
           imageUrl:
-            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/vr7xe9bcgnhqb9q1sxzz",
-          githubUrl: "",
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/vr7xe9bcgnhqb9q1sxzz",
+          websiteUrl: "https://henry-electricity.vercel.app/",
           categories: {
             connectOrCreate: {
               where: {
@@ -38,7 +55,6 @@ const userData: Prisma.UserCreateInput[] = [
             "Website para la venta de autos. El proyecto está hecho con NextJS, TailwindCSS, MongoDB y Shadcn",
           imageUrl:
             "https://res.cloudinary.com/dczuv9eyw/henry-ajquejay/huw6telvsxlrxxgtyzks",
-          githubUrl: "",
           websiteUrl: "https://predio-henry-ajquejay.codielectro.com/",
           categories: {
             connectOrCreate: {
@@ -142,47 +158,6 @@ const userData: Prisma.UserCreateInput[] = [
           },
           lang: "ES",
         },
-        // ENGLISH
-        {
-          title: "Electrical Services",
-          description:
-            "Electrical services project. Componentized with Next.js and TailwindCSS.",
-          websiteUrl: "https://henry-electricity.vercel.app/",
-          githubUrl: "",
-          imageUrl:
-            "https://res.cloudinary.com/dczuv9eyw/image/upload/portfolio/vr7xe9bcgnhqb9q1sxzz",
-          categories: {
-            connectOrCreate: {
-              where: {
-                name: "Next.js",
-              },
-              create: {
-                name: "Next.js",
-              },
-            },
-          },
-          lang: "EN",
-        },
-        {
-          title: "Predio",
-          description:
-            "Website for car sales. The project is built with NextJS, TailwindCSS, MongoDB, and Shadcn",
-          imageUrl:
-            "https://res.cloudinary.com/dczuv9eyw/henry-ajquejay/huw6telvsxlrxxgtyzks",
-          githubUrl: "",
-          websiteUrl: "https://predio-henry-ajquejay.codielectro.com/",
-          categories: {
-            connectOrCreate: {
-              where: {
-                name: "Next.js",
-              },
-              create: {
-                name: "Next.js",
-              },
-            },
-          },
-          lang: "EN",
-        },
         {
           title: "CodiElectro",
           description:
@@ -204,13 +179,30 @@ const userData: Prisma.UserCreateInput[] = [
           lang: "ES",
         },
         {
-          title: "CONESIEE",
-          description:
-            "Student Congress of Electrical and Electronic Engineering",
+          title: "Brayalex | The Machine Doctor",
+          description: "Website for machine repair services. The project is built with NextJS.",
           imageUrl:
-            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/wgpztcudjmqljlbabkko",
-          githubUrl: "https://github.com/sanic16/conesiee-2024.git",
-          websiteUrl: "https://conesiee.codielectro.com/",
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/yx0sazqa2jbiv8ixtnbl",
+            websiteUrl: "https://brayalex.com/",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+          lang: "EN"
+        },
+        {
+          title: "Electrical Services",
+          description:
+            "Project to provide electrical services. The project is built with NextJS, TailwindCSS, MongoDB, and Shadcn",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/vr7xe9bcgnhqb9q1sxzz",
+          websiteUrl: "https://henry-electricity.vercel.app/",
           categories: {
             connectOrCreate: {
               where: {
@@ -224,9 +216,48 @@ const userData: Prisma.UserCreateInput[] = [
           lang: "EN",
         },
         {
+          title: "Predio",
+          description:
+            "Website for car sales. The project is built with NextJS, TailwindCSS, MongoDB, and Shadcn",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/henry-ajquejay/huw6telvsxlrxxgtyzks",
+          websiteUrl: "https://predio-henry-ajquejay.codielectro.com/",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+          lang: "EN",
+        },
+        {
+          title: "CONESIEE",
+          description:
+            "Student Congress of Electrical and Electronic Engineering",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/wgpztcudjmqljlbabkko",
+          githubUrl: "https://github.com/sanic16/conesiee-2024.git",
+          websiteUrl: "https://conesiee.codielectro.com/", 
+          categories: {
+            connectOrCreate: { 
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+          lang: "EN",
+        },
+        {
           title: "Coral and Sea",
           description:
-            "Aquarium project, selling fish and accessories. The project is built with the MERN stack.",
+            "Aquarium project, selling fish and accessories. The project is built with the MERN stack..",
           imageUrl:
             "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/jde4y1taeeiz9u2nj07x",
           websiteUrl: "https://coralymar.codielectro.com/",
