@@ -4,7 +4,6 @@ import classes from "./createPostForm.module.css";
 import { useFormState } from "react-dom";
 import { createPostAction } from "@/actions";
 import FormButton from "../common/formButton/FormButton";
-import ReactQuillEditor from "./ReactQuillEditor";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -66,9 +65,13 @@ const CreatePostForm = ({ category }: { category: string[] }) => {
         </span>
       </div>
       <div className={classes.form__group}>
-        <ReactQuillEditor
-          description={description}
-          setDescription={changeDescription}
+        <label htmlFor="description" className={classes.form__label} />
+        <textarea
+          name="description"
+          id="description"
+          className={classes.form__input}
+          placeholder="Descripción"
+          onChange={(e) => changeDescription(e.target.value)}
         />
         <span className={classes.form__error}>
           {formState.errors.description?.join(", ")}
