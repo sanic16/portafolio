@@ -1,12 +1,14 @@
 import { redirect } from "next/navigation";
 
-export default async function page({
-  params: { lang },
-}: {
-  params: {
+type ProjectsPageProps = {
+  params: Promise<{
     lang: string;
-  };
-}) {
+  }>;
+};
+
+export default async function ProjectsPage({ params }: ProjectsPageProps) {
+  const { lang } = await params;
+
   redirect(`/${lang}/projects/1`);
 }
 

@@ -6,16 +6,12 @@ import ModalContextProvider from "@/context/modal/ModalContextProvider";
 import ThemeModal from "@/theme/ThemeModal";
 import ThemeMenu from "@/sections/theme-modal-menu/ThemeMenu";
 import ThemeContextProvider from "@/context/theme/ThemeContextProvider";
-import dynamic from "next/dynamic";
 import Footer from "@/sections/footer/Footer";
 import GoogleAdsense from "@/components/google-adsense/GoogleAdsense/GoogleAdsense";
 import { SessionProvider } from "next-auth/react";
 import { getDictionary } from "./dictionaries";
 import classes from "./layout.module.css";
-
-const Main = dynamic(() => import("../../components/main/Main"), {
-  ssr: false,
-});
+import MainProvider from "@/components/providers/MainProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,15 +20,18 @@ export const metadata: Metadata = {
   description: "Desarrollador web fullstack, especializado en React y Next.js.",
 };
 
-export default async function RootLayout({
-  params: { lang },
-  children,
-}: Readonly<{
-  params: {
-    lang: string;
-  };
+type RootLayoutProps = {
+  params: Promise<{
+    lang: "es" | "en";
+  }>;
   children: React.ReactNode;
-}>) {
+};
+
+export default async function RootLayout({
+  params,
+  children,
+}: RootLayoutProps) {
+  const { lang } = await params;
   const t = await getDictionary(lang);
   return (
     <html lang={lang}>
@@ -40,13 +39,13 @@ export default async function RootLayout({
         <ThemeContextProvider>
           <ModalContextProvider>
             <body>
-              <Main>
+              <MainProvider>
                 <Navbar translations={t.navbar} />
                 <div className={classes.main}>{children}</div>
                 <Footer {...t.footer} />
                 <ThemeMenu />
                 <ThemeModal />
-              </Main>
+              </MainProvider>
               <GoogleAdsense />
             </body>
           </ModalContextProvider>

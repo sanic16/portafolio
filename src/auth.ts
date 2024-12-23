@@ -1,58 +1,27 @@
-import type { NextAuthConfig } from "next-auth";
 import NextAuth from "next-auth";
+import { PrismaAdapter } from "@auth/prisma-adapter";
 import prisma from "./lib/prisma";
-import CredentialsProvider from "next-auth/providers/credentials";
-
-const credentialsConfig = CredentialsProvider({
-  name: "Credenciales",
-  credentials: {
-    username: {
-      label: "Usuario",
-      type: "email",
-      placeholder: "Correo Electrónico",
-    },
-    password: {
-      label: "Contraseña",
-      type: "password",
-    },
-  },
-  async authorize(credentials) {
-    if (!credentials.username || !credentials.password) {
-      return null;
-    }
-    const user = await prisma.user.findFirst({
-      where: {
-        AND: [
-          { email: credentials.username },
-          { password: credentials.password },
-        ],
-      },
-      select: {
-        id: true,
-        email: true,
-        fullName: true,
-      },
-    });
-    if (user) {
-      return {
-        id: user.id,
-        email: user.email,
-        name: user.fullName,
-      };
-    } else {
-      return null;
-    }
-  },
-});
-
-const config = {
-  providers: [credentialsConfig],
-  trustHost: true,
-} satisfies NextAuthConfig;
+import authConfig from "./auth.config";
 
 export const {
   handlers: { GET, POST },
   auth,
   signIn,
   signOut,
-} = NextAuth(config);
+} = NextAuth({
+  adapter: PrismaAdapter(prisma),
+  callbacks: {
+    async session({ token, session }) {
+      if (session.user) {
+        if (token.sub) {
+          session.user.id = token.sub;
+        }
+      }
+      return session;
+    },
+  },
+  session: {
+    strategy: "jwt",
+  },
+  ...authConfig,
+});

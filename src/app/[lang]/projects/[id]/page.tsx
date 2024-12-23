@@ -3,14 +3,13 @@ import { Suspense } from "react";
 import RotatingLoader from "@/components/rotating-loader/RotatingLoader";
 import prisma from "@/lib/prisma";
 
-export default async function page({
-  params: { lang, id },
-}: {
-  params: {
-    lang: string;
-    id: string;
-  };
-}) {
+type ProjectPageProps = {
+  params: Promise<{ lang: string; id: string }>;
+};
+
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { id, lang } = await params;
+
   return (
     <Suspense fallback={<RotatingLoader />}>
       <Projects page={id} lang={lang} />
@@ -47,6 +46,5 @@ export async function generateStaticParams() {
     id: page.toString(),
   }));
 
-  console.log(englishParams, spanishParams);
   return [...englishParams, ...spanishParams];
 }

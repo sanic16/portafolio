@@ -20,13 +20,12 @@ export async function generateStaticParams() {
   return [{ lang: "en" }, { lang: "es" }];
 }
 
-export default async function page({
-  params: { lang },
-}: {
-  params: {
-    lang: "en" | "es";
-  };
-}) {
+type HomoPageProps = {
+  params: Promise<{ lang: "en" | "es" }>;
+};
+
+export default async function HomePage({ params }: HomoPageProps) {
+  const { lang } = await params;
   let language: "EN" | "ES";
   if (lang === "en") {
     language = "EN";
@@ -36,11 +35,11 @@ export default async function page({
   const t = await getDictionary(lang);
   return (
     <>
-      {/* <Header translations={t.header} lang={lang} /> */}
-      {/* <About translations={t.about} lang={lang} /> */}
+      <Header translations={t.header} lang={lang} />
+      <About translations={t.about} lang={lang} />
       <Projects translations={t.projects} lang={language} />
       <Services translations={t.services} />
-      {/* <Education translations={t.education} /> */}
+      <Education translations={t.education} />
       <FloatMenu />
     </>
   );
