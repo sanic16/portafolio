@@ -43,10 +43,6 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
       const currentIndex = colors.indexOf(theme.primary);
       const nextIndex = (currentIndex + 1) % colors.length;
       dispatchTheme({ type: colors[nextIndex] });
-      console.log("current index", currentIndex);
-      console.log("next index", nextIndex);
-      console.log("next color", colors[nextIndex]);
-      console.log("theme", theme);
     };
 
     const interval = setInterval(() => {
