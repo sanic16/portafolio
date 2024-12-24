@@ -1,18 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 :root {
-  --primary-hue: 140;
-
   --white-lightness: 94%;
   --light-lightness: 85%;
   --dark-lightness: 16%;
   --black-lightness: 12%;
 
-  --primary-color: hsl(var(--primary-hue), 88%, 36%);
-  --white-color: hsl(var(--primary-hue), 0%, var(--white-lightness));
-  --light-color: hsl(var(--primary-hue), 0%, var(--light-lightness));
-  --dark-color: hsl(var(--primary-hue), 0%, var(--dark-lightness));
-  --black-color: hsl(var(--primary-hue), 0%, var(--black-lightness));
-  --dark-fixed-color: hsl(var(--primary-hue), 0%, 16%);
+  --primary-color: hsl(140, 88%, 36%);
+  --white-color: hsl(0, 0%, var(--white-lightness));
+  --light-color: hsl(0, 0%, var(--light-lightness));
+  --dark-color: hsl(0, 0%, var(--dark-lightness));
+  --black-color: hsl(0, 0%, var(--black-lightness));
+  --dark-fixed-color: hsl(0, 0%, 16%);
 
   --border-radius-1: 0.25rem;
   --border-radius-2: 0.5rem;
@@ -40,57 +38,11 @@
 html {
   scroll-behavior: smooth;
 }
-main.bg-2 {
-  --white-lightness: 14%;
-  --light-lightness: 18%;
-  --dark-lightness: 85%;
-  --black-lightness: 94%;
-
-  --white-color: hsl(var(--primary-hue), 0%, var(--white-lightness));
-  --light-color: hsl(var(--primary-hue), 0%, var(--light-lightness));
-  --dark-color: hsl(var(--primary-hue), 0%, var(--dark-lightness));
-  --black-color: hsl(var(--primary-hue), 0%, var(--black-lightness));
-}
-
-/* main.color-1 {
-  --primary-hue: 350;
-}
-
-main.color-2 {
-  --primary-hue: 30;
-}
-
-main.color-3 {
-  --primary-hue: 80;
-}
-
-main.color-4 {
-  --primary-hue: 150;
-}
-
-main.color-5 {
-  --primary-hue: 190;
-}
-
-main.color-6 {
-  --primary-hue: 215;
-}
-
-main.color-7 {
-  --primary-hue: 260;
-}
-
-main.color-8 {
-  --primary-hue: 340;
-} */
-
-main {
-  color: var(--dark-color);
-}
 
 body {
   font-family: "Poppins", sans-serif;
   font-size: 0.9rem;
+  color: var(--dark-color);
 }
 
 ul {

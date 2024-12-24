@@ -1,15 +1,29 @@
-type Primary = 'color-1' | 'color-2' | 'color-3' | 'color-4' | 'color-5' | 'color-6' | 'color-7' | 'color-8'
-type Bg = 'bg-1' | 'bg-2'
+type Primary = {
+  "--primary-hue": string;
+  "--primary-color": string;
+};
+
+type Bg = {
+  "--white-lightness": string;
+  "--light-lightness": string;
+  "--dark-lightness": string;
+  "--black-lightness": string;
+  "--white-color": string;
+  "--light-color": string;
+  "--dark-color": string;
+  "--black-color": string;
+};
 
 type Theme = {
-    primary: Primary
-    bg: Bg   
-}
+  primary: Primary;
+  bg: Bg;
+};
 
-interface ThemeState  {
-    theme: Theme
+interface ThemeState {
+  theme: Theme;
 }
 
 interface ThemeContext extends ThemeState {
-    setTheme: (theme: primary | Bg) => void
+  setPrimary: (primary: Primary) => void;
+  setBg: (bg: Bg) => void;
 }

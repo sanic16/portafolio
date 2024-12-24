@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import "./education.css";
 import education__data from "./education-data";
@@ -40,7 +41,7 @@ const Education: React.FC<EducationProps> = ({ translations }) => {
       }
     );
   };
-  const userAgent = navigator.userAgent.toLowerCase();
+  const userAgent = typeof window === "undefined" ? "" : navigator.userAgent;
 
   const isIOS =
     userAgent.indexOf("iphone") > -1 ||

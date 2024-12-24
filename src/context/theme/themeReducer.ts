@@ -1,50 +1,47 @@
-const themeReducer = (
-    state: Theme,
-    action: {
-        type: Primary | Bg
-    }
-) => {
-    const primaryColors = {
-        'color-1': 'color-1',
-        'color-2': 'color-2',
-        'color-3': 'color-3',
-        'color-4': 'color-4',
-        'color-5': 'color-5',
-        'color-6': 'color-6',
-        'color-7': 'color-7',
-        'color-8': 'color-8'
-    }
+const primaryColors: Primary[] = [
+  {
+    "--primary-hue": "350",
+    "--primary-color": "hsl(350, 88%, 36%)",
+  },
+  { "--primary-hue": "30", "--primary-color": "hsl(30, 88%, 36%)" },
+  { "--primary-hue": "80", "--primary-color": "hsl(80, 88%, 36%)" },
+  {
+    "--primary-hue": "150",
+    "--primary-color": "hsl(150, 88%, 36%)",
+  },
+  {
+    "--primary-hue": "190",
+    "--primary-color": "hsl(190, 88%, 36%)",
+  },
+  {
+    "--primary-hue": "215",
+    "--primary-color": "hsl(215, 88%, 36%)",
+  },
+  {
+    "--primary-hue": "260",
+    "--primary-color": "hsl(260, 88%, 36%)",
+  },
+  {
+    "--primary-hue": "300",
+    "--primary-color": "hsl(300, 88%, 36%)",
+  },
+];
 
-    const bgColors = {
-        'bg-1': 'bg-1',
-        'bg-2': 'bg-2'
-    }
-    
-    switch (action.type) {
-        case 'color-1':
-        case 'color-2':
-        case 'color-3':
-        case 'color-4':
-        case 'color-5':
-        case 'color-6':
-        case 'color-7':
-        case 'color-8':
-            return{                
-                    ...state,
-                    primary: primaryColors[action.type] as Primary               
-            }
-            
-        case 'bg-1':
-        case 'bg-2':
-            return{                
-                   ...state,
-                     bg: bgColors[action.type] as Bg
-                }
-          
-        default:
-            return state
-    }
-        
-}
+const bgColors: Bg[] = [
+  {
+    "--white-lightness": "100%",
+    "--light-lightness": "96%",
+    "--dark-lightness": "20%",
+    "--black-lightness": "10%",
+    "--white-color": "hsl(0, 0%, 100%)",
+    "--light-color": "hsl(0, 0%, 96%)",
+    "--dark-color": "hsl(0, 0%, 20%)",
+    "--black-color": "hsl(0, 0%, 10%)",
+  },
+];
 
-export default themeReducer
+const themeReducer = (state: Theme, action: { type: Primary | Bg }): Theme => {
+  return state;
+};
+
+export default themeReducer;

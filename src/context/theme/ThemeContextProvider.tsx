@@ -1,62 +1,93 @@
 "use client";
 
-import React, {
-  useEffect,
-  useReducer,
-  useContext,
-  useMemo,
-  useCallback,
-} from "react";
+import React, { useEffect, useReducer, useContext } from "react";
 import themeReducer from "./themeReducer";
 import { ContextTheme } from "./ContextTheme";
 
-const initialState: Theme =
-  typeof window !== "undefined"
-    ? JSON.parse(localStorage.getItem("theme") || "{}") !== null
-      ? (JSON.parse(localStorage.getItem("theme") || "{}") as Theme)
-      : {
-          primary: "color-1",
-          bg: "bg-1",
-        }
-    : {
-        primary: "color-1",
-        bg: "bg-1",
-      };
-
-const colors: Primary[] = Array.from(
-  { length: 8 },
-  (_, i) => `color-${i + 1}`
-) as Primary[];
+const initialState: Theme = {
+  primary: {
+    "--primary-hue": "0",
+    "--primary-color": "hsl(0, 88%, 36%)",
+  },
+  bg: {
+    "--white-lightness": "14%",
+    "--light-lightness": "18%",
+    "--dark-lightness": "85%",
+    "--black-lightness": "94%",
+    "--white-color": "hsl(0, 0%, 14%)",
+    "--light-color": "hsl(0, 0%, 18%)",
+    "--dark-color": "hsl(0, 0%, 85%)",
+    "--black-color": "hsl(0, 0%, 94%)",
+  },
+};
 
 const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, dispatchTheme] = useReducer(themeReducer, initialState);
-  const setTheme = (theme: Primary | Bg) => {
-    dispatchTheme({ type: theme });
+
+  console.log("theme", theme);
+
+  const setPrimary = (primary: Primary) => {
+    dispatchTheme({ type: primary });
   };
 
-  useEffect(() => {
-    localStorage.setItem("theme", JSON.stringify(theme));
-  }, [theme]);
+  const setBg = (bg: Bg) => {
+    dispatchTheme({ type: bg });
+  };
+
+  // useEffect(() => {
+  //   localStorage.setItem("theme", JSON.stringify(theme));
+  // }, [theme]);
 
   useEffect(() => {
-    const nextColor = () => {
-      const currentIndex = colors.indexOf(theme.primary);
-      const nextIndex = (currentIndex + 1) % colors.length;
-      dispatchTheme({ type: colors[nextIndex] });
-    };
-
-    const interval = setInterval(() => {
-      nextColor();
-    }, 100);
-
-    return () => clearInterval(interval);
+    console.log("theme.primary", theme.primary);
+    document.documentElement.style.setProperty(
+      "--primary-hue",
+      theme.primary["--primary-hue"]
+    );
+    document.documentElement.style.setProperty(
+      "--primary-color",
+      theme.primary["--primary-color"]
+    );
+    document.documentElement.style.setProperty(
+      "--white-lightness",
+      theme.bg["--white-lightness"]
+    );
+    document.documentElement.style.setProperty(
+      "--light-lightness",
+      theme.bg["--light-lightness"]
+    );
+    document.documentElement.style.setProperty(
+      "--dark-lightness",
+      theme.bg["--dark-lightness"]
+    );
+    document.documentElement.style.setProperty(
+      "--black-lightness",
+      theme.bg["--black-lightness"]
+    );
+    document.documentElement.style.setProperty(
+      "--white-color",
+      theme.bg["--white-color"]
+    );
+    document.documentElement.style.setProperty(
+      "--light-color",
+      theme.bg["--light-color"]
+    );
+    document.documentElement.style.setProperty(
+      "--dark-color",
+      theme.bg["--dark-color"]
+    );
+    document.documentElement.style.setProperty(
+      "--black-color",
+      theme.bg["--black-color"]
+    );
   }, [theme.primary]);
 
   return (
     <ContextTheme.Provider
       value={{
-        theme: theme,
-        setTheme,
+        theme,
+        setPrimary: setPrimary,
+        setBg: setBg,
       }}
     >
       {children}
