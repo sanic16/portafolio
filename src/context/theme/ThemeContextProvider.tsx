@@ -3,9 +3,15 @@
 import React, { useEffect, useReducer, useContext } from "react";
 import themeReducer from "./themeReducer";
 import { ContextTheme } from "./ContextTheme";
+import { setBGCSSVariables, setPrimaryCSSVariables } from "@/utils/bg";
+import { nextPrimary } from "@/utils/primaryColors";
 
 const initialState: Theme =
-  typeof window !== "undefined" && localStorage.getItem("theme")
+  typeof window !== "undefined" &&
+  localStorage.getItem("theme") &&
+  typeof JSON.parse(localStorage.getItem("theme") as string) === "object" &&
+  "primary" in JSON.parse(localStorage.getItem("theme") as string) &&
+  "bg" in JSON.parse(localStorage.getItem("theme") as string)
     ? JSON.parse(localStorage.getItem("theme") as string)
     : {
         primary: {
@@ -27,62 +33,29 @@ const initialState: Theme =
 const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, dispatchTheme] = useReducer(themeReducer, initialState);
 
-  console.log("theme", theme);
-
   const setPrimary = (primary: Primary) => {
-    dispatchTheme({ type: primary });
+    dispatchTheme({ type: "SET_PRIMARY", payload: primary });
   };
 
   const setBg = (bg: Bg) => {
-    dispatchTheme({ type: bg });
+    dispatchTheme({ type: "SET_BG", payload: bg });
   };
 
-  // useEffect(() => {
-  //   localStorage.setItem("theme", JSON.stringify(theme));
-  // }, [theme]);
+  useEffect(() => {
+    localStorage.setItem("theme", JSON.stringify(theme));
+  }, [theme]);
 
   useEffect(() => {
-    console.log("theme.primary", theme.primary);
-    document.documentElement.style.setProperty(
-      "--primary-hue",
-      theme.primary["--primary-hue"]
-    );
-    document.documentElement.style.setProperty(
-      "--primary-color",
-      theme.primary["--primary-color"]
-    );
-    document.documentElement.style.setProperty(
-      "--white-lightness",
-      theme.bg["--white-lightness"]
-    );
-    document.documentElement.style.setProperty(
-      "--light-lightness",
-      theme.bg["--light-lightness"]
-    );
-    document.documentElement.style.setProperty(
-      "--dark-lightness",
-      theme.bg["--dark-lightness"]
-    );
-    document.documentElement.style.setProperty(
-      "--black-lightness",
-      theme.bg["--black-lightness"]
-    );
-    document.documentElement.style.setProperty(
-      "--white-color",
-      theme.bg["--white-color"]
-    );
-    document.documentElement.style.setProperty(
-      "--light-color",
-      theme.bg["--light-color"]
-    );
-    document.documentElement.style.setProperty(
-      "--dark-color",
-      theme.bg["--dark-color"]
-    );
-    document.documentElement.style.setProperty(
-      "--black-color",
-      theme.bg["--black-color"]
-    );
+    setBGCSSVariables(theme.bg);
+  }, [theme.bg]);
+
+  useEffect(() => {
+    setPrimaryCSSVariables(theme.primary);
+    const primaryInterval = setInterval(() => {
+      setPrimary(nextPrimary(theme.primary));
+    }, 50);
+
+    return () => clearInterval(primaryInterval);
   }, [theme.primary]);
 
   return (

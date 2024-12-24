@@ -1,0 +1,45 @@
+export const setBGCSSVariables = (bg: Bg) => {
+  document.documentElement.style.setProperty(
+    "--white-lightness",
+    bg["--white-lightness"]
+  );
+  document.documentElement.style.setProperty(
+    "--light-lightness",
+    bg["--light-lightness"]
+  );
+  document.documentElement.style.setProperty(
+    "--dark-lightness",
+    bg["--dark-lightness"]
+  );
+  document.documentElement.style.setProperty(
+    "--black-lightness",
+    bg["--black-lightness"]
+  );
+  document.documentElement.style.setProperty(
+    "--white-color",
+    bg["--white-color"]
+  );
+  document.documentElement.style.setProperty(
+    "--light-color",
+    bg["--light-color"]
+  );
+  document.documentElement.style.setProperty(
+    "--dark-color",
+    bg["--dark-color"]
+  );
+  document.documentElement.style.setProperty(
+    "--black-color",
+    bg["--black-color"]
+  );
+};
+
+export const setPrimaryCSSVariables = (primary: Primary) => {
+  document.documentElement.style.setProperty(
+    "--primary-hue",
+    primary["--primary-hue"]
+  );
+  document.documentElement.style.setProperty(
+    "--primary-color",
+    primary["--primary-color"]
+  );
+};
