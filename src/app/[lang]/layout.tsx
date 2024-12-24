@@ -35,20 +35,20 @@ export default async function RootLayout({
   const t = await getDictionary(lang);
   return (
     <html lang={lang}>
-      <SessionProvider>
-        <MainProvider>
-          <ModalContextProvider>
-            <body>
+      <body>
+        <SessionProvider>
+          <MainProvider>
+            <ModalContextProvider>
               <Navbar translations={t.navbar} />
               <div className={classes.main}>{children}</div>
               <Footer {...t.footer} />
               <ThemeMenu />
               <ThemeModal />
               <GoogleAdsense />
-            </body>
-          </ModalContextProvider>
-        </MainProvider>
-      </SessionProvider>
+            </ModalContextProvider>
+          </MainProvider>
+        </SessionProvider>
+      </body>
     </html>
   );
 }
