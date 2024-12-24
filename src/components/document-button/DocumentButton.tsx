@@ -14,7 +14,6 @@ const DocumentButton = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const closeModal = () => setIsOpen(false);
-  const openModal = () => setIsOpen(true);
   const props = {
     isOpen,
     closeModal,

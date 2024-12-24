@@ -1,4 +1,3 @@
-import prisma from "@/lib/prisma";
 import "./page.css";
 import Posts from "@/components/posts/Posts";
 

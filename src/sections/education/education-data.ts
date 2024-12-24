@@ -1,39 +1,38 @@
-import { FcElectronics } from "react-icons/fc";
 import { MdElectricBolt } from "react-icons/md";
 import { SiUdemy } from "react-icons/si";
 import { TbCircuitCapacitorPolarized } from "react-icons/tb";
-import { IconType } from "react-icons";
 
-import udemy_image_1 from '@/../public/images/udemy_page-0001.jpg'
-import udemy_image_2 from '@/../public/images/udemy_page-0002.jpg'
-import udemy_image_3 from '@/../public/images/udemy_page-0003.jpg'
-import udemy_image_4 from '@/../public/images/udemy_page-0004.jpg'
-import udemy_image_5 from '@/../public/images/udemy_page-0005.jpg'
-import electronica_1 from '@/../public/images/documento-electronico-70487_page-0001.jpg'
-import electronica_2 from '@/../public/images/documento-electronico-70487_page-0002.jpg'
-import electricidad_1 from '@/../public/images/documento-electronico-70484_page-0001.jpg'
-import electricidad_2 from '@/../public/images/documento-electronico-70484_page-0002.jpg'
+import udemy_image_1 from "@/../public/images/udemy_page-0001.jpg";
+import udemy_image_2 from "@/../public/images/udemy_page-0002.jpg";
+import udemy_image_3 from "@/../public/images/udemy_page-0003.jpg";
+import udemy_image_4 from "@/../public/images/udemy_page-0004.jpg";
+import udemy_image_5 from "@/../public/images/udemy_page-0005.jpg";
+import electronica_1 from "@/../public/images/documento-electronico-70487_page-0001.jpg";
+import electronica_2 from "@/../public/images/documento-electronico-70487_page-0002.jpg";
+import electricidad_1 from "@/../public/images/documento-electronico-70484_page-0001.jpg";
+import electricidad_2 from "@/../public/images/documento-electronico-70484_page-0002.jpg";
+import React from "react";
 
 type EducationData = {
-    id: number
-    title: string
-    institution: string
-    desc: string
-    pdf: string
-    images: {
-        src: string,
-        width: number,
-        height: number
-    }[]
-    icon: any 
-}
+  id: number;
+  title: string;
+  institution: string;
+  desc: string;
+  pdf: string;
+  images: {
+    src: string;
+    width: number;
+    height: number;
+  }[];
+  icon: React.ComponentType;
+};
 
 const education__data: EducationData[] = [
-    {
-        id: 1,
-        title: 'Desarrollador Web Fullstack',
-        institution: 'Udemy',
-        desc: `
+  {
+    id: 1,
+    title: "Desarrollador Web Fullstack",
+    institution: "Udemy",
+    desc: `
         <p>
             A mi parecer, en Udemy se encuentran cursos de calidad con profesionales de la industria. 
             A continuación, te presento los cursos que he tomado en esta plataforma:
@@ -79,15 +78,21 @@ const education__data: EducationData[] = [
                 Otros cursos que estoy tomando actualmente está uno de c# y aniamaciones con CSS y JavaScript.  
             </p>
         `,
-        pdf: 'pdf/udemy.pdf',
-        images: [udemy_image_1, udemy_image_2, udemy_image_3, udemy_image_4, udemy_image_5],
-        icon: SiUdemy
-    },
-    {
-        id: 2,
-        title: 'Ingeniería en Electrónica',
-        institution: 'Universidad de San Carlos de Guatemala',
-        desc: `
+    pdf: "pdf/udemy.pdf",
+    images: [
+      udemy_image_1,
+      udemy_image_2,
+      udemy_image_3,
+      udemy_image_4,
+      udemy_image_5,
+    ],
+    icon: SiUdemy,
+  },
+  {
+    id: 2,
+    title: "Ingeniería en Electrónica",
+    institution: "Universidad de San Carlos de Guatemala",
+    desc: `
         <p>
             Respecto al campo del desarrollo de software, la carrera de Ingeniería en Electrónica me ha proporcionado
             bases en Pyton y C++ que me han ayudado a entender la lógica de programación y a familiarizarme con la sintaxis
@@ -98,15 +103,15 @@ const education__data: EducationData[] = [
             inalámbrica que me ha permitido hacer dashboards con React en tiempo real con sensores.   
         </p>
         `,
-        icon: TbCircuitCapacitorPolarized,
-        pdf: 'pdf/documento-electronico-70487.pdf',
-        images: [electronica_1, electronica_2]
-    },
-    {
-        id: 3,
-        title: 'Ingeniería en Electricidad',
-        institution: 'Universidad de San Carlos de Guatemala',
-        desc: `
+    icon: TbCircuitCapacitorPolarized,
+    pdf: "pdf/documento-electronico-70487.pdf",
+    images: [electronica_1, electronica_2],
+  },
+  {
+    id: 3,
+    title: "Ingeniería en Electricidad",
+    institution: "Universidad de San Carlos de Guatemala",
+    desc: `
         <p>
             Hay algunos cursos interesantes desde el punto de vista de la programación, como lo es Automatización,
             Electrónica 3, Sistemas de control, Instrumentación, entre otros. De los cursos profesionales están
@@ -115,10 +120,10 @@ const education__data: EducationData[] = [
             algoritmos de optimización.  
         </p>
         `,
-        icon: MdElectricBolt,
-        pdf: 'pdf/documento-electronico-70484.pdf',
-        images: [electricidad_1, electricidad_2]
-    }, 
-]
+    icon: MdElectricBolt,
+    pdf: "pdf/documento-electronico-70484.pdf",
+    images: [electricidad_1, electricidad_2],
+  },
+];
 
-export default education__data
+export default education__data;

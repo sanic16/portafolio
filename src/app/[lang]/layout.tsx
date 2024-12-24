@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "../globals.css";
 import Navbar from "@/sections/navbar/Navbar";
 import ModalContextProvider from "@/context/modal/ModalContextProvider";
 import ThemeModal from "@/theme/ThemeModal";
 import ThemeMenu from "@/sections/theme-modal-menu/ThemeMenu";
-import ThemeContextProvider from "@/context/theme/ThemeContextProvider";
 import Footer from "@/sections/footer/Footer";
 import GoogleAdsense from "@/components/google-adsense/GoogleAdsense/GoogleAdsense";
 import { SessionProvider } from "next-auth/react";
 import { getDictionary } from "./dictionaries";
 import classes from "./layout.module.css";
 import MainProvider from "@/components/providers/MainProvider";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Julio Sanic - Desarrollador Web",

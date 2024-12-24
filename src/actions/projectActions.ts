@@ -58,7 +58,7 @@ export async function createProjectAction(
 
   const session = await auth();
 
-  if (!session || !session.user) {
+  if (!session || !session.user || !session.user.id) {
     return {
       errors: {
         _form: ["No se pudo autenticar al usuario."],
@@ -71,6 +71,14 @@ export async function createProjectAction(
       email: session.user.email!,
     },
   });
+
+  if (!user || !user.id) {
+    return {
+      errors: {
+        _form: ["No se encontró al usuario."],
+      },
+    };
+  }
 
   let imageUrl: string;
 
@@ -100,7 +108,7 @@ export async function createProjectAction(
         imageUrl: imageUrl,
         websiteUrl: result.data.url,
         githubUrl: result.data.github,
-        userId: user?.id!,
+        userId: user?.id,
       },
     });
   } catch (error: unknown) {

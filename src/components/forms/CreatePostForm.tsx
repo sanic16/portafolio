@@ -4,11 +4,10 @@ import classes from "./createPostForm.module.css";
 import { useFormState } from "react-dom";
 import { createPostAction } from "@/actions";
 import FormButton from "../common/formButton/FormButton";
-import Image from "next/image";
 import { useState } from "react";
 
 const CreatePostForm = ({ category }: { category: string[] }) => {
-  const [thumbnail, setThumbnail] = useState<File | null>(null);
+  // const [thumbnail, setThumbnail] = useState<File | null>(null);
   const [description, setDescription] = useState("");
 
   let handleThumbnail;
@@ -16,7 +15,7 @@ const CreatePostForm = ({ category }: { category: string[] }) => {
     handleThumbnail = (e: React.ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files;
       if (file) {
-        setThumbnail(file[0]);
+        // setThumbnail(file[0]);
       }
     };
   } else {

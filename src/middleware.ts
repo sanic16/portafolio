@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 const locales = ["en", "es"];
 const defaultLocale = "es";
 
-function getLocale(request: NextRequest) {
+function getLocale() {
   return defaultLocale;
 }
 
@@ -28,7 +28,7 @@ export function middleware(request: NextRequest) {
   if (pathnameHasLocale) return NextResponse.next();
 
   // Redirect to default locale if no locale is present
-  const locale = getLocale(request);
+  const locale = getLocale();
   request.nextUrl.pathname = `/${locale}${pathname}`;
   return NextResponse.redirect(request.nextUrl);
 }

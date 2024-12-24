@@ -1,7 +1,7 @@
 "use client";
 import { useFormState } from "react-dom";
 import { contactFormAction } from "@/actions/contactAction";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import FormButton from "@/components/common/formButton/FormButton";
 import ReCAPTCHA from "react-google-recaptcha";
 import "./page.css";

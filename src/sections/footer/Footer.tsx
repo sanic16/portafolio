@@ -3,9 +3,7 @@ import "./footer.css";
 import type { Footer } from "@/app/[lang]/dictionaries";
 import Link from "next/link";
 
-interface FooterTranslations extends Footer {}
-
-const Footer: React.FC<FooterTranslations> = ({
+const Footer: React.FC<Footer> = ({
   title,
   description,
   contact,
