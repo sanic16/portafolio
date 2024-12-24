@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useEffect, useReducer, useContext } from "react";
-import themeReducer from "./themeReducer";
+import React, { useEffect, useContext, useState } from "react";
 import { ContextTheme } from "./ContextTheme";
 import { setBGCSSVariables, setPrimaryCSSVariables } from "@/utils/bg";
 import { nextPrimary } from "@/utils/primaryColors";
@@ -31,14 +30,14 @@ const initialState: Theme =
       };
 
 const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, dispatchTheme] = useReducer(themeReducer, initialState);
+  const [theme, setTheme] = useState<Theme>(initialState);
 
   const setPrimary = (primary: Primary) => {
-    dispatchTheme({ type: "SET_PRIMARY", payload: primary });
+    setTheme((prev) => ({ ...prev, primary }));
   };
 
   const setBg = (bg: Bg) => {
-    dispatchTheme({ type: "SET_BG", payload: bg });
+    setTheme((prev) => ({ ...prev, bg }));
   };
 
   useEffect(() => {
@@ -51,12 +50,18 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     setPrimaryCSSVariables(theme.primary);
+  }, [theme.primary]);
+
+  useEffect(() => {
     const primaryInterval = setInterval(() => {
-      setPrimary(nextPrimary(theme.primary));
+      setTheme((prev) => ({
+        ...prev,
+        primary: nextPrimary(prev.primary),
+      }));
     }, 50);
 
     return () => clearInterval(primaryInterval);
-  }, [theme.primary]);
+  }, []);
 
   return (
     <ContextTheme.Provider
