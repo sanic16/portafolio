@@ -26,4 +26,6 @@ interface ThemeState {
 interface ThemeContext extends ThemeState {
   setPrimary: (primary: Primary) => void;
   setBg: (bg: Bg) => void;
+  startPrimaryInterval: (time: number) => void;
+  stopPrimaryInterval: () => void;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext, useState, useRef } from "react";
 import { ContextTheme } from "./ContextTheme";
 import { setBGCSSVariables, setPrimaryCSSVariables } from "@/utils/bg";
 import { nextPrimary } from "@/utils/primaryColors";
@@ -30,7 +30,22 @@ const initialState: Theme =
       };
 
 const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
+  const primaryInterval = useRef<NodeJS.Timeout | null>(null);
   const [theme, setTheme] = useState<Theme>(initialState);
+
+  const stopPrimaryInterval = () => {
+    if (!primaryInterval.current) return;
+    clearInterval(primaryInterval.current);
+  };
+
+  const startPrimaryInterval = (time: number) => {
+    primaryInterval.current = setInterval(() => {
+      setTheme((prev) => ({
+        ...prev,
+        primary: nextPrimary(prev.primary),
+      }));
+    }, time);
+  };
 
   const setPrimary = (primary: Primary) => {
     setTheme((prev) => ({ ...prev, primary }));
@@ -53,14 +68,18 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
   }, [theme.primary]);
 
   useEffect(() => {
-    const primaryInterval = setInterval(() => {
+    primaryInterval.current = setInterval(() => {
       setTheme((prev) => ({
         ...prev,
         primary: nextPrimary(prev.primary),
       }));
     }, 50);
 
-    return () => clearInterval(primaryInterval);
+    return () => {
+      if (primaryInterval.current) {
+        clearInterval(primaryInterval.current);
+      }
+    };
   }, []);
 
   return (
@@ -69,6 +88,8 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
         theme,
         setPrimary: setPrimary,
         setBg: setBg,
+        startPrimaryInterval,
+        stopPrimaryInterval,
       }}
     >
       {children}

@@ -1,12 +1,17 @@
-const primaryColors = Array.from({ length: 360 }, (_, i) => ({
+const primarySpectrum = Array.from({ length: 360 }, (_, i) => ({
   "--primary-hue": `${(350 + i) % 360}`,
   "--primary-color": `hsl(${(350 + i) % 360}, 88%, 36%)`,
 }));
 
+export const primaryCompass = Array.from({ length: 12 }, (_, i) => ({
+  "--primary-hue": `${(i * 30) % 360}`,
+  "--primary-color": `hsl(${(i * 30) % 360}, 88%, 36%)`,
+}));
+
 export const nextPrimary = (primary: Primary): Primary => {
-  const currentIndex = primaryColors.findIndex(
+  const currentIndex = primarySpectrum.findIndex(
     (color) => color["--primary-hue"] === primary["--primary-hue"]
   );
-  const nextIndex = (currentIndex + 1) % primaryColors.length;
-  return primaryColors[nextIndex];
+  const nextIndex = (currentIndex + 1) % primarySpectrum.length;
+  return primarySpectrum[nextIndex];
 };

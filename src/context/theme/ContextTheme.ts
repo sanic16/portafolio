@@ -19,4 +19,6 @@ export const ContextTheme = createContext<ThemeContext>({
   },
   setPrimary: () => {},
   setBg: () => {},
+  startPrimaryInterval: () => {},
+  stopPrimaryInterval: () => {},
 });
