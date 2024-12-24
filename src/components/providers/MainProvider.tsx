@@ -3,15 +3,18 @@
 import dynamic from "next/dynamic";
 import { type FC } from "react";
 
-// const Main = dynamic(() => import("@/components/main/Main"), {
-//   ssr: false,
-// });
+const ThemeContextProvider = dynamic(
+  () => import("@/context/theme/ThemeContextProvider"),
+  {
+    ssr: false,
+  }
+);
 
 type MainProviderProps = {
   children: React.ReactNode;
 };
 const MainProvider: FC<MainProviderProps> = ({ children }) => {
-  return <>{children}</>;
+  return <ThemeContextProvider>{children}</ThemeContextProvider>;
 };
 
 export default MainProvider;

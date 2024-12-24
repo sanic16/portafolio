@@ -4,22 +4,25 @@ import React, { useEffect, useReducer, useContext } from "react";
 import themeReducer from "./themeReducer";
 import { ContextTheme } from "./ContextTheme";
 
-const initialState: Theme = {
-  primary: {
-    "--primary-hue": "0",
-    "--primary-color": "hsl(0, 88%, 36%)",
-  },
-  bg: {
-    "--white-lightness": "14%",
-    "--light-lightness": "18%",
-    "--dark-lightness": "85%",
-    "--black-lightness": "94%",
-    "--white-color": "hsl(0, 0%, 14%)",
-    "--light-color": "hsl(0, 0%, 18%)",
-    "--dark-color": "hsl(0, 0%, 85%)",
-    "--black-color": "hsl(0, 0%, 94%)",
-  },
-};
+const initialState: Theme =
+  typeof window !== "undefined" && localStorage.getItem("theme")
+    ? JSON.parse(localStorage.getItem("theme") as string)
+    : {
+        primary: {
+          "--primary-hue": "0",
+          "--primary-color": "hsl(0, 88%, 36%)",
+        },
+        bg: {
+          "--white-lightness": "14%",
+          "--light-lightness": "18%",
+          "--dark-lightness": "85%",
+          "--black-lightness": "94%",
+          "--white-color": "hsl(0, 0%, 14%)",
+          "--light-color": "hsl(0, 0%, 18%)",
+          "--dark-color": "hsl(0, 0%, 85%)",
+          "--black-color": "hsl(0, 0%, 94%)",
+        },
+      };
 
 const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, dispatchTheme] = useReducer(themeReducer, initialState);

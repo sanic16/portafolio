@@ -11,6 +11,7 @@ import GoogleAdsense from "@/components/google-adsense/GoogleAdsense/GoogleAdsen
 import { SessionProvider } from "next-auth/react";
 import { getDictionary } from "./dictionaries";
 import classes from "./layout.module.css";
+import MainProvider from "@/components/providers/MainProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,7 +36,7 @@ export default async function RootLayout({
   return (
     <html lang={lang}>
       <SessionProvider>
-        <ThemeContextProvider>
+        <MainProvider>
           <ModalContextProvider>
             <body>
               <Navbar translations={t.navbar} />
@@ -46,7 +47,7 @@ export default async function RootLayout({
               <GoogleAdsense />
             </body>
           </ModalContextProvider>
-        </ThemeContextProvider>
+        </MainProvider>
       </SessionProvider>
     </html>
   );
