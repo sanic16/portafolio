@@ -43,7 +43,7 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
       localStorage.getItem("mode") !== null &&
       typeof JSON.parse(localStorage.getItem("mode") as string) === "string"
       ? JSON.parse(localStorage.getItem("mode") as string)
-      : "cycle"
+      : "static"
   );
   const [saturation, setSaturation] = useState<string>(
     typeof window !== "undefined" &&
