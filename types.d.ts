@@ -21,6 +21,8 @@ type Theme = {
 
 interface ThemeState {
   theme: Theme;
+  saturation: string;
+  lightness: string;
 }
 
 interface ThemeContext extends ThemeState {
@@ -28,4 +30,6 @@ interface ThemeContext extends ThemeState {
   setBg: (bg: Bg) => void;
   startPrimaryInterval: (time: number) => void;
   stopPrimaryInterval: () => void;
+  newSaturation: (saturation: string) => void;
+  newLightness: (lightness: string) => void;
 }

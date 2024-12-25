@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useEffect, useContext, useState, useRef } from "react";
+import React, {
+  useEffect,
+  useContext,
+  useState,
+  useRef,
+  useCallback,
+} from "react";
 import { ContextTheme } from "./ContextTheme";
 import { setBGCSSVariables, setPrimaryCSSVariables } from "@/utils/bg";
 import { nextPrimary } from "@/utils/primaryColors";
@@ -32,28 +38,48 @@ const initialState: Theme =
 const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
   const primaryInterval = useRef<NodeJS.Timeout | null>(null);
   const [theme, setTheme] = useState<Theme>(initialState);
+  const [saturation, setSaturation] = useState<string>(
+    typeof window !== "undefined" &&
+      localStorage.getItem("saturation") !== null &&
+      typeof JSON.parse(localStorage.getItem("saturation") as string) ===
+        "string"
+      ? JSON.parse(localStorage.getItem("saturation") as string)
+      : "88"
+  );
+  const [lightness, setLightness] = useState("36");
 
-  const stopPrimaryInterval = () => {
+  const stopPrimaryInterval = useCallback(() => {
     if (!primaryInterval.current) return;
     clearInterval(primaryInterval.current);
-  };
+  }, []);
 
-  const startPrimaryInterval = (time: number) => {
-    primaryInterval.current = setInterval(() => {
-      setTheme((prev) => ({
-        ...prev,
-        primary: nextPrimary(prev.primary),
-      }));
-    }, time);
-  };
+  const startPrimaryInterval = useCallback(
+    (time: number) => {
+      primaryInterval.current = setInterval(() => {
+        setTheme((prev) => ({
+          ...prev,
+          primary: nextPrimary(prev.primary, saturation, lightness),
+        }));
+      }, time);
+    },
+    [saturation, lightness]
+  );
 
-  const setPrimary = (primary: Primary) => {
+  const setPrimary = useCallback((primary: Primary) => {
     setTheme((prev) => ({ ...prev, primary }));
-  };
+  }, []);
 
-  const setBg = (bg: Bg) => {
+  const setBg = useCallback((bg: Bg) => {
     setTheme((prev) => ({ ...prev, bg }));
-  };
+  }, []);
+
+  const newSaturation = useCallback((saturation: string) => {
+    setSaturation(saturation);
+  }, []);
+
+  const newLightness = useCallback((lightness: string) => {
+    setLightness(lightness);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(theme));
@@ -71,7 +97,7 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
     primaryInterval.current = setInterval(() => {
       setTheme((prev) => ({
         ...prev,
-        primary: nextPrimary(prev.primary),
+        primary: nextPrimary(prev.primary, saturation, lightness),
       }));
     }, 50);
 
@@ -80,16 +106,27 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
         clearInterval(primaryInterval.current);
       }
     };
-  }, []);
+  }, [saturation, lightness]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("saturation", JSON.stringify(saturation));
+    }
+    console.log("saturation useEffect", saturation);
+  }, [saturation]);
 
   return (
     <ContextTheme.Provider
       value={{
         theme,
+        saturation,
+        lightness,
         setPrimary: setPrimary,
         setBg: setBg,
         startPrimaryInterval,
         stopPrimaryInterval,
+        newSaturation,
+        newLightness,
       }}
     >
       {children}

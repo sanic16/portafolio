@@ -1,103 +1,74 @@
-.card.theme__modal{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #ccc;
-    color: #222;
-    padding-block: 3rem;
-    padding-inline: 2rem;
-    z-index: 99;
+.card.theme__modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ccc;
+  color: #222;
+  padding-block: 3rem;
+  padding-inline: 2rem;
+  z-index: 99;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
 
-.card.theme__modal:hover{
-    background-color: #ccc;
-    border-color:#ccc;
+.card.theme__modal:hover {
+  background-color: #ccc;
+  border-color: #ccc;
 }
 
-.theme__modal h3{
-    color: #333;
-    font-weight: 400;
-    margin-bottom: 1rem;
-    text-align: center;
+.theme__modal h5 {
+  color: #333;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
-.theme__primary button{
-    width: 1.7rem;
-    aspect-ratio: 1/1;
-    cursor: pointer;
+.theme__primary button {
+  width: 1.7rem;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
-button.color-1{
-    background-color: hsl(0, 88%, 36%);
+.theme__primary {
+  width: fit-content;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+  place-items: center;
+  margin-bottom: 1.5rem;
 }
 
-button.color-2{
-    background-color: hsl(45, 88%, 36%);
+.theme__bg button {
+  display: block;
+  width: 4rem;
+  height: 1.5rem;
+  cursor: pointer;
 }
 
-button.color-3{
-    background-color: hsl(90, 88%, 36%);
+.theme__bg {
+  width: fit-content;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
 }
 
-button.color-4{
-    background-color: hsl(135, 88%, 36%);
+button.bg-1 {
+  background-color: #fff;
 }
 
-button.color-5{
-    background-color: hsl(180, 88%, 36%);
+button.bg-2 {
+  background-color: #333;
 }
 
-button.color-6{
-    background-color: hsl(225, 88%, 36%);
-}
-
-button.color-7{
-    background-color: hsl(270, 88%, 36%);
-}
-
-button.color-8 {
-    background-color: hsl(315, 88%, 36%);
-}
-
-.theme__primary{
-    width: fit-content;
-    margin-inline: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: .5rem;
-    row-gap: .5rem;
-    place-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.theme__bg button{
-    display: block;
-    width: 4rem;
-    height: 1.5rem;
-    cursor: pointer;
-}
-
-.theme__bg{
-    width: fit-content;
-    margin-inline: auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: .5rem;
-}
-
-button.bg-1{
-    background-color: #fff;
-}
-
-button.bg-2{
-    background-color: #333;
-}
-
-@media screen and (max-width:600px){
-    .theme__modal{
-        padding-block: 2rem;
-        padding-inline: 1rem;
-        width: 90%;
-    }
+@media screen and (max-width: 600px) {
+  .theme__modal {
+    padding-block: 2rem;
+    padding-inline: 1rem;
+    width: 90%;
+  }
 }

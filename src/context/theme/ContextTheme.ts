@@ -17,8 +17,12 @@ export const ContextTheme = createContext<ThemeContext>({
       "--black-color": "hsl(0, 0%, 10%)",
     },
   },
+  saturation: "88",
+  lightness: "36",
   setPrimary: () => {},
   setBg: () => {},
   startPrimaryInterval: () => {},
   stopPrimaryInterval: () => {},
+  newSaturation: () => {},
+  newLightness: () => {},
 });
