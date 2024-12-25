@@ -5,10 +5,11 @@ import "./themeModal.css";
 import { useModalContext } from "@/hooks/hooks";
 import { primaryCompass } from "@/utils/primaryColors";
 import { useThemeContext } from "@/context/theme/ThemeContextProvider";
+import { bgColors } from "@/utils/bgColors";
 
 const ThemeModal = () => {
   const { isOpen, closeModal } = useModalContext();
-  const { setPrimary, stopPrimaryInterval } = useThemeContext();
+  const { setPrimary, setBg, stopPrimaryInterval } = useThemeContext();
 
   const handlePrimary = (primary: Primary) => {
     setPrimary(primary);
@@ -29,14 +30,13 @@ const ThemeModal = () => {
       </div>
       <h3>Escoge tu color de fondo</h3>
       <div className="theme__bg">
-        {
-          // bg.map(bgcolor => (
-          //   <BgButton
-          //     key={bgcolor}
-          //     className={bgcolor}
-          //   />
-          // ))
-        }
+        {bgColors.map((bgcolor) => (
+          <button
+            key={bgcolor["--black-color"]}
+            style={{ backgroundColor: bgcolor["--white-color"] }}
+            onClick={() => setBg(bgcolor)}
+          />
+        ))}
       </div>
     </Modal>
   );

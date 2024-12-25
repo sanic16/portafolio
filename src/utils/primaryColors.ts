@@ -3,9 +3,9 @@ const primarySpectrum = Array.from({ length: 360 }, (_, i) => ({
   "--primary-color": `hsl(${(350 + i) % 360}, 88%, 36%)`,
 }));
 
-export const primaryCompass = Array.from({ length: 12 }, (_, i) => ({
-  "--primary-hue": `${(i * 30) % 360}`,
-  "--primary-color": `hsl(${(i * 30) % 360}, 88%, 36%)`,
+export const primaryCompass = Array.from({ length: 24 }, (_, i) => ({
+  "--primary-hue": `${(i * 15) % 360}`,
+  "--primary-color": `hsl(${(i * 15) % 360}, 88%, 36%)`,
 }));
 
 export const nextPrimary = (primary: Primary): Primary => {
