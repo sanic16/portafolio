@@ -19,10 +19,12 @@ export const ContextTheme = createContext<ThemeContext>({
   },
   saturation: "88",
   lightness: "36",
+  mode: "static",
   setPrimary: () => {},
   setBg: () => {},
   startPrimaryInterval: () => {},
   stopPrimaryInterval: () => {},
   newSaturation: () => {},
   newLightness: () => {},
+  changeMode: () => {},
 });

@@ -38,6 +38,13 @@ const initialState: Theme =
 const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
   const primaryInterval = useRef<NodeJS.Timeout | null>(null);
   const [theme, setTheme] = useState<Theme>(initialState);
+  const [mode, setMode] = useState<Mode>(
+    typeof window !== "undefined" &&
+      localStorage.getItem("mode") !== null &&
+      typeof JSON.parse(localStorage.getItem("mode") as string) === "string"
+      ? JSON.parse(localStorage.getItem("mode") as string)
+      : "cycle"
+  );
   const [saturation, setSaturation] = useState<string>(
     typeof window !== "undefined" &&
       localStorage.getItem("saturation") !== null &&
@@ -46,7 +53,14 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
       ? JSON.parse(localStorage.getItem("saturation") as string)
       : "88"
   );
-  const [lightness, setLightness] = useState("36");
+  const [lightness, setLightness] = useState<string>(
+    typeof window !== "undefined" &&
+      localStorage.getItem("lightness") !== null &&
+      typeof JSON.parse(localStorage.getItem("lightness") as string) ===
+        "string"
+      ? JSON.parse(localStorage.getItem("lightness") as string)
+      : "36"
+  );
 
   const stopPrimaryInterval = useCallback(() => {
     if (!primaryInterval.current) return;
@@ -81,9 +95,31 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
     setLightness(lightness);
   }, []);
 
+  const changeMode = useCallback(() => {
+    setMode((prev) => (prev === "static" ? "cycle" : "static"));
+  }, []);
+
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(theme));
   }, [theme]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("saturation", JSON.stringify(saturation));
+    }
+  }, [saturation]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("lightness", JSON.stringify(lightness));
+    }
+  }, [lightness]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("mode", JSON.stringify(mode));
+    }
+  }, [mode]);
 
   useEffect(() => {
     setBGCSSVariables(theme.bg);
@@ -94,31 +130,19 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
   }, [theme.primary]);
 
   useEffect(() => {
-    primaryInterval.current = setInterval(() => {
-      setTheme((prev) => ({
-        ...prev,
-        primary: nextPrimary(prev.primary, saturation, lightness),
-      }));
-    }, 50);
-
-    return () => {
-      if (primaryInterval.current) {
-        clearInterval(primaryInterval.current);
-      }
-    };
-  }, [saturation, lightness]);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("saturation", JSON.stringify(saturation));
+    if (mode === "cycle") {
+      startPrimaryInterval(50);
     }
-    console.log("saturation useEffect", saturation);
-  }, [saturation]);
+    return () => {
+      stopPrimaryInterval();
+    };
+  }, [mode, startPrimaryInterval, stopPrimaryInterval]);
 
   return (
     <ContextTheme.Provider
       value={{
         theme,
+        mode,
         saturation,
         lightness,
         setPrimary: setPrimary,
@@ -127,6 +151,7 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
         stopPrimaryInterval,
         newSaturation,
         newLightness,
+        changeMode,
       }}
     >
       {children}

@@ -23,16 +23,14 @@ export const nextPrimary = (
   return primarySpectrum(saturation, lightness)[nextIndex];
 };
 
-export const saturationSpectrum = (
+export const changeColorTone = (
   primary: Primary,
-  saturation: string
+  saturation: string,
+  lightness: string
 ): Primary => {
   const primaryHue = primary["--primary-hue"];
-  const primaryLightness = primary["--primary-color"]
-    .split(", ")[2]
-    .slice(0, -1);
   return {
     "--primary-hue": primaryHue,
-    "--primary-color": `hsl(${primaryHue}, ${saturation}%, ${primaryLightness})`,
+    "--primary-color": `hsl(${primaryHue}, ${saturation}%, ${lightness}%)`,
   };
 };

@@ -57,6 +57,20 @@
   gap: 0.5rem;
 }
 
+.theme__mode {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.theme__mode button {
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
 button.bg-1 {
   background-color: #fff;
 }
@@ -66,9 +80,10 @@ button.bg-2 {
 }
 
 @media screen and (max-width: 600px) {
-  .theme__modal {
+  .card.theme__modal {
     padding-block: 2rem;
     padding-inline: 1rem;
     width: 90%;
+    grid-template-columns: 1fr;
   }
 }

@@ -19,10 +19,13 @@ type Theme = {
   bg: Bg;
 };
 
+type Mode = "static" | "cycle";
+
 interface ThemeState {
   theme: Theme;
   saturation: string;
   lightness: string;
+  mode: Mode;
 }
 
 interface ThemeContext extends ThemeState {
@@ -32,4 +35,5 @@ interface ThemeContext extends ThemeState {
   stopPrimaryInterval: () => void;
   newSaturation: (saturation: string) => void;
   newLightness: (lightness: string) => void;
+  changeMode: (mode: Mode) => void;
 }
