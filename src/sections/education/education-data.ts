@@ -78,7 +78,7 @@ const education__data: EducationData[] = [
                 Otros cursos que estoy tomando actualmente está uno de c# y aniamaciones con CSS y JavaScript.  
             </p>
         `,
-    pdf: "pdf/udemy.pdf",
+    pdf: "documents/udemy.pdf",
     images: [
       udemy_image_1,
       udemy_image_2,
@@ -104,7 +104,7 @@ const education__data: EducationData[] = [
         </p>
         `,
     icon: TbCircuitCapacitorPolarized,
-    pdf: "pdf/documento-electronico-70487.pdf",
+    pdf: "documents/documento-electronico-70487.pdf",
     images: [electronica_1, electronica_2],
   },
   {
@@ -121,7 +121,7 @@ const education__data: EducationData[] = [
         </p>
         `,
     icon: MdElectricBolt,
-    pdf: "pdf/documento-electronico-70484.pdf",
+    pdf: "documents/documento-electronico-70484.pdf",
     images: [electricidad_1, electricidad_2],
   },
 ];
