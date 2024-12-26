@@ -48,11 +48,11 @@ const ThemeModal = () => {
       <div className={classes.theme__colors}>
         <h5>Escoge tu color favorito</h5>
         <div className={classes.theme__primary}>
-          {primaryCompass.map((color) => (
+          {primaryCompass(saturation, lightness).map((color) => (
             <button
               key={color["--primary-hue"]}
-              style={{ backgroundColor: color["--primary-color"] }}
               onClick={() => handlePrimary(color)}
+              style={{ backgroundColor: color["--primary-color"] }}
             />
           ))}
         </div>

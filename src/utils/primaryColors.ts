@@ -5,10 +5,15 @@ const primarySpectrum = (saturation: string, lightness: string): Primary[] => {
   }));
 };
 
-export const primaryCompass = Array.from({ length: 24 }, (_, i) => ({
-  "--primary-hue": `${(i * 15) % 360}`,
-  "--primary-color": `hsl(${(i * 15) % 360}, 88%, 36%)`,
-}));
+export const primaryCompass = (
+  saturation: string,
+  lightness: string
+): Primary[] => {
+  return Array.from({ length: 24 }, (_, i) => ({
+    "--primary-hue": `${(i * 15) % 360}`,
+    "--primary-color": `hsl(${(i * 15) % 360}, ${saturation}%, ${lightness}%)`,
+  }));
+};
 
 export const nextPrimary = (
   primary: Primary,

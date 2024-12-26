@@ -21,7 +21,7 @@ const initialState: Theme =
     : {
         primary: {
           "--primary-hue": "0",
-          "--primary-color": "hsl(0, 88%, 36%)",
+          "--primary-color": "hsl(75, 88%, 36%)",
         },
         bg: {
           "--white-lightness": "14%",
