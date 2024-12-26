@@ -17,4 +17,7 @@ export const contextPlayer = createContext<ContextPlayer>({
   songs: [],
   changeSongs: () => {},
   isPlaying: false,
+  isOptionsOpen: true,
+  openOptions: () => {},
+  closeOptions: () => {},
 });

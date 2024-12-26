@@ -1,3 +1,5 @@
+"use client";
+
 import {
   FC,
   PropsWithChildren,
@@ -19,11 +21,40 @@ const ContextPlayerProvider: FC<PropsWithChildren> = ({ children }) => {
     "https://juliosanicstatic.codielectro.com/music/monuments_of_hope.mp3",
   ]);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentSongIndex, setCurrentSongIndex] = useState(0);
+  const [currentSongIndex, setCurrentSongIndex] = useState<number>(
+    typeof window !== "undefined" &&
+      localStorage.getItem("currentSongIndex") !== null &&
+      typeof JSON.parse(localStorage.getItem("currentSongIndex") as string) ===
+        "number"
+      ? JSON.parse(localStorage.getItem("currentSongIndex") as string)
+      : 0
+  );
   const [isPaused, setIsPaused] = useState(true);
-  const [volume, setVolume] = useState(1);
+  const [volume, setVolume] = useState<number>(
+    typeof window !== "undefined" &&
+      localStorage.getItem("volume") !== null &&
+      typeof JSON.parse(localStorage.getItem("volume") as string) === "number"
+      ? JSON.parse(localStorage.getItem("volume") as string)
+      : 1
+  );
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [isOptionsOpen, setIsOptionsOpen] = useState<boolean>(
+    typeof window !== "undefined" &&
+      localStorage.getItem("isOptionsOpen") !== null &&
+      typeof JSON.parse(localStorage.getItem("isOptionsOpen") as string) ===
+        "boolean"
+      ? JSON.parse(localStorage.getItem("isOptionsOpen") as string)
+      : false
+  );
+
+  const openOptions = useCallback(() => {
+    setIsOptionsOpen(true);
+  }, []);
+
+  const closeOptions = useCallback(() => {
+    setIsOptionsOpen(false);
+  }, []);
 
   const changeSongs = useCallback((songs: string[]) => {
     setSongs(songs);
@@ -119,7 +150,22 @@ const ContextPlayerProvider: FC<PropsWithChildren> = ({ children }) => {
       audioElement.removeEventListener("timeupdate", updateTime);
       audioElement.removeEventListener("loadedmetadata", setAudioDuration);
     };
-  });
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    localStorage.setItem("isOptionsOpen", JSON.stringify(isOptionsOpen));
+  }, [isOptionsOpen]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    localStorage.setItem("currentSongIndex", JSON.stringify(currentSongIndex));
+  }, [currentSongIndex]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    localStorage.setItem("volume", JSON.stringify(volume));
+  }, [volume]);
 
   return (
     <contextPlayer.Provider
@@ -140,6 +186,9 @@ const ContextPlayerProvider: FC<PropsWithChildren> = ({ children }) => {
         songs,
         stopAudio,
         volume,
+        isOptionsOpen,
+        openOptions,
+        closeOptions,
       }}
     >
       {children}

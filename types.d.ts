@@ -39,6 +39,9 @@ interface ThemeContext extends ThemeState {
 }
 
 type ContextPlayer = {
+  isOptionsOpen: boolean;
+  openOptions: () => void;
+  closeOptions: () => void;
   nextSong: () => void;
   previousSong: () => void;
   playAudio: () => void;
@@ -55,4 +58,10 @@ type ContextPlayer = {
   songs: string[];
   changeSongs: (songs: string[]) => void;
   isPlaying: boolean;
+};
+
+type ContextModal = {
+  isOpen: boolean;
+  openModal: () => void;
+  closeModal: () => void;
 };
