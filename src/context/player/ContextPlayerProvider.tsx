@@ -15,6 +15,8 @@ const ContextPlayerProvider: FC<PropsWithChildren> = ({ children }) => {
     "https://juliosanicstatic.codielectro.com/music/cote_dazur.mp3",
     "https://juliosanicstatic.codielectro.com/music/mysterious_place.mp3",
     "https://juliosanicstatic.codielectro.com/music/toucher.mp3",
+    "https://juliosanicstatic.codielectro.com/music/forthcoming.mp3",
+    "https://juliosanicstatic.codielectro.com/music/monuments_of_hope.mp3",
   ]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);

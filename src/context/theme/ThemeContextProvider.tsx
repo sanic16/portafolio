@@ -131,7 +131,7 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (mode === "cycle") {
-      startPrimaryInterval(50);
+      startPrimaryInterval(150);
     }
     return () => {
       stopPrimaryInterval();
