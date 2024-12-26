@@ -11,6 +11,7 @@ import { getDictionary } from "./dictionaries";
 import classes from "./layout.module.css";
 import MainProvider from "@/components/providers/MainProvider";
 import ControlsMenu from "@/components/audio/controlsMenu/ControlsMenu";
+import TrackBar from "@/components/audio/trackBar/TrackBar";
 
 export const metadata: Metadata = {
   title: "Julio Sanic - Desarrollador Web",
@@ -37,6 +38,7 @@ export default async function RootLayout({
           <MainProvider>
             <ModalContextProvider>
               <Navbar translations={t.navbar} />
+              <TrackBar />
               <div className={classes.main}>{children}</div>
               <Footer {...t.footer} />
               <ThemeMenu />

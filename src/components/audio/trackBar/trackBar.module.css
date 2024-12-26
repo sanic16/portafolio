@@ -1,0 +1,55 @@
+.track__bar {
+  position: fixed;
+  top: 6rem;
+  left: 0;
+  width: 100%;
+  height: 0.5rem;
+  z-index: 99;
+}
+
+.track__bar input[type="range"] {
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--primary-color);
+  position: relative;
+  transform: translateY(-0.5rem);
+}
+
+.track__bar input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  transform: translateY(-0.25rem);
+  background-color: var(--white-color);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 5px var(--primary-color);
+}
+
+.track__bar input[type="range"]::-moz-range-thumb {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--white-color);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 5px var(--primary-color);
+}
+
+.track__bar input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--dark-color);
+}
+
+.track__bar input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--dark-color);
+}
+
+@media screen and (max-width: 600px) {
+  .track__bar {
+    top: 5rem;
+  }
+}
