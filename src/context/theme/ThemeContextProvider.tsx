@@ -20,7 +20,7 @@ const initialState: Theme =
     ? JSON.parse(localStorage.getItem("theme") as string)
     : {
         primary: {
-          "--primary-hue": "0",
+          "--primary-hue": "75",
           "--primary-color": "hsl(75, 88%, 36%)",
         },
         bg: {

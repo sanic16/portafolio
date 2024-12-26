@@ -14,6 +14,7 @@ const DocumentButton = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const closeModal = () => setIsOpen(false);
+  const openModal = () => setIsOpen(true);
   const props = {
     isOpen,
     closeModal,
@@ -21,10 +22,7 @@ const DocumentButton = ({
   };
   return (
     <>
-      <button
-        className={className}
-        // onClick={openModal}
-      >
+      <button className={className} onClick={openModal}>
         {title}
       </button>
       <DocumentModal {...props} />
