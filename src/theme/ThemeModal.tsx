@@ -102,8 +102,20 @@ const ThemeModal = () => {
                 : ""}
             </span>
             <div className={classes["theme__mode-buttons"]}>
-              <button onClick={() => changeMode("static")}>Estático</button>
-              <button onClick={() => changeMode("cycle")}>Cíclico</button>
+              <button
+                onClick={() => changeMode("static")}
+                className={`${mode === "static" ? classes.mode__active : ""}`}
+                disabled={mode === "static"}
+              >
+                Estático
+              </button>
+              <button
+                onClick={() => changeMode("cycle")}
+                className={`${mode === "cycle" ? classes.mode__active : ""}`}
+                disabled={mode === "cycle"}
+              >
+                Cíclico
+              </button>
             </div>
           </h5>
         </div>

@@ -37,3 +37,22 @@ interface ThemeContext extends ThemeState {
   newLightness: (lightness: string) => void;
   changeMode: (mode: Mode) => void;
 }
+
+type ContextPlayer = {
+  nextSong: () => void;
+  previousSong: () => void;
+  playAudio: () => void;
+  pauseAudio: () => void;
+  stopAudio: () => void;
+  isPaused: boolean;
+  currentSongIndex: number;
+  setCurrentSongIndex: (index: number) => void;
+  changeVolume: (volume: number) => void;
+  volume: number;
+  currentTime: number;
+  duration: number;
+  changeCurrentTime: (time: number) => void;
+  songs: string[];
+  changeSongs: (songs: string[]) => void;
+  isPlaying: boolean;
+};

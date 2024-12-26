@@ -1,5 +1,6 @@
 "use client";
 
+import ContextPlayerProvider from "@/context/player/ContextPlayerProvider";
 import dynamic from "next/dynamic";
 import { type FC } from "react";
 
@@ -14,7 +15,11 @@ type MainProviderProps = {
   children: React.ReactNode;
 };
 const MainProvider: FC<MainProviderProps> = ({ children }) => {
-  return <ThemeContextProvider>{children}</ThemeContextProvider>;
+  return (
+    <ThemeContextProvider>
+      <ContextPlayerProvider>{children}</ContextPlayerProvider>
+    </ThemeContextProvider>
+  );
 };
 
 export default MainProvider;

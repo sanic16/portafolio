@@ -13,6 +13,7 @@
   border-color: var(--primary-color);
   border-width: 1px;
   box-shadow: 0 0 10px var(--primary-color);
+  animation: slideDown 1s ease;
 }
 
 .theme__modal h5 {
@@ -88,6 +89,24 @@
   padding-block: 0.5rem;
   cursor: pointer;
   border-radius: 0.5rem;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.theme__mode-buttons button.mode__active {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translate(-50%, -100%); /* Start above the screen */
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%); /* End centered on the screen */
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 600px) {

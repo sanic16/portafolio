@@ -95,8 +95,8 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
     setLightness(lightness);
   }, []);
 
-  const changeMode = useCallback(() => {
-    setMode((prev) => (prev === "static" ? "cycle" : "static"));
+  const changeMode = useCallback((mode: Mode) => {
+    setMode(mode);
   }, []);
 
   useEffect(() => {

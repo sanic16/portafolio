@@ -10,6 +10,7 @@ import { SessionProvider } from "next-auth/react";
 import { getDictionary } from "./dictionaries";
 import classes from "./layout.module.css";
 import MainProvider from "@/components/providers/MainProvider";
+import ControlsMenu from "@/components/audio/controlsMenu/ControlsMenu";
 
 export const metadata: Metadata = {
   title: "Julio Sanic - Desarrollador Web",
@@ -40,6 +41,7 @@ export default async function RootLayout({
               <Footer {...t.footer} />
               <ThemeMenu />
               <ThemeModal />
+              <ControlsMenu />
               <GoogleAdsense />
             </ModalContextProvider>
           </MainProvider>
