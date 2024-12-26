@@ -111,10 +111,18 @@ const ContextPlayerProvider: FC<PropsWithChildren> = ({ children }) => {
       nextSong();
     };
 
-    audioElementRef.current.addEventListener("ended", handleSongEnd);
+    const audio = audioElementRef.current;
+    audio.addEventListener("ended", handleSongEnd);
 
     return () => {
-      audioElementRef.current?.removeEventListener("ended", handleSongEnd);
+      // Stop the audio, clear its src, and nullify the ref
+      if (audioElementRef.current) {
+        audioElementRef.current.pause();
+        audioElementRef.current.src = "";
+        audioElementRef.current.load(); // Clears the audio buffer
+        audioElementRef.current.removeEventListener("ended", handleSongEnd);
+        audioElementRef.current = null;
+      }
     };
   }, [nextSong]);
 
