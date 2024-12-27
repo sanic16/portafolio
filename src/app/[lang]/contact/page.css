@@ -1,7 +1,6 @@
 .contact {
   padding-top: 6rem;
   min-height: 100vh;
-  background-color: var(--light-color);
   display: grid;
   place-items: center;
 }
