@@ -54,7 +54,7 @@ const requestAWSFileSchema = z.object({
       message: "El token debe ser una cadena de texto",
     })
     .nonempty({
-      message: "El token no puede estar vacío",
+      message: "Se requiere un token para realizar la petición",
     }),
   key: z
     .string({
@@ -68,10 +68,11 @@ const requestAWSFileSchema = z.object({
 export const requestAWSFile = async (token: string, key: string) => {
   const result = requestAWSFileSchema.safeParse({ token, key });
 
+  // check if the token check failed
   if (!result.success) {
     return {
       success: false,
-      message: "Los datos enviados no cumplen con el formato requerido",
+      message: result.error.flatten().fieldErrors?.token?.join(", ").toString(),
     };
   }
 

@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ translations, lang }) => {
                 </a> */}
           <DocumentButton
             className="btn primary"
-            pdfFile="pdf/cv.pdf"
+            pdfFile="documents/cv.pdf"
             title={translations.cvButton}
           />
           <Link href={`/${lang}/contact`} className="btn">

@@ -8,7 +8,7 @@
   box-shadow: 0 0.1rem 0.5rem hsla(0, 5%, var(--black-lightness), 0.7);
   display: grid;
   align-items: center;
-  z-index: 1;
+  z-index: 2;
   transition: var(--transition);
 }
 

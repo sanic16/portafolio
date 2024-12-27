@@ -4,6 +4,7 @@ import { useState, useTransition } from "react";
 import DocumentModal from "../document-modal/DocumentModal";
 import { requestAWSFile } from "@/actions/jwtActions";
 import { useSearchParams } from "next/navigation";
+import ErrorModal from "../error-modal/ErrorModal";
 
 const DocumentButton = ({
   className,
@@ -17,23 +18,24 @@ const DocumentButton = ({
   const [isPending, startTransition] = useTransition();
   const [isOpen, setIsOpen] = useState(false);
   const [pdf, setPdf] = useState("");
+  const [error, setError] = useState<string | null>(null);
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
 
   const closeModal = () => setIsOpen(false);
   const handleDocumentRequest = () => {
     startTransition(() => {
-      requestAWSFile(token || "", "documents/cv.pdf")
+      requestAWSFile(token || "", pdfFile)
         .then((response) => {
           if (response.success) {
             setPdf(response.data!);
             setIsOpen(true);
           } else {
-            console.error("Error al solicitar el archivo", response.message);
+            setError(response?.message || "Error desconocido");
           }
         })
-        .catch((error) => {
-          console.error("Error al solicitar el archivo", error);
+        .catch(() => {
+          setError("Error desconocido");
         });
     });
   };
@@ -52,6 +54,11 @@ const DocumentButton = ({
         {isPending ? "cargando..." : title}
       </button>
       <DocumentModal {...props} pdfFile={pdf} />
+      <ErrorModal
+        isOpen={!!error}
+        closeModal={() => setError(null)}
+        message={error || ""}
+      />
     </>
   );
 };
