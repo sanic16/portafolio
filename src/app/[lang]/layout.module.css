@@ -2,12 +2,28 @@
   min-height: 100vh;
   padding-top: 6rem;
   background: radial-gradient(
-    circle at center,
-    hsla(var(--primary-hue), 80%, 15%, 0.4) 0%,
-    /* Stronger color at center */ hsla(var(--primary-hue), 80%, 12%, 0.1) 25%,
-    /* Soft transition outward */ hsla(var(--primary-hue), 80%, 11%, 0.2) 25%,
-    var(--white-color) 100%
-  );
+      circle at 20% 30%,
+      var(--primary-color) 1%,
+      transparent 25%
+    ),
+    radial-gradient(
+      ellipse at 80% 70%,
+      var(--primary-color) 1.5%,
+      var(--white-color) 40%
+    ),
+    radial-gradient(
+      circle at center,
+      var(--white-color) 35%,
+      var(--primary-color) 36%,
+      var(--white-color) 80%
+    ),
+    repeating-conic-gradient(
+      from 0deg at center,
+      var(--white-color) 0%,
+      var(--primary-color) 1%,
+      var(--white-color) 7%
+    );
+  background-blend-mode: screen, lighten, overlay, normal;
 }
 
 @media screen and (max-width: 576px) {

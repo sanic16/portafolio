@@ -6,9 +6,9 @@ import { Pacifico } from "next/font/google";
 import { useEffect, useState } from "react";
 import { FaBars, FaSearch, FaTimes } from "react-icons/fa";
 import { useModalContext } from "@/hooks/hooks";
-import { signInAction, signOutAction } from "@/actions";
+import { searchAction, signInAction, signOutAction } from "@/actions";
 import { signOut as logout, useSession } from "next-auth/react";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useSearchParams } from "next/navigation";
 import NavLink from "./NavLink";
 
 const pacifico = Pacifico({ subsets: ["latin"], weight: ["400"] });
@@ -33,6 +33,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
   const { openModal } = useModalContext();
   const { lang } = useParams();
   const pathnameWithoutLang = pathname.replace(/\/[a-z]{2}/, "");
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     const changeBgOnScroll = () => {
@@ -84,11 +85,16 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
           </Link>
         </div>
         <div className={classes.search}>
-          <form className={classes.search__form}>
+          <form
+            className={classes.search__form}
+            action={searchAction.bind(null, lang as "es" | "en")}
+          >
             <input
               type="text"
               placeholder="Buscar..."
               className={classes.search__input}
+              defaultValue={searchParams.get("term") || ""}
+              name="term"
             />
             <button type="submit" className={classes.search__button}>
               <FaSearch />

@@ -45,6 +45,32 @@ model Account {
   @@unique([provider, providerAccountId])
 } 
 
+model Route {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  description String
+  path String
+  lang Lang @default(es)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt 
+
+  @@index([title, description], name: "search_index")
+}
+
+// model Route {
+//   id          String   @id @default(auto()) @map("_id") @db.ObjectId
+//   title       String
+//   description String
+//   path        String
+//   tags        String[] // Optional: For categorization
+//   type        String   // Optional: To indicate category/type
+//   rank        Int      // Optional: For relevance sorting
+//   createdAt   DateTime @default(now())
+//   updatedAt   DateTime @updatedAt
+
+//   @@index([title, description], name: "search_index") // Add indexes for faster search
+// }
+
 model Project {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   title String
@@ -54,7 +80,7 @@ model Project {
   githubUrl String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  lang Lang @default(ES) 
+  lang Lang @default(es) 
   
   // Relation
   userId String @db.ObjectId
@@ -103,6 +129,6 @@ enum Role {
 }
 
 enum Lang {
-  EN
-  ES
+  en
+  es
 }

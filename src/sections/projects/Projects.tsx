@@ -7,7 +7,7 @@ interface ProjectsProps {
     title: string;
     description: string;
   };
-  lang: "EN" | "ES";
+  lang: "en" | "es";
 }
 
 const Projects: React.FC<ProjectsProps> = async ({ translations, lang }) => {

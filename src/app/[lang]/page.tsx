@@ -26,18 +26,12 @@ type HomoPageProps = {
 
 export default async function HomePage({ params }: HomoPageProps) {
   const { lang } = await params;
-  let language: "EN" | "ES";
-  if (lang === "en") {
-    language = "EN";
-  } else {
-    language = "ES";
-  }
   const t = await getDictionary(lang);
   return (
     <>
       <Header translations={t.header} lang={lang} />
       <About translations={t.about} lang={lang} />
-      <Projects translations={t.projects} lang={language} />
+      <Projects translations={t.projects} lang={lang} />
       <Services translations={t.services} />
       <Education translations={t.education} />
       <FloatMenu />

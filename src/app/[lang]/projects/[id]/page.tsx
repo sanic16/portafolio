@@ -12,17 +12,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <Suspense fallback={<RotatingLoader />}>
-      <Projects page={id} lang={lang} />
+      <Projects page={id} lang={lang as "es" | "en"} />
     </Suspense>
   );
 }
 
 export async function generateStaticParams() {
   const totalEnglishItems = await prisma.project.count({
-    where: { lang: "EN" },
+    where: { lang: "en" },
   });
   const totalSpanishItems = await prisma.project.count({
-    where: { lang: "ES" },
+    where: { lang: "es" },
   });
 
   const totalEnglishPages = Math.ceil(totalEnglishItems / 6);

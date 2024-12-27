@@ -28,7 +28,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "ES",
+          lang: "es",
         },
         {
           title: "Servicios Eléctricos",
@@ -47,7 +47,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "ES",
+          lang: "es",
         },
         {
           title: "Predio",
@@ -66,7 +66,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "ES",
+          lang: "es",
         },
         {
           title: "CONESIEE",
@@ -86,7 +86,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "ES",
+          lang: "es",
         },
         {
           title: "Coral y Mar",
@@ -101,7 +101,7 @@ const userData: Prisma.UserCreateInput[] = [
               name: "MERN",
             },
           },
-          lang: "ES",
+          lang: "es",
         },
         {
           title: "smilecook",
@@ -116,7 +116,7 @@ const userData: Prisma.UserCreateInput[] = [
               name: "FRM",
             },
           },
-          lang: "ES",
+          lang: "es",
         },
         {
           title: "JuliusBlog",
@@ -136,7 +136,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "ES",
+          lang: "es",
         },
         {
           title: "Hotel El Jaguard Dorado",
@@ -156,7 +156,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "ES",
+          lang: "es",
         },
         {
           title: "CodiElectro",
@@ -176,7 +176,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "ES",
+          lang: "es",
         },
         {
           title: "Brayalex | The Machine Doctor",
@@ -195,7 +195,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "EN",
+          lang: "en",
         },
         {
           title: "Electrical Services",
@@ -214,7 +214,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "EN",
+          lang: "en",
         },
         {
           title: "Predio",
@@ -233,7 +233,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "EN",
+          lang: "en",
         },
         {
           title: "CONESIEE",
@@ -253,7 +253,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "EN",
+          lang: "en",
         },
         {
           title: "Coral and Sea",
@@ -273,7 +273,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "EN",
+          lang: "en",
         },
         {
           title: "smilecook",
@@ -293,7 +293,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "EN",
+          lang: "en",
         },
         {
           title: "JuliusBlog",
@@ -313,7 +313,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "EN",
+          lang: "en",
         },
         {
           title: "The Golden Jaguar Hotel",
@@ -332,7 +332,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "EN",
+          lang: "en",
         },
         {
           title: "CodiElectro",
@@ -351,7 +351,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "EN",
+          lang: "en",
         },
       ],
     },
@@ -418,6 +418,93 @@ const postCategoryData: Prisma.CategoryCreateInput[] = [
   },
 ];
 
+const searchingRouteData: Prisma.RouteCreateInput[] = [
+  {
+    title: "Curriculum Vitae",
+    description: "Curriculum Vitae de Julio Sanic",
+    path: "/es#header",
+    lang: "es",
+  },
+  {
+    title: "Curriculum Vitae",
+    description: "Julio Sanic's Curriculum Vitae",
+    path: "/en#header",
+    lang: "en",
+  },
+  {
+    title: "Acerca de",
+    description: "Acerca de Julio Sanic",
+    path: "/es#about",
+    lang: "es",
+  },
+  {
+    title: "About",
+    description: "About Julio Sanic",
+    path: "/en#about",
+    lang: "en",
+  },
+  {
+    title: "Algunos proyectos",
+    description: "Algunos proyectos de ReactJS y NextJS",
+    path: "/es#projects",
+    lang: "es",
+  },
+  {
+    title: "Some projects",
+    description: "Some projects made with ReactJS and NextJS",
+    path: "/en#projects",
+    lang: "en",
+  },
+  {
+    title: "Servicios",
+    description: "Servicios de desarrollo web y móvil",
+    path: "/es#services",
+    lang: "es",
+  },
+  {
+    title: "Services",
+    description: "Web and mobile development services",
+    path: "/en#services",
+    lang: "en",
+  },
+  {
+    title: "Educación",
+    description: "Educación y formación",
+    path: "/es#education",
+    lang: "es",
+  },
+  {
+    title: "Education",
+    description: "Education and training",
+    path: "/en#education",
+    lang: "en",
+  },
+  {
+    title: "Proyectos",
+    description: "Todos los proyectos",
+    path: "/es/projects",
+    lang: "es",
+  },
+  {
+    title: "Projects",
+    description: "All projects",
+    path: "/en/projects",
+    lang: "en",
+  },
+  {
+    title: "Contacto",
+    description: "Contacto con Julio Sanic",
+    path: "/es#contact",
+    lang: "es",
+  },
+  {
+    title: "Contact",
+    description: "Contact Julio Sanic",
+    path: "/en#contact",
+    lang: "en",
+  },
+];
+
 async function main() {
   console.log("Clearing data...");
   await prisma.user.deleteMany();
@@ -444,6 +531,14 @@ async function main() {
       data: u,
     });
     console.log(`Created ${user.name} with id: ${user.id}`);
+  }
+
+  for (const r of searchingRouteData) {
+    const route = await prisma.route.create({
+      data: r,
+    });
+
+    console.log(`Created ${route.title} with id: ${route.id}`);
   }
 
   console.log(`Seeding finished.`);

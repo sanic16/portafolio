@@ -5,14 +5,14 @@ import Link from "next/link";
 
 interface ProjectsProps {
   page: string;
-  lang: string;
+  lang: "en" | "es";
 }
 
 const Projects: React.FC<ProjectsProps> = async ({ page, lang }) => {
   // await new Promise((resolve) => setTimeout(resolve, 5000));
 
   const totalItems = await prisma.project.count({
-    where: { lang: lang === "en" ? "EN" : "ES" },
+    where: { lang: lang },
   });
   const totalPages = Math.ceil(totalItems / 6);
   let numPage = parseInt(page);
@@ -24,7 +24,7 @@ const Projects: React.FC<ProjectsProps> = async ({ page, lang }) => {
     take: 6,
     skip: 6 * (numPage - 1),
     where: {
-      lang: lang === "en" ? "EN" : "ES",
+      lang: lang,
     },
   });
   return (
