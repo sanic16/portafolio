@@ -6,6 +6,7 @@ import education__data from "./education-data";
 import { useAnimate, stagger } from "framer-motion";
 import DocumentButton from "@/components/document-button/DocumentButton";
 import ImageButton from "@/components/image-button/ImageButton";
+import SectionWrapper from "../section-wrapper/SectionWrapper";
 
 interface EducationProps {
   translations: {
@@ -51,7 +52,7 @@ const Education: React.FC<EducationProps> = ({ translations }) => {
   const isDesktop = !isIOS && !isAndroid;
 
   return (
-    <section id="education" className="education">
+    <SectionWrapper id="education">
       <h1>{translations.title}</h1>
       <p>{translations.description}</p>
       <div className="container">
@@ -103,7 +104,7 @@ const Education: React.FC<EducationProps> = ({ translations }) => {
           </div>
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 };
 

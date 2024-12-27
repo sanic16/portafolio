@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma";
 import "./projects.css";
 import ProjectItem from "@/components/project/ProjectItem";
+import SectionWrapper from "../section-wrapper/SectionWrapper";
 
 interface ProjectsProps {
   translations: {
@@ -39,7 +40,7 @@ const Projects: React.FC<ProjectsProps> = async ({ translations, lang }) => {
     },
   });
   return (
-    <section id="projects" className="projects">
+    <SectionWrapper id="projects">
       <h1>{translations.title}</h1>
       <p>{translations.description}</p>
       <div className="container">
@@ -49,7 +50,7 @@ const Projects: React.FC<ProjectsProps> = async ({ translations, lang }) => {
           ))}
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 };
 

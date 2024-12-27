@@ -1,6 +1,11 @@
 .header {
   display: grid;
   place-items: center;
+  background: var(--white-color);
+  height: calc(100vh - 6rem);
+}
+
+.header.cyclic {
   background: radial-gradient(
       circle farthest-corner at top left,
       var(--primary-color) 0.5%,
@@ -22,8 +27,6 @@
       var(--white-color) 40%
     );
   background-blend-mode: lighten;
-
-  height: calc(100vh - 6rem);
 }
 
 .header__container {

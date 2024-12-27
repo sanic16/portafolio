@@ -1,27 +1,3 @@
-.education {
-  background: radial-gradient(
-      ellipse farthest-corner at top left,
-      var(--primary-color) 0.5%,
-      var(--white-color) 50%
-    ),
-    radial-gradient(
-      ellipse farthest-corner at top right,
-      var(--primary-color) 0.5%,
-      var(--white-color) 50%
-    ),
-    radial-gradient(
-      ellipse farthest-corner at bottom left,
-      var(--primary-color) 0.5%,
-      var(--white-color) 50%
-    ),
-    radial-gradient(
-      ellipse farthest-corner at bottom right,
-      var(--primary-color) 0.5%,
-      var(--white-color) 50%
-    );
-  background-blend-mode: lighten;
-}
-
 .education__title {
   display: flex;
   justify-content: center;

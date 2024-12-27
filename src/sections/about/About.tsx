@@ -5,6 +5,7 @@ import "./about.css";
 import Link from "next/link";
 import about_data from "./about__data";
 import { FC } from "react";
+import SectionWrapper from "../section-wrapper/SectionWrapper";
 
 interface AboutProps {
   translations: {
@@ -23,7 +24,7 @@ interface AboutProps {
 const About: FC<AboutProps> = ({ translations, lang }) => {
   console.log(lang);
   return (
-    <section id="about" className="about">
+    <SectionWrapper id="about">
       <div className="container about__container">
         <div className="about__container-left">
           <h1>{translations.title}</h1>
@@ -56,7 +57,7 @@ const About: FC<AboutProps> = ({ translations, lang }) => {
           </div>
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 };
 

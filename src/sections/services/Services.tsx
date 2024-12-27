@@ -5,6 +5,7 @@ import { FaInbox } from "react-icons/fa";
 import React from "react";
 import Service from "./Service";
 import "./services.css";
+import SectionWrapper from "../section-wrapper/SectionWrapper";
 
 interface ServicesProps {
   translations: {
@@ -28,7 +29,7 @@ const Services: React.FC<ServicesProps> = ({ translations }) => {
   });
 
   return (
-    <section id="services" className="services">
+    <SectionWrapper id="services">
       <h1>{translations.title}</h1>
       <p>{translations.description}</p>
       <div className="container services__container">
@@ -36,7 +37,7 @@ const Services: React.FC<ServicesProps> = ({ translations }) => {
           <Service key={service.id} service={service} />
         ))}
       </div>
-    </section>
+    </SectionWrapper>
   );
 };
 

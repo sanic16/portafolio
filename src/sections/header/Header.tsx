@@ -3,6 +3,7 @@ import classes from "./Header.module.css";
 import me from "@/../public/images/me.png";
 import DocumentButton from "@/components/document-button/DocumentButton";
 import Link from "next/link";
+import HeaderWrapper from "./HeaderWrapper";
 
 interface HeaderProps {
   translations: {
@@ -16,7 +17,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ translations, lang }) => {
   return (
-    <header id="header" className={classes.header}>
+    <HeaderWrapper>
       <div className={`container ${classes.header__container}`}>
         <div className={classes.avatar}>
           <Image src={me} sizes="200px" alt="avatar" />
@@ -39,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({ translations, lang }) => {
           </Link>
         </div>
       </div>
-    </header>
+    </HeaderWrapper>
   );
 };
 

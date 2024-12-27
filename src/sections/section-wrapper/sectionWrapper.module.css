@@ -1,0 +1,27 @@
+.static {
+  background: var(--white-color);
+}
+
+.static.cyclic {
+  background: radial-gradient(
+      circle farthest-corner at top left,
+      var(--primary-color) 0.5%,
+      var(--white-color) 40%
+    ),
+    radial-gradient(
+      circle farthest-corner at top right,
+      var(--primary-color) 0.5%,
+      var(--white-color) 40%
+    ),
+    radial-gradient(
+      circle farthest-corner at bottom left,
+      var(--primary-color) 0.5%,
+      var(--white-color) 40%
+    ),
+    radial-gradient(
+      circle farthest-corner at bottom right,
+      var(--primary-color) 0.5%,
+      var(--white-color) 40%
+    );
+  background-blend-mode: lighten;
+}
