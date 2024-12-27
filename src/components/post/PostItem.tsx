@@ -6,7 +6,7 @@ import Image from "next/image";
 const PostItem = ({
   post,
 }: {
-  post: Post & { user: { fullName: string; imageUrl: string } };
+  post: Post & { user: { name: string | null; image: string | null } };
 }) => {
   return (
     <div className={classes.post}>
@@ -27,8 +27,8 @@ const PostItem = ({
 
       <Author
         createdAt={post.createdAt}
-        name={post.user.fullName}
-        imageUrl={post.user.imageUrl}
+        name={post.user.name || "Anónimo"}
+        imageUrl={post.user.image || ""}
       />
     </div>
   );

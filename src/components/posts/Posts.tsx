@@ -7,8 +7,8 @@ const Posts = async () => {
     include: {
       user: {
         select: {
-          fullName: true,
-          imageUrl: true,
+          name: true,
+          image: true,
         },
       },
     },
