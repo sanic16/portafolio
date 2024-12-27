@@ -4,20 +4,20 @@ const prisma = new PrismaClient();
 
 const userData: Prisma.UserCreateInput[] = [
   {
-    fullName: "Julio Rubén Sanic Martínez",
+    name: "Julio Rubén Sanic Martínez",
     email: "julio.sanic.gt.256@gmail.com",
-    password: "borden16",
     role: "ADMIN",
-    imageUrl:
+    image:
       "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/emmwvxo0jokjq9nu8ulx",
     projects: {
       create: [
         {
           title: "Brayalex | The Machine Doctor",
-          description: "Website para servicios de reparación de máquinas. El proyecto está hecho con NextJS.",
+          description:
+            "Website para servicios de reparación de máquinas. El proyecto está hecho con NextJS.",
           imageUrl:
             "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/yx0sazqa2jbiv8ixtnbl",
-            websiteUrl: "https://brayalex.com/",
+          websiteUrl: "https://brayalex.com/",
           categories: {
             connectOrCreate: {
               where: {
@@ -28,7 +28,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "ES"
+          lang: "ES",
         },
         {
           title: "Servicios Eléctricos",
@@ -180,10 +180,11 @@ const userData: Prisma.UserCreateInput[] = [
         },
         {
           title: "Brayalex | The Machine Doctor",
-          description: "Website for machine repair services. The project is built with NextJS.",
+          description:
+            "Website for machine repair services. The project is built with NextJS.",
           imageUrl:
             "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/yx0sazqa2jbiv8ixtnbl",
-            websiteUrl: "https://brayalex.com/",
+          websiteUrl: "https://brayalex.com/",
           categories: {
             connectOrCreate: {
               where: {
@@ -194,7 +195,7 @@ const userData: Prisma.UserCreateInput[] = [
               },
             },
           },
-          lang: "EN"
+          lang: "EN",
         },
         {
           title: "Electrical Services",
@@ -241,9 +242,9 @@ const userData: Prisma.UserCreateInput[] = [
           imageUrl:
             "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/wgpztcudjmqljlbabkko",
           githubUrl: "https://github.com/sanic16/conesiee-2024.git",
-          websiteUrl: "https://conesiee.codielectro.com/", 
+          websiteUrl: "https://conesiee.codielectro.com/",
           categories: {
-            connectOrCreate: { 
+            connectOrCreate: {
               where: {
                 name: "Next.js",
               },
@@ -442,7 +443,7 @@ async function main() {
     const user = await prisma.user.create({
       data: u,
     });
-    console.log(`Created ${user.fullName} with id: ${user.id}`);
+    console.log(`Created ${user.name} with id: ${user.id}`);
   }
 
   console.log(`Seeding finished.`);
