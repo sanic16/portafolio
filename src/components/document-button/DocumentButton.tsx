@@ -24,11 +24,15 @@ const DocumentButton = ({
 
   const closeModal = () => setIsOpen(false);
   const handleDocumentRequest = () => {
+    if (!token) {
+      setError("No se ha proporcionado un token");
+      return;
+    }
     startTransition(() => {
-      requestAWSFile(token || "", pdfFile)
+      requestAWSFile(token, pdfFile)
         .then((response) => {
           if (response.success) {
-            setPdf(response.data!);
+            setPdf(response.message);
             setIsOpen(true);
           } else {
             setError(response?.message || "Error desconocido");
@@ -39,11 +43,7 @@ const DocumentButton = ({
         });
     });
   };
-  const props = {
-    isOpen,
-    closeModal,
-    pdfFile,
-  };
+
   return (
     <>
       <button
@@ -53,7 +53,7 @@ const DocumentButton = ({
       >
         {isPending ? "cargando..." : title}
       </button>
-      <DocumentModal {...props} pdfFile={pdf} />
+      <DocumentModal closeModal={closeModal} isOpen={isOpen} pdfFile={pdf} />
       <ErrorModal
         isOpen={!!error}
         closeModal={() => setError(null)}

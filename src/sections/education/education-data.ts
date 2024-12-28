@@ -2,28 +2,13 @@ import { MdElectricBolt } from "react-icons/md";
 import { SiUdemy } from "react-icons/si";
 import { TbCircuitCapacitorPolarized } from "react-icons/tb";
 
-import udemy_image_1 from "@/../public/images/udemy_page-0001.jpg";
-import udemy_image_2 from "@/../public/images/udemy_page-0002.jpg";
-import udemy_image_3 from "@/../public/images/udemy_page-0003.jpg";
-import udemy_image_4 from "@/../public/images/udemy_page-0004.jpg";
-import udemy_image_5 from "@/../public/images/udemy_page-0005.jpg";
-import electronica_1 from "@/../public/images/documento-electronico-70487_page-0001.jpg";
-import electronica_2 from "@/../public/images/documento-electronico-70487_page-0002.jpg";
-import electricidad_1 from "@/../public/images/documento-electronico-70484_page-0001.jpg";
-import electricidad_2 from "@/../public/images/documento-electronico-70484_page-0002.jpg";
-import React from "react";
-
 type EducationData = {
   id: number;
   title: string;
   institution: string;
   desc: string;
   pdf: string;
-  images: {
-    src: string;
-    width: number;
-    height: number;
-  }[];
+  images: string[];
   icon: React.ComponentType;
 };
 
@@ -80,11 +65,14 @@ const education__data: EducationData[] = [
         `,
     pdf: "documents/udemy.pdf",
     images: [
-      udemy_image_1,
-      udemy_image_2,
-      udemy_image_3,
-      udemy_image_4,
-      udemy_image_5,
+      "images/udemy/udemy_page-0001.jpg",
+      "images/udemy/udemy_page-0002.jpg",
+      "images/udemy/udemy_page-0003.jpg",
+      "images/udemy/udemy_page-0004.jpg",
+      "images/udemy/udemy_page-0005.jpg",
+      "images/udemy/udemy_page-0006.jpg",
+      "images/udemy/udemy_page-0007.jpg",
+      "images/udemy/udemy_page-0008.jpg",
     ],
     icon: SiUdemy,
   },
@@ -105,7 +93,10 @@ const education__data: EducationData[] = [
         `,
     icon: TbCircuitCapacitorPolarized,
     pdf: "documents/documento-electronico-70487.pdf",
-    images: [electronica_1, electronica_2],
+    images: [
+      "images/udemy/documento-electronico-70487_page-0001.jpg",
+      "images/udemy/documento-electronico-70487_page-0002.jpg",
+    ],
   },
   {
     id: 3,
@@ -122,7 +113,10 @@ const education__data: EducationData[] = [
         `,
     icon: MdElectricBolt,
     pdf: "documents/documento-electronico-70484.pdf",
-    images: [electricidad_1, electricidad_2],
+    images: [
+      "images/udemy/documento-electronico-70484_page-0001.jpg",
+      "images/udemy/documento-electronico-70484_page-0002.jpg",
+    ],
   },
 ];
 

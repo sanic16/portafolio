@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import "./education.css";
 import education__data from "./education-data";
 import { useAnimate, stagger } from "framer-motion";
@@ -42,13 +42,13 @@ const Education: React.FC<EducationProps> = ({ translations }) => {
       }
     );
   };
-  const userAgent = typeof window === "undefined" ? "" : navigator.userAgent;
+  const userAgent =
+    typeof window === "undefined"
+      ? ""
+      : navigator.userAgent.toLocaleLowerCase();
 
-  const isIOS =
-    userAgent.indexOf("iphone") > -1 ||
-    userAgent.indexOf("ipad") > -1 ||
-    userAgent.indexOf("ipod") > -1;
-  const isAndroid = userAgent.indexOf("android") > -1;
+  const isIOS = /iphone|ipad|ipod/.test(userAgent);
+  const isAndroid = /android/.test(userAgent);
   const isDesktop = !isIOS && !isAndroid;
 
   return (
@@ -84,20 +84,23 @@ const Education: React.FC<EducationProps> = ({ translations }) => {
                 />
 
                 {isDesktop && (
-                  <DocumentButton
-                    className="education__desc-btn btn primary"
-                    title={translations.education[cursor].viewDocumentsButton}
-                    pdfFile={education__data[cursor].pdf}
-                  />
+                  <Suspense>
+                    <DocumentButton
+                      className="education__desc-btn btn primary"
+                      title={translations.education[cursor].viewDocumentsButton}
+                      pdfFile={education__data[cursor].pdf}
+                    />
+                  </Suspense>
                 )}
 
                 {(isAndroid || isIOS) && (
-                  <ImageButton
-                    key={education__data[cursor].id}
-                    className="education__desc-btn btn primary"
-                    title={translations.education[cursor].viewDocumentsButton}
-                    images={education__data[cursor].images}
-                  />
+                  <Suspense>
+                    <ImageButton
+                      className="education__desc-btn btn primary"
+                      title={translations.education[cursor].viewDocumentsButton}
+                      images={education__data[cursor].images}
+                    />
+                  </Suspense>
                 )}
               </>
             }

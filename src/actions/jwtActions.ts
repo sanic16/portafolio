@@ -24,16 +24,8 @@ export const verifyToken = async (token: string) => {
     };
   }
 
-  if (!process.env.JWT_SECRET) {
-    throw new Error(
-      process.env.NODE_ENV === "production"
-        ? "Error interno del servidor"
-        : "No se ha definido un secreto para JWT"
-    );
-  }
-
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
     return {
       success: true,
       decoded,
@@ -72,24 +64,18 @@ export const requestAWSFile = async (token: string, key: string) => {
   if (!result.success) {
     return {
       success: false,
-      message: result.error.flatten().fieldErrors?.token?.join(", ").toString(),
+      message:
+        result.error.flatten().fieldErrors?.token?.join(", ").toString() ||
+        "Error al validar el token",
     };
   }
 
-  if (!process.env.JWT_SECRET) {
-    throw new Error(
-      process.env.NODE_ENV === "production"
-        ? "Error interno del servidor"
-        : "No se ha definido un secreto para JWT"
-    );
-  }
-
   try {
-    jwt.verify(token, process.env.JWT_SECRET);
+    jwt.verify(token, process.env.JWT_SECRET as string);
 
     return {
       success: true,
-      data: await getSignedUrlForFile(key, 60),
+      message: await getSignedUrlForFile(key, 60),
     };
   } catch (error) {
     console.error("Error al verificar el token, jwtActions.ts", error);

@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import Search from "./search/Search";
+import RotatingLoader from "@/components/rotating-loader/RotatingLoader";
 
 type SearchPageProps = {
   searchParams: Promise<{ search: string }>;
@@ -17,7 +18,7 @@ export default async function SearchPage({
 
   return (
     <div>
-      <Suspense>
+      <Suspense fallback={<RotatingLoader />}>
         <Search term={search} lang={lang} />
       </Suspense>
     </div>

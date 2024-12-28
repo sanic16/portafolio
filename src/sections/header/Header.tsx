@@ -1,9 +1,8 @@
 import Image from "next/image";
 import classes from "./Header.module.css";
 import me from "@/../public/images/me.png";
-import DocumentButton from "@/components/document-button/DocumentButton";
-import Link from "next/link";
 import HeaderWrapper from "./HeaderWrapper";
+import HeaderControls from "./HeaderControls";
 
 interface HeaderProps {
   translations: {
@@ -26,19 +25,11 @@ const Header: React.FC<HeaderProps> = ({ translations, lang }) => {
 
         <p>{translations.description}</p>
 
-        <div className={classes.cts}>
-          {/* <a href={`pdf/cv.pdf`} download className='btn primary'>
-                    Descargar CV
-                </a> */}
-          <DocumentButton
-            className="btn primary"
-            pdfFile="documents/cv.pdf"
-            title={translations.cvButton}
-          />
-          <Link href={`/${lang}/contact`} className="btn">
-            {translations.contactButton}
-          </Link>
-        </div>
+        <HeaderControls
+          contactButtonTranslation={translations.contactButton}
+          cvButtonTranslation={translations.cvButton}
+          lang={lang}
+        />
       </div>
     </HeaderWrapper>
   );
