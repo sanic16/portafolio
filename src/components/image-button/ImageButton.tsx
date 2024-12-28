@@ -31,13 +31,13 @@ const ImageButton = ({
   };
 
   const handleImage = useCallback(
-    (index: number) => {
+    (currentImageIndex: number) => {
       if (!token) {
         setError("El token no ha sido proporcionado");
         return;
       }
       startTransition(() => {
-        requestAWSFile(token, images[index])
+        requestAWSFile(token, images[currentImageIndex])
           .then((res) => {
             if (res.success) {
               setCurrentImage(res.message);
@@ -55,17 +55,17 @@ const ImageButton = ({
   );
 
   const handleNextImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-    handleImage(currentImageIndex);
+    const nextIndex =
+      currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1;
+    setCurrentImageIndex(nextIndex);
+    handleImage(nextIndex);
   };
 
   const handlePrevImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-    handleImage(currentImageIndex);
+    const prevIndex =
+      currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
+    setCurrentImageIndex(prevIndex);
+    handleImage(prevIndex);
   };
 
   return (
