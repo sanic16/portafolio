@@ -134,14 +134,3 @@
   align-items: center;
   font-size: 1.25rem;
 }
-
-@media screen and (max-width: 600px) {
-  .float__menu {
-    gap: 0.75rem;
-  }
-
-  .float__menu button {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-}

@@ -14,7 +14,7 @@ type SearchResultProps = {
 const SearchResult: FC<SearchResultProps> = ({ searchResult }) => {
   if (searchResult.length === 0) {
     return (
-      <div className={classes.noResult}>
+      <div className={`container ${classes.no__result}`}>
         <p>No se encontraron resultados</p>
       </div>
     );

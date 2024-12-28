@@ -193,15 +193,24 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
               </button>
             </li>
             <li className={classes["menu__item-login"]}>
-              <button
-                className={classes.menu__login}
-                onClick={() => {
-                  openModal();
-                  closeMenu();
-                }}
-              >
-                {translations.signIn}
-              </button>
+              {session && session.data ? (
+                <form
+                  action={async () => {
+                    await signOutAction();
+                    await logout();
+                  }}
+                >
+                  <button className={classes.menu__login}>Logout</button>
+                </form>
+              ) : (
+                <form
+                  action={async () => {
+                    await signInAction();
+                  }}
+                >
+                  <button className={classes.menu__login}>Login</button>
+                </form>
+              )}
             </li>
             <li className={classes["menu__item-inter-mobile"]}>
               <div className={classes["menu__item-mobile"]}>
