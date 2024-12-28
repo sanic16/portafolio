@@ -4,12 +4,12 @@ import Link from "next/link";
 import classes from "./Navbar.module.css";
 import { Pacifico } from "next/font/google";
 import { useEffect, useState } from "react";
-import { FaBars, FaSearch, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { useModalContext } from "@/hooks/hooks";
-import { searchAction, signInAction, signOutAction } from "@/actions";
-import { signOut as logout, useSession } from "next-auth/react";
-import { useParams, usePathname, useSearchParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import NavLink from "./NavLink";
+import SearchInput from "./SearchInput";
+import NavAuth from "./NavAuth";
 
 const pacifico = Pacifico({ subsets: ["latin"], weight: ["400"] });
 
@@ -25,7 +25,6 @@ interface NavbarTranslations {
 }
 
 const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
-  const session = useSession();
   const [isOpen, setIsOpen] = useState(false);
   const [bgOnScroll, setBgOnScroll] = useState(false);
   const pathname = usePathname();
@@ -33,7 +32,6 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
   const { openModal } = useModalContext();
   const { lang } = useParams();
   const pathnameWithoutLang = pathname.replace(/\/[a-z]{2}/, "");
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     const changeBgOnScroll = () => {
@@ -85,41 +83,10 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
           </Link>
         </div>
         <div className={classes.search}>
-          <form
-            className={classes.search__form}
-            action={searchAction.bind(null, lang as "es" | "en")}
-          >
-            <input
-              type="text"
-              placeholder="Buscar..."
-              className={classes.search__input}
-              defaultValue={searchParams.get("term") || ""}
-              name="term"
-            />
-            <button type="submit" className={classes.search__button}>
-              <FaSearch />
-            </button>
-          </form>
+          <SearchInput lang={lang as "es" | "en"} />
         </div>
         <div className={classes.login}>
-          {session && session.data ? (
-            <form
-              action={async () => {
-                await signOutAction();
-                await logout();
-              }}
-            >
-              <button>Logout</button>
-            </form>
-          ) : (
-            <form
-              action={async () => {
-                await signInAction();
-              }}
-            >
-              <button>Login</button>
-            </form>
-          )}
+          <NavAuth />
         </div>
 
         <div className={classes.inter}>
@@ -130,21 +97,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
         <nav className={`${classes.nav__menu} ${isOpen && classes.active}`}>
           <ul className={classes.menu__list}>
             <li className={classes["menu__item-search"]}>
-              <form
-                className={classes.search__form}
-                action={searchAction.bind(null, lang as "es" | "en")}
-              >
-                <input
-                  type="text"
-                  placeholder="Buscar..."
-                  className={classes.search__input}
-                  defaultValue={searchParams.get("term") || ""}
-                  name="term"
-                />
-                <button type="submit" className={classes.search__button}>
-                  <FaSearch />
-                </button>
-              </form>
+              <SearchInput lang={lang as "es" | "en"} />
             </li>
             <li className={classes.menu__item}>
               <NavLink
@@ -166,26 +119,6 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
                 {translations.projects}
               </NavLink>
             </li>
-            {/* <li className={classes.menu__item}>
-              <NavLink
-                href={`/${lang}/blog`}
-                className={classes.menu__link}
-                activeClassName={classes.active}
-                onClick={closeMenu}
-              >
-                {translations.blog}
-              </NavLink>
-            </li>
-            <li className={classes.menu__item}>
-              <NavLink
-                href={`/${lang}/more`}
-                className={classes.menu__link}
-                activeClassName={classes.active}
-                onClick={closeMenu}
-              >
-                Otros
-              </NavLink>
-            </li> */}
             <li className={classes["menu__item-theme"]}>
               <button
                 className={classes.menu__theme}
@@ -198,24 +131,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
               </button>
             </li>
             <li className={classes["menu__item-login"]}>
-              {session && session.data ? (
-                <form
-                  action={async () => {
-                    await signOutAction();
-                    await logout();
-                  }}
-                >
-                  <button className={classes.menu__login}>Logout</button>
-                </form>
-              ) : (
-                <form
-                  action={async () => {
-                    await signInAction();
-                  }}
-                >
-                  <button className={classes.menu__login}>Login</button>
-                </form>
-              )}
+              <NavAuth />
             </li>
             <li className={classes["menu__item-inter-mobile"]}>
               <div className={classes["menu__item-mobile"]}>

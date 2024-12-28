@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState, useTransition } from "react";
+import { useCallback, useState, useTransition } from "react";
 import ImageModal from "../image-modal/ImageModal";
 import { useSearchParams } from "next/navigation";
 import { requestAWSFile } from "@/actions/jwtActions";
@@ -24,6 +24,11 @@ const ImageButton = ({
 
   const closeModal = () => setIsOpen(false);
   const openModal = () => setIsOpen(true);
+
+  const handleOpenModal = () => {
+    openModal();
+    handleImage(currentImageIndex);
+  };
 
   const handleImage = useCallback(
     (index: number) => {
@@ -49,30 +54,26 @@ const ImageButton = ({
     [images, startTransition, token]
   );
 
-  useEffect(() => {
-    if (images.length) {
-      handleImage(currentImageIndex);
-    }
-  }, [currentImageIndex, handleImage, images.length]);
-
   const handleNextImage = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
+    handleImage(currentImageIndex);
   };
 
   const handlePrevImage = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
+    handleImage(currentImageIndex);
   };
 
   return (
     <>
       <button
         className={className}
-        onClick={openModal}
-        disabled={isPending || !token || !currentImage || !images.length}
+        onClick={handleOpenModal}
+        disabled={isPending || !images.length}
       >
         {isPending ? "Cargando..." : title}
       </button>
