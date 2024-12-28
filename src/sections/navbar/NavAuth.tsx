@@ -1,8 +1,12 @@
 import { signInAction, signOutAction } from "@/actions";
 import { signOut, useSession } from "next-auth/react";
-import React from "react";
+import { FC } from "react";
 
-const NavAuth = () => {
+type NavAuthProps = {
+  className?: string;
+};
+
+const NavAuth: FC<NavAuthProps> = ({ className }) => {
   const session = useSession();
 
   return session.status === "authenticated" ? (
@@ -14,7 +18,7 @@ const NavAuth = () => {
         });
       }}
     >
-      <button>Logout</button>
+      <button className={className}>Logout</button>
     </form>
   ) : (
     <form
@@ -22,7 +26,7 @@ const NavAuth = () => {
         await signInAction();
       }}
     >
-      <button>Login</button>
+      <button className={className}>Login</button>
     </form>
   );
 };

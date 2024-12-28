@@ -131,7 +131,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
               </button>
             </li>
             <li className={classes["menu__item-login"]}>
-              <NavAuth />
+              <NavAuth className={classes.menu__login} />
             </li>
             <li className={classes["menu__item-inter-mobile"]}>
               <div className={classes["menu__item-mobile"]}>
