@@ -3,7 +3,7 @@ export const getLocalStorage = <T>(
   defaultValue: T,
   guard: (value: unknown) => value is T
 ): T => {
-  if (typeof window !== "undefined") {
+  if (typeof window === "undefined") {
     console.warn(
       "localStorage is not available on the server, returning default value."
     );
@@ -43,6 +43,42 @@ export const isPrimary = (value: unknown): value is Primary => {
       "--primary-hue" in value &&
       typeof value["--primary-hue"] === "string"
     );
+  }
+  return false;
+};
+
+export const isBg = (value: unknown): value is Bg => {
+  if (typeof value === "object" && value !== null) {
+    return (
+      "--white-lightness" in value &&
+      typeof value["--white-lightness"] === "string" &&
+      "--light-lightness" in value &&
+      typeof value["--light-lightness"] === "string" &&
+      "--dark-lightness" in value &&
+      typeof value["--dark-lightness"] === "string" &&
+      "--black-lightness" in value &&
+      typeof value["--black-lightness"] === "string" &&
+      "--white-color" in value &&
+      typeof value["--white-color"] === "string" &&
+      "--light-color" in value &&
+      typeof value["--light-color"] === "string" &&
+      "--dark-color" in value &&
+      typeof value["--dark-color"] === "string" &&
+      "--black-color" in value &&
+      typeof value["--black-color"] === "string"
+    );
+  }
+  return false;
+};
+
+export const isTheme = (value: unknown): value is Theme => {
+  if (typeof value === "object" && value !== null) {
+    if ("primary" in value && isPrimary(value.primary)) {
+      return true;
+    }
+    if ("bg" in value && isBg(value.bg)) {
+      return true;
+    }
   }
   return false;
 };

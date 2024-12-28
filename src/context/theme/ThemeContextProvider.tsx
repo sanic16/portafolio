@@ -10,24 +10,28 @@ import React, {
 import { ContextTheme } from "./ContextTheme";
 import { setBGCSSVariables, setPrimaryCSSVariables } from "@/utils/bg";
 import { nextPrimary } from "@/utils/primaryColors";
-import { getLocalStorage, isMode } from "@/utils/localStorage";
+import { getLocalStorage, isMode, isTheme } from "@/utils/localStorage";
 
-const initialState: Theme = {
-  primary: {
-    "--primary-hue": "75",
-    "--primary-color": "hsl(75, 88%, 36%)",
+const initialState: Theme = getLocalStorage(
+  "theme",
+  {
+    primary: {
+      "--primary-hue": "75",
+      "--primary-color": "hsl(75, 88%, 36%)",
+    },
+    bg: {
+      "--white-lightness": "14%",
+      "--light-lightness": "18%",
+      "--dark-lightness": "85%",
+      "--black-lightness": "94%",
+      "--white-color": "hsl(0, 0%, 14%)",
+      "--light-color": "hsl(0, 0%, 18%)",
+      "--dark-color": "hsl(0, 0%, 85%)",
+      "--black-color": "hsl(0, 0%, 94%)",
+    },
   },
-  bg: {
-    "--white-lightness": "14%",
-    "--light-lightness": "18%",
-    "--dark-lightness": "85%",
-    "--black-lightness": "94%",
-    "--white-color": "hsl(0, 0%, 14%)",
-    "--light-color": "hsl(0, 0%, 18%)",
-    "--dark-color": "hsl(0, 0%, 85%)",
-    "--black-color": "hsl(0, 0%, 94%)",
-  },
-};
+  isTheme
+);
 
 const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
   const primaryInterval = useRef<NodeJS.Timeout | null>(null);
