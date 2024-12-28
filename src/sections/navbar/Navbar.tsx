@@ -3,7 +3,7 @@
 import Link from "next/link";
 import classes from "./Navbar.module.css";
 import { Pacifico } from "next/font/google";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useModalContext } from "@/hooks/hooks";
 import { useParams, usePathname } from "next/navigation";
@@ -30,7 +30,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
   const pathname = usePathname();
   const closeMenu = () => setIsOpen(false);
   const { openModal } = useModalContext();
-  const { lang } = useParams();
+  const { lang } = useParams<{ lang: "es" | "en" }>();
   const pathnameWithoutLang = pathname.replace(/\/[a-z]{2}/, "");
 
   useEffect(() => {
@@ -83,7 +83,9 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
           </Link>
         </div>
         <div className={classes.search}>
-          <SearchInput lang={lang as "es" | "en"} />
+          <Suspense>
+            <SearchInput lang={lang} />
+          </Suspense>
         </div>
         <div className={classes.login}>
           <NavAuth />
@@ -97,7 +99,9 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
         <nav className={`${classes.nav__menu} ${isOpen && classes.active}`}>
           <ul className={classes.menu__list}>
             <li className={classes["menu__item-search"]}>
-              <SearchInput lang={lang as "es" | "en"} />
+              <Suspense>
+                <SearchInput lang={lang} />
+              </Suspense>
             </li>
             <li className={classes.menu__item}>
               <NavLink
