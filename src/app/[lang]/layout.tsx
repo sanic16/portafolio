@@ -3,9 +3,9 @@ import ThemeModal from "@/theme/ThemeModal";
 import ThemeMenu from "@/sections/theme-modal-menu/ThemeMenu";
 import Footer from "@/sections/footer/Footer";
 import { getDictionary } from "./dictionaries";
-import classes from "./layout.module.css";
 import ControlsMenu from "@/components/audio/controlsMenu/ControlsMenu";
 import TrackBar from "@/components/audio/trackBar/TrackBar";
+import MainWrapper from "@/components/providers/MainWrapper";
 
 type RootLayoutProps = {
   params: Promise<{
@@ -24,7 +24,7 @@ export default async function RootLayout({
     <>
       <Navbar translations={t.navbar} />
       <TrackBar />
-      <div className={classes.main}>{children}</div>
+      <MainWrapper>{children}</MainWrapper>
       <Footer {...t.footer} />
       <ThemeMenu />
       <ThemeModal />

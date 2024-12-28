@@ -1,4 +1,8 @@
-.static {
+.static:nth-child(even) {
+  background: var(--light-color);
+}
+
+.static:nth-child(odd) {
   background: var(--white-color);
 }
 

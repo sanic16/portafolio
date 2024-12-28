@@ -1,6 +1,10 @@
 .main {
   min-height: 100vh;
   padding-top: 6rem;
+  background: var(--white-color);
+}
+
+.main.cyclic {
   background: radial-gradient(
       circle at 20% 30%,
       var(--primary-color) 1%,
