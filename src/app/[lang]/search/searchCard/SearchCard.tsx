@@ -1,5 +1,5 @@
 import Link from "next/link";
-import classes from "./search.module.css";
+import classes from "./searchCard.module.css";
 import { FC } from "react";
 
 type SearchCardProps = {

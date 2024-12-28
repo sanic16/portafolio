@@ -48,7 +48,6 @@
     0 0 0.9rem hsla(var(--primary-hue), 100%, 50%, 0.5),
     0 0 1.2rem hsla(var(--primary-hue), 100%, 50%, 0.5);
   border: 2px solid var(--white-color);
-  transition: var(--transition);
 }
 
 .about__knwl-item:hover {

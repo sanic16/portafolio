@@ -10,7 +10,6 @@
   color: var(--dark-color);
   padding: 0.5rem 1.5rem;
   cursor: pointer;
-  transition: var(--transition);
   border-radius: var(--border-radius-2);
   font-weight: 500;
 }

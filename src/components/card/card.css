@@ -1,13 +1,10 @@
-.card{
-    padding: 1.5rem;
-    border-radius: var(--border-radius-2);
-    background-color: var(--white-color);
-    border: 2px solid transparent;
-    transition: var(--transition);
+.card {
+  padding: 1.5rem;
+  border-radius: var(--border-radius-2);
+  background-color: var(--white-color);
+  border: 2px solid transparent;
 }
 
-
-.card.light{
-    background-color: var(--light-color);
+.card.light {
+  background-color: var(--light-color);
 }
-

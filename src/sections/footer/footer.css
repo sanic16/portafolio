@@ -1,7 +1,6 @@
 .footer {
   background-color: var(--primary-color);
   padding-top: 3rem;
-  transition: var(--transition);
   color: white;
   font-size: 0.9rem;
 }

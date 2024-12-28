@@ -51,7 +51,6 @@ ul {
 
 a {
   text-decoration: none;
-  transition: var(--transition);
 }
 
 img {
@@ -69,7 +68,6 @@ img {
 
 section {
   padding-block: 10rem;
-  transition: var(--transition);
 }
 
 section > h1 {
@@ -134,7 +132,6 @@ h6 {
   border-radius: var(--border-radius-2);
   color: var(--black-color);
   cursor: pointer;
-  transition: var(--transition);
 }
 
 .btn:hover {

@@ -9,7 +9,6 @@
   display: grid;
   align-items: center;
   z-index: 2;
-  transition: var(--transition);
 }
 
 .navbar__container.navbar--scroll {
@@ -116,7 +115,6 @@
   background-color: transparent;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   color: #fff;
-  transition: var(--transition);
 }
 
 .search__button {
@@ -126,7 +124,6 @@
   border: noen;
   cursor: pointer;
   color: #fff;
-  transition: var(--transition);
 }
 
 .navbar__container.navbar--scroll .search__button {
@@ -138,7 +135,6 @@
   grid-row: 2 / 3;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  transition: var(--transition);
   display: grid;
   justify-content: center;
 }
