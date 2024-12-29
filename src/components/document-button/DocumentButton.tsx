@@ -24,12 +24,15 @@ const DocumentButton = ({
   const token = searchParams.get("token");
 
   const closeModal = () => setIsOpen(false);
+
   const handleDocumentRequest = () => {
     const localTokenStorage = getTokenFromLocalStorage("token");
+
     if (!localTokenStorage) {
       setError("No se ha proporcionado un token");
       return;
     }
+
     startTransition(() => {
       requestAWSFile(localTokenStorage.token, pdfFile)
         .then((response) => {
@@ -47,41 +50,33 @@ const DocumentButton = ({
   };
 
   useEffect(() => {
-    if (token) {
+    const updateTokenInLocalStorage = async () => {
+      if (!token) return;
       const isLocalTokenStorage = getTokenFromLocalStorage("token");
-      verifyToken(token).then((response) => {
-        if (response.success) {
-          if (
-            typeof response.decoded === "object" &&
-            "exp" in response.decoded &&
-            typeof response.decoded.exp === "number" &&
-            response.decoded.exp > Math.floor(Date.now() / 1000)
-          ) {
-            console.log("Token válido");
-            if (
-              isLocalTokenStorage &&
-              response.decoded.exp > isLocalTokenStorage.exp
-            ) {
-              localStorage.setItem(
-                "token",
-                JSON.stringify({
-                  token,
-                  exp: response.decoded.exp,
-                })
-              );
-            } else if (!isLocalTokenStorage) {
-              localStorage.setItem(
-                "token",
-                JSON.stringify({
-                  token,
-                  exp: response.decoded.exp,
-                })
-              );
-            }
+      try {
+        const response = await verifyToken(token);
+        if (!response.success) return;
+
+        const { exp } = response.decoded;
+
+        if (exp > Math.floor(Date.now() / 1000)) {
+          const shouldUpdateLocalStorage =
+            !isLocalTokenStorage || exp > isLocalTokenStorage.exp;
+
+          if (shouldUpdateLocalStorage) {
+            localStorage.setItem(
+              "token",
+              JSON.stringify({
+                token,
+                exp,
+              })
+            );
           }
         }
-      });
-    }
+      } catch {}
+    };
+
+    updateTokenInLocalStorage();
   }, [token]);
 
   return (

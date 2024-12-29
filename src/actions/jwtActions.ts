@@ -1,6 +1,6 @@
 "use server";
 
-import jwt, { JwtPayload } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import { z } from "zod";
 import { getSignedUrlForFile } from "@/utils/aws";
 
@@ -14,13 +14,18 @@ const verifyTokenSchema = z.object({
     }),
 });
 
+type JwtPayloadWithIatExp = {
+  iat: number; // Issued at timestamp
+  exp: number; // Expiration timestamp
+};
+
 type VerifyTokenResponse =
   | {
       success: false;
     }
   | {
       success: true;
-      decoded: string | JwtPayload;
+      decoded: JwtPayloadWithIatExp;
     };
 
 export const verifyToken = async (
@@ -35,13 +40,17 @@ export const verifyToken = async (
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
+    const decoded = jwt.verify(
+      token,
+      process.env.JWT_SECRET as string
+    ) as JwtPayloadWithIatExp;
+
     return {
       success: true,
       decoded,
     };
   } catch (error) {
-    console.error("Error al verificar el token, jwtActions.ts", error);
+    console.error("Error verifying the token in jwtActions.ts:", error);
 
     return {
       success: false,
