@@ -10,7 +10,12 @@ import React, {
 import { ContextTheme } from "./ContextTheme";
 import { setBGCSSVariables, setPrimaryCSSVariables } from "@/utils/bg";
 import { nextPrimary } from "@/utils/primaryColors";
-import { getLocalStorage, isMode, isTheme } from "@/utils/localStorage";
+import {
+  getLocalStorage,
+  isMode,
+  isString,
+  isTheme,
+} from "@/utils/localStorage";
 
 const initialState: Theme = getLocalStorage(
   "theme",
@@ -38,10 +43,10 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
     getLocalStorage("mode", "static", isMode)
   );
   const [saturation, setSaturation] = useState<string>(
-    getLocalStorage("saturation", "45", (value) => typeof value === "string")
+    getLocalStorage("saturation", "45", isString)
   );
   const [lightness, setLightness] = useState<string>(
-    getLocalStorage("lightness", "46", (value) => typeof value === "string")
+    getLocalStorage("lightness", "46", isString)
   );
 
   const stopPrimaryInterval = useCallback(() => {

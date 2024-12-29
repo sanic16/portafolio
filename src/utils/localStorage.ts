@@ -86,6 +86,10 @@ export const isTheme = (value: unknown): value is Theme => {
   return false;
 };
 
+export const isString = (value: unknown): value is string => {
+  return typeof value === "string";
+};
+
 type tokenStorage = {
   token: string;
   exp: number;
