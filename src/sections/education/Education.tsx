@@ -51,6 +51,18 @@ const Education: React.FC<EducationProps> = ({ translations }) => {
   const isAndroid = /android/.test(userAgent);
   const isDesktop = !isIOS && !isAndroid;
 
+  // const handleLocalStorage = () => {
+  //   if (window !== undefined) {
+  //     localStorage.setItem(
+  //       "theme",
+  //       JSON.stringify({
+  //         primary: "color-3",
+  //         bg: "bg-1",
+  //       })
+  //     );
+  //   }
+  // };
+
   return (
     <SectionWrapper id="education">
       <h1>{translations.title}</h1>
@@ -104,6 +116,7 @@ const Education: React.FC<EducationProps> = ({ translations }) => {
                 )}
               </>
             }
+            {/* <button onClick={handleLocalStorage}>set localStorage</button> */}
           </div>
         </div>
       </div>
