@@ -1,6 +1,6 @@
 "use server";
 
-import jwt from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 import { z } from "zod";
 import { getSignedUrlForFile } from "@/utils/aws";
 
@@ -14,13 +14,23 @@ const verifyTokenSchema = z.object({
     }),
 });
 
-export const verifyToken = async (token: string) => {
+type VerifyTokenResponse =
+  | {
+      success: false;
+    }
+  | {
+      success: true;
+      decoded: string | JwtPayload;
+    };
+
+export const verifyToken = async (
+  token: string
+): Promise<VerifyTokenResponse> => {
   const result = verifyTokenSchema.safeParse({ token });
 
   if (!result.success) {
     return {
       success: false,
-      message: "El token no cumple con el formato requerido",
     };
   }
 
@@ -35,7 +45,6 @@ export const verifyToken = async (token: string) => {
 
     return {
       success: false,
-      message: "El token no es válido",
     };
   }
 };

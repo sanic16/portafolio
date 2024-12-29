@@ -15,21 +15,19 @@ import { getLocalStorage, isMode, isTheme } from "@/utils/localStorage";
 const initialState: Theme = getLocalStorage(
   "theme",
   {
-    primary: {
-      "--primary-hue": "75",
-      "--primary-color": "hsl(75, 88%, 36%)",
-    },
+    primary: { "--primary-hue": "90", "--primary-color": "hsl(90, 45%, 46%)" },
     bg: {
-      "--white-lightness": "14%",
-      "--light-lightness": "18%",
+      "--white-lightness": "8%",
+      "--light-lightness": "14%",
       "--dark-lightness": "85%",
       "--black-lightness": "94%",
-      "--white-color": "hsl(0, 0%, 14%)",
-      "--light-color": "hsl(0, 0%, 18%)",
+      "--white-color": "hsl(0, 0%, 8%)",
+      "--light-color": "hsl(0, 0%, 14%)",
       "--dark-color": "hsl(0, 0%, 85%)",
       "--black-color": "hsl(0, 0%, 94%)",
     },
   },
+
   isTheme
 );
 
@@ -40,20 +38,10 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
     getLocalStorage("mode", "static", isMode)
   );
   const [saturation, setSaturation] = useState<string>(
-    typeof window !== "undefined" &&
-      localStorage.getItem("saturation") !== null &&
-      typeof JSON.parse(localStorage.getItem("saturation") as string) ===
-        "string"
-      ? JSON.parse(localStorage.getItem("saturation") as string)
-      : "88"
+    getLocalStorage("saturation", "45", (value) => typeof value === "string")
   );
   const [lightness, setLightness] = useState<string>(
-    typeof window !== "undefined" &&
-      localStorage.getItem("lightness") !== null &&
-      typeof JSON.parse(localStorage.getItem("lightness") as string) ===
-        "string"
-      ? JSON.parse(localStorage.getItem("lightness") as string)
-      : "36"
+    getLocalStorage("lightness", "46", (value) => typeof value === "string")
   );
 
   const stopPrimaryInterval = useCallback(() => {

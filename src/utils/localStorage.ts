@@ -35,6 +35,7 @@ export const getLocalStorage = <T>(
 export const isMode = (value: unknown): value is Mode => {
   return value === "static" || value === "cycle";
 };
+
 export const isPrimary = (value: unknown): value is Primary => {
   if (typeof value === "object" && value !== null) {
     return (
@@ -73,12 +74,66 @@ export const isBg = (value: unknown): value is Bg => {
 
 export const isTheme = (value: unknown): value is Theme => {
   if (typeof value === "object" && value !== null) {
-    if ("primary" in value && isPrimary(value.primary)) {
+    if (
+      "primary" in value &&
+      isPrimary(value.primary) &&
+      "bg" in value &&
+      isBg(value.bg)
+    ) {
       return true;
     }
-    if ("bg" in value && isBg(value.bg)) {
-      return true;
+  }
+  return false;
+};
+
+type tokenStorage = {
+  token: string;
+  exp: number;
+};
+
+export const getTokenFromLocalStorage = (
+  key: string
+): tokenStorage | undefined => {
+  if (typeof window === "undefined") {
+    return undefined;
+  }
+
+  const storedValue = localStorage.getItem(key);
+
+  if (storedValue) {
+    try {
+      const parsedValue = JSON.parse(storedValue);
+      if (
+        isTokenStorage(parsedValue) &&
+        parsedValue.exp > Math.floor(Date.now() / 1000)
+      ) {
+        return parsedValue;
+      } else {
+        console.warn(`
+          The parsed value does not match the expected type.
+          `);
+      }
+    } catch (error) {
+      console.warn(
+        `
+        Error parsing the stored value.
+        `,
+        error
+      );
     }
+  }
+
+  return undefined;
+};
+
+const isTokenStorage = (value: unknown): value is tokenStorage => {
+  if (typeof value === "object" && value !== null) {
+    return (
+      "token" in value &&
+      typeof value.token === "string" &&
+      "exp" in value &&
+      typeof value.exp === "number"
+    );
   }
   return false;
 };
