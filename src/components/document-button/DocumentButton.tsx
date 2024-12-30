@@ -28,8 +28,11 @@ const DocumentButton = ({
   const handleDocumentRequest = () => {
     const localTokenStorage = getTokenFromLocalStorage("token");
 
-    if (!localTokenStorage) {
-      setError("No se ha proporcionado un token");
+    if (
+      !localTokenStorage ||
+      localTokenStorage.exp < Math.floor(Date.now() / 1000)
+    ) {
+      setError("No se ha proporcionado un token o ha expirado");
       return;
     }
 

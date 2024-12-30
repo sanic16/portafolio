@@ -1,10 +1,11 @@
 "use client";
 
-import { useCallback, useState, useTransition } from "react";
+import { useCallback, useEffect, useState, useTransition } from "react";
 import ImageModal from "../image-modal/ImageModal";
 import { useSearchParams } from "next/navigation";
-import { requestAWSFile } from "@/actions/jwtActions";
+import { requestAWSFile, verifyToken } from "@/actions/jwtActions";
 import ErrorModal from "../error-modal/ErrorModal";
+import { getTokenFromLocalStorage } from "@/utils/localStorage";
 
 const ImageButton = ({
   className,
@@ -30,14 +31,45 @@ const ImageButton = ({
     handleImage(currentImageIndex);
   };
 
+  useEffect(() => {
+    const updateTokenInLocalStorage = async () => {
+      if (!token) return;
+
+      try {
+        const isLocalTokenStorage = getTokenFromLocalStorage("token");
+        const response = await verifyToken(token);
+
+        if (!response.success) return;
+
+        const { exp } = response.decoded;
+
+        if (exp > Math.floor(Date.now() / 1000)) {
+          const shouldUpdateLoclStorage =
+            !isLocalTokenStorage || exp > isLocalTokenStorage.exp;
+
+          if (shouldUpdateLoclStorage) {
+            localStorage.setItem("token", JSON.stringify({ token, exp }));
+          }
+        }
+      } catch {}
+    };
+
+    updateTokenInLocalStorage();
+  });
+
   const handleImage = useCallback(
     (currentImageIndex: number) => {
-      if (!token) {
-        setError("El token no ha sido proporcionado");
+      const localTokenStorage = getTokenFromLocalStorage("token");
+
+      if (
+        !localTokenStorage ||
+        localTokenStorage.exp < Math.floor(Date.now() / 1000)
+      ) {
+        setError("El token no ha sido proporcionado o ha expirado");
         return;
       }
       startTransition(() => {
-        requestAWSFile(token, images[currentImageIndex])
+        requestAWSFile(localTokenStorage.token, images[currentImageIndex])
           .then((res) => {
             if (res.success) {
               setCurrentImage(res.message);
@@ -51,7 +83,7 @@ const ImageButton = ({
           });
       });
     },
-    [images, startTransition, token]
+    [images, startTransition]
   );
 
   const handleNextImage = () => {
@@ -74,6 +106,7 @@ const ImageButton = ({
         className={className}
         onClick={handleOpenModal}
         disabled={isPending || !images.length}
+        aria-label="Ver imagen"
       >
         {isPending ? "Cargando..." : title}
       </button>
