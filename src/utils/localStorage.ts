@@ -41,8 +41,12 @@ export const isPrimary = (value: unknown): value is Primary => {
     return (
       "--primary-color" in value &&
       typeof value["--primary-color"] === "string" &&
+      value["--primary-color"].match(
+        /^hsl\(\s*(\d+)\s*,\s*(\d+)%\s*,\s*(\d+)%\s*\)$/
+      ) !== null &&
       "--primary-hue" in value &&
-      typeof value["--primary-hue"] === "string"
+      typeof value["--primary-hue"] === "string" &&
+      value["--primary-hue"].match(/^\d+$/) !== null
     );
   }
   return false;
@@ -53,20 +57,36 @@ export const isBg = (value: unknown): value is Bg => {
     return (
       "--white-lightness" in value &&
       typeof value["--white-lightness"] === "string" &&
+      value["--white-lightness"].match(/^\d+%$/) !== null &&
       "--light-lightness" in value &&
       typeof value["--light-lightness"] === "string" &&
+      value["--light-lightness"].match(/^\d+%$/) !== null &&
       "--dark-lightness" in value &&
       typeof value["--dark-lightness"] === "string" &&
+      value["--dark-lightness"].match(/^\d+%$/) !== null &&
       "--black-lightness" in value &&
       typeof value["--black-lightness"] === "string" &&
+      value["--black-lightness"].match(/^\d+%$/) !== null &&
       "--white-color" in value &&
       typeof value["--white-color"] === "string" &&
+      value["--white-color"].match(
+        /^hsl\(\s*(\d+)\s*,\s*(\d+)%\s*,\s*(\d+)%\s*\)$/
+      ) !== null &&
       "--light-color" in value &&
       typeof value["--light-color"] === "string" &&
+      value["--light-color"].match(
+        /^hsl\(\s*(\d+)\s*,\s*(\d+)%\s*,\s*(\d+)%\s*\)$/
+      ) !== null &&
       "--dark-color" in value &&
       typeof value["--dark-color"] === "string" &&
+      value["--dark-color"].match(
+        /^hsl\(\s*(\d+)\s*,\s*(\d+)%\s*,\s*(\d+)%\s*\)$/
+      ) !== null &&
       "--black-color" in value &&
-      typeof value["--black-color"] === "string"
+      typeof value["--black-color"] === "string" &&
+      value["--black-color"].match(
+        /^hsl\(\s*(\d+)\s*,\s*(\d+)%\s*,\s*(\d+)%\s*\)$/
+      ) !== null
     );
   }
   return false;
