@@ -20,14 +20,14 @@ import {
 const initialState: Theme = getLocalStorage(
   "theme",
   {
-    primary: { "--primary-hue": "90", "--primary-color": "hsl(90, 45%, 46%)" },
+    primary: { "--primary-hue": "90", "--primary-color": "hsl(90, 88%, 36%)" },
     bg: {
-      "--white-lightness": "8%",
-      "--light-lightness": "14%",
+      "--white-lightness": "14%",
+      "--light-lightness": "18%",
       "--dark-lightness": "85%",
       "--black-lightness": "94%",
-      "--white-color": "hsl(0, 0%, 8%)",
-      "--light-color": "hsl(0, 0%, 14%)",
+      "--white-color": "hsl(0, 0%, 14%)",
+      "--light-color": "hsl(0, 0%, 18%)",
       "--dark-color": "hsl(0, 0%, 85%)",
       "--black-color": "hsl(0, 0%, 94%)",
     },
@@ -43,10 +43,10 @@ const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
     getLocalStorage("mode", "static", isMode)
   );
   const [saturation, setSaturation] = useState<string>(
-    getLocalStorage("saturation", "45", isString)
+    getLocalStorage("saturation", "88", isString)
   );
   const [lightness, setLightness] = useState<string>(
-    getLocalStorage("lightness", "46", isString)
+    getLocalStorage("lightness", "36", isString)
   );
 
   const stopPrimaryInterval = useCallback(() => {
