@@ -1,6 +1,6 @@
 import Image from "next/image";
 import classes from "./Header.module.css";
-import me from "@/../public/images/me.png";
+import me from "@/../public/images/me_header.jpg";
 import HeaderWrapper from "./HeaderWrapper";
 import HeaderControls from "./HeaderControls";
 
