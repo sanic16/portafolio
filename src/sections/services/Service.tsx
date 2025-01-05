@@ -22,7 +22,14 @@ const Service: React.FC<ServiceProps> = ({ service }) => {
       </div>
       <div className="service__card-back">
         <p>{service.description}</p>
-        <a className="service__btn btn primary">{service.viewMoreButton}</a>
+        <a
+          className="service__btn btn primary"
+          href="https://www.codielectro.com/cotizacion"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          {service.viewMoreButton}
+        </a>
       </div>
     </Card>
   );
