@@ -38,6 +38,9 @@ const Projects: React.FC<ProjectsProps> = async ({ translations, lang }) => {
         },
       ],
     },
+    orderBy: {
+      title: "asc",
+    },
   });
   return (
     <SectionWrapper id="projects">

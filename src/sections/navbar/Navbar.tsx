@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import classes from "./Navbar.module.css";
-import { Pacifico } from "next/font/google";
+import { Oswald } from "next/font/google";
 import { Suspense, useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useModalContext } from "@/hooks/hooks";
@@ -11,7 +11,7 @@ import NavLink from "./NavLink";
 import SearchInput from "./SearchInput";
 import NavAuth from "./NavAuth";
 
-const pacifico = Pacifico({ subsets: ["latin"], weight: ["400"] });
+const bebas_neue = Oswald({ subsets: ["latin"], weight: ["400"] });
 
 interface NavbarTranslations {
   translations: {
@@ -77,7 +77,7 @@ const Navbar: React.FC<NavbarTranslations> = ({ translations }) => {
         <div className={classes.logo}>
           <Link
             href={`/${lang}/`}
-            className={`${classes.nav__logo} ${pacifico.className}`}
+            className={`${classes.nav__logo} ${bebas_neue.className}`}
           >
             Julio Sanic
           </Link>
