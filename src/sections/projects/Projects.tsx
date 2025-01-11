@@ -17,21 +17,21 @@ const Projects: React.FC<ProjectsProps> = async ({ translations, lang }) => {
       OR: [
         {
           title: {
-            contains: "Coral",
+            contains: "brayalex",
             mode: "insensitive",
           },
           lang: lang,
         },
         {
           title: {
-            contains: "smilecook",
+            contains: "servic",
             mode: "insensitive",
           },
           lang,
         },
         {
           title: {
-            contains: "juliusblog",
+            contains: "conesiee",
             mode: "insensitive",
           },
           lang,
