@@ -25,7 +25,7 @@ const Footer: React.FC<Footer> = ({
                 <a href={`mailto:${contact.email2}`}>{contact.email2}</a>
               </li>
               <li>
-                <a href={`tel:${contact.phone}`}>+502 {contact.phone}</a>
+                <a href={`tel:${contact.phone}`}>{contact.phone}</a>
               </li>
             </ul>
           </div>
