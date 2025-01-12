@@ -12,6 +12,26 @@ const userData: Prisma.UserCreateInput[] = [
     projects: {
       create: [
         {
+          title: "Página Personal",
+          description:
+            "Página personal de Julio Sanic. El proyecto está hecho con NextJS",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/gplciebexpfzfgyw6ow5",
+          websiteUrl: "https://juliosanic.site/",
+          githubUrl: "https://github.com/sanic16/portafolio",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+          lang: "es",
+        },
+        {
           title: "Brayalex | The Machine Doctor",
           description:
             "Website para servicios de reparación de máquinas. El proyecto está hecho con NextJS.",
@@ -37,6 +57,7 @@ const userData: Prisma.UserCreateInput[] = [
           imageUrl:
             "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/vr7xe9bcgnhqb9q1sxzz",
           websiteUrl: "https://henry-electricity.vercel.app/",
+          githubUrl: "https://github.com/sanic16/henry-electricity/",
           categories: {
             connectOrCreate: {
               where: {
@@ -56,6 +77,7 @@ const userData: Prisma.UserCreateInput[] = [
           imageUrl:
             "https://res.cloudinary.com/dczuv9eyw/henry-ajquejay/huw6telvsxlrxxgtyzks",
           websiteUrl: "https://predio-henry-ajquejay.codielectro.com/",
+          githubUrl: "https://github.com/sanic16/predio-henry-ajquejay",
           categories: {
             connectOrCreate: {
               where: {
@@ -179,6 +201,26 @@ const userData: Prisma.UserCreateInput[] = [
           lang: "es",
         },
         {
+          title: "Personal Page",
+          description:
+            "Personal page of Julio Sanic. The project is built with NextJS",
+          imageUrl:
+            "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/gplciebexpfzfgyw6ow5",
+          websiteUrl: "https://juliosanic.site/",
+          githubUrl: "https://github.com/sanic16/portafolio",
+          categories: {
+            connectOrCreate: {
+              where: {
+                name: "Next.js",
+              },
+              create: {
+                name: "Next.js",
+              },
+            },
+          },
+          lang: "en",
+        },
+        {
           title: "Brayalex | The Machine Doctor",
           description:
             "Website for machine repair services. The project is built with NextJS.",
@@ -204,6 +246,7 @@ const userData: Prisma.UserCreateInput[] = [
           imageUrl:
             "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/vr7xe9bcgnhqb9q1sxzz",
           websiteUrl: "https://henry-electricity.vercel.app/",
+          githubUrl: "https://github.com/sanic16/henry-electricity",
           categories: {
             connectOrCreate: {
               where: {
@@ -223,6 +266,7 @@ const userData: Prisma.UserCreateInput[] = [
           imageUrl:
             "https://res.cloudinary.com/dczuv9eyw/henry-ajquejay/huw6telvsxlrxxgtyzks",
           websiteUrl: "https://predio-henry-ajquejay.codielectro.com/",
+          githubUrl: "https://github.com/sanic16/predio-henry-ajquejay",
           categories: {
             connectOrCreate: {
               where: {
