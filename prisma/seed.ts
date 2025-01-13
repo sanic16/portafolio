@@ -56,7 +56,7 @@ const userData: Prisma.UserCreateInput[] = [
             "Proyecto para brindar servicios eléctricos. El proyecto está hecho con NextJS, TailwindCSS, MongoDB y Shadcn",
           imageUrl:
             "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/vr7xe9bcgnhqb9q1sxzz",
-          websiteUrl: "https://henry-electricity.vercel.app/",
+          websiteUrl: "https://servicios-electricos.codielectro.com/",
           githubUrl: "https://github.com/sanic16/henry-electricity/",
           categories: {
             connectOrCreate: {
@@ -245,7 +245,7 @@ const userData: Prisma.UserCreateInput[] = [
             "Project to provide electrical services. The project is built with NextJS, TailwindCSS, MongoDB, and Shadcn",
           imageUrl:
             "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/vr7xe9bcgnhqb9q1sxzz",
-          websiteUrl: "https://henry-electricity.vercel.app/",
+          websiteUrl: "https://servicios-electricos.codielectro.com/",
           githubUrl: "https://github.com/sanic16/henry-electricity",
           categories: {
             connectOrCreate: {
