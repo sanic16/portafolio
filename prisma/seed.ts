@@ -242,7 +242,7 @@ const userData: Prisma.UserCreateInput[] = [
         {
           title: "Electrical Services",
           description:
-            "Project to provide electrical services. The project is built with NextJS, TailwindCSS, MongoDB, and Shadcn",
+            "Project to provide electrical services. The project is built with NextJS, TailwindCSS and Shadcn",
           imageUrl:
             "https://res.cloudinary.com/dczuv9eyw/image/upload/v1723565061/portfolio/vr7xe9bcgnhqb9q1sxzz",
           websiteUrl: "https://servicios-electricos.codielectro.com/",
